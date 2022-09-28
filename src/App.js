@@ -8,8 +8,12 @@ import About from './pages/about';
 import Blogs from './pages/blogs';
 import SignUp from './pages/signup';
 import Contact from './pages/contact';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
   
 function App() {
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 return (
     <Router>
     <Navbar />
@@ -23,5 +27,13 @@ return (
     </Router>
 );
 }
+
+async function getCities(db) {
+    const citiesCol = collection(db, 'cities');
+    const citySnapshot = await getDocs(citiesCol);
+    const cityList = citySnapshot.docs.map(doc => doc.data());
+    return cityList;
+  }
+
   
 export default App;
