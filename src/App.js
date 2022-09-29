@@ -14,6 +14,7 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 function App() {
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+    
 return (
     <Router>
     <Navbar />
