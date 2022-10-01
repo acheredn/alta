@@ -12,8 +12,8 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
   
 function App() {
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+//     const app = initializeApp(firebaseConfig);
+//     const db = getFirestore(app);
     
 return (
     <Router>
@@ -37,4 +37,4 @@ async function getCities(db) {
   }
 
   
-export default App;
+export default App; 
