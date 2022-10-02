@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
+
 const ItemSelected = () => {
 	const Button = styled.button`
   background-color: black;
@@ -11,6 +12,9 @@ const ItemSelected = () => {
   border-radius: 5px;
   margin: 10px 0px;
   cursor: pointer;
+  &:hover {
+	background-color: blue;
+  }
 `;
 	return (
 		<><h1>ITEM SELECTED
@@ -19,7 +23,7 @@ const ItemSelected = () => {
 	);
 };
 function sayHello() {
-	alert('You clicked me!');
+	alert('Go to chat page');
 }
 
 
