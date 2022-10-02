@@ -27,8 +27,8 @@ const ItemSelected = () => {
 				Swap option available<br />
 				For sale: 20$ <br />
 				Description:I bouth this shirt 2 months ago and wore it 3 times. The shorts I bought from H&M last week but it is not fit to me <br />
-				(continue reading)
-			</span>
+				(continue reading)<br />
+			</span><br />
 			<Button onClick={sayHello}>Contact me</Button><br />
 		</body>
 	);
