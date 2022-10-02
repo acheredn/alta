@@ -1,14 +1,14 @@
 import React from "react";
 
-const About = () => {
+const Login = () => {
 return (
 	<div>
 	<h1>
-		ABOUT PAGE
+		 LOGIN PAGE
 	</h1>
 	</div>
 );
 };
 
-export default About;
+export default Login;
 

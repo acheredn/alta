@@ -4,10 +4,10 @@ import Navbar from './components/Navbar/NavBar';
 import { BrowserRouter as Router, Routes, Route }
     from 'react-router-dom';
 import Home from './pages';
-import About from './pages/about';
-import Blogs from './pages/blogs';
+import Login from './pages/login';
+import ItemSelected from './pages/itemSelected';
 import SignUp from './pages/signup';
-import Contact from './pages/contact';
+import ItemList from './pages/itemList';
 
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
@@ -22,9 +22,9 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path='/' exact element={<Home />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/contact' element={<Contact />} />
-                <Route path='/blogs' element={<Blogs />} />
+                <Route path='/item' element={<ItemSelected />} />
+                <Route path='/list' element={<ItemList />} />
+                <Route path='/login' element={<Login />} />
                 <Route path='/sign-up' element={<SignUp />} />
             </Routes>
             <Footer />
