@@ -25,7 +25,7 @@ function App() {
                 <Route path='/item' element={<ItemSelected />} />
                 <Route path='/list' element={<ItemList />} />
                 <Route path='/login' element={<Login />} />
-                <Route path='/sign-up' element={<SignUp />} />
+                <Route path='/signup' element={<SignUp />} />
             </Routes>
             <Footer />
         </Router>

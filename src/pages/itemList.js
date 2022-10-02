@@ -78,7 +78,7 @@ export default function ItemList() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button component={Link} to="/itemSelected" size="small">View</Button>
+                    <Button component={Link} to="/item" size="small">View</Button>
                   </CardActions>
                 </Card>
               </Grid>
