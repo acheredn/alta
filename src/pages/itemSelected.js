@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-
 const ItemSelected = () => {
 	const Button = styled.button`
   background-color: black;
@@ -23,10 +21,12 @@ const ItemSelected = () => {
 			<h1>ITEM SELECTED</h1><br />
 			<img src="https://i.pinimg.com/736x/1e/b1/7e/1eb17e74fe8c3619edc8d07001a72957.jpg" alt="itemSelected" width="300" height="500"></img><br />
 			<span>
-				Gray croptop with blue shortsElizabeth Young - Saint Paul, MN<br />
-				Swap option available<br />
+				<h2><b>Gray croptop with blue shorts</b></h2><br />
+				<i>Elizabeth Young - Saint Paul, MN</i><br />
+				<strong>Swap option available</strong><br />
 				For sale: 20$ <br />
-				Description:I bouth this shirt 2 months ago and wore it 3 times. The shorts I bought from H&M last week but it is not fit to me <br />
+				<em>Description:</em><br />
+				I bouth this shirt 2 months ago and wore it 3 times. The shorts I bought from H&M last week but it is not fit to me <br />
 				(continue reading)<br />
 			</span><br />
 			<Button onClick={sayHello}>Contact me</Button><br />
