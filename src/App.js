@@ -3,15 +3,15 @@ import './App.css';
 import Navbar from './components/Navbar/NavBar';
 import { BrowserRouter as Router, Routes, Route }
     from 'react-router-dom';
-import Home from './pages';
-import Login from './pages/login';
-import ItemSelected from './pages/itemSelected';
-import SignUp from './pages/signup';
-import ItemList from './pages/itemList';
+import Home from './pages/Home/index';
+import Login from './pages/Login/login';
+import ItemSelected from './pages/ItemSelected/itemSelected';
+import SignUp from './pages/SignUp/signup';
+import ItemList from './pages/ItemList/itemList';
 
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import Footer from './pages/Footer';
+import Footer from './components/Footer';
 
 function App() {
     //     const app = initializeApp(firebaseConfig);
