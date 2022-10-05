@@ -1,7 +1,7 @@
 // template from https://github.com/mui/material-ui/tree/v5.10.7/docs/data/material/getting-started/templates/sign-up
 
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+//import { Link, useNavigate } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,19 +13,19 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { auth, signInWithEmailAndPassword, signInWithGoogle } from "./firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
+//import { auth, signInWithEmailAndPassword, signInWithGoogle } from "./firebase";
+//import { useAuthState } from "react-firebase-hooks/auth";
 
 
 
 
 export default function SignUp() {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [user, loading, error] = useAuthState(auth);
-	const navigate = useNavigate();
+	//const [email, setEmail] = useState("");
+	//const [password, setPassword] = useState("");
+	//const [user, loading, error] = useAuthState(auth);
+	//const navigate = useNavigate();
 	const handleSubmit = (event) => {
-		signInWithGoogle
+		//signInWithGoogle
 		event.preventDefault();
 		const data = new FormData(event.currentTarget);
 		console.log({
@@ -33,13 +33,13 @@ export default function SignUp() {
 			password: data.get('password'),
 		});
 	};
-	useEffect(() => {
-		if (loading) {
-			// maybe trigger a loading screen
-			return;
-		}
-		if (user) navigate("/dashboard");
-	}, [user, loading]);
+	// useEffect(() => {
+	// 	if (loading) {
+	// 		// maybe trigger a loading screen
+	// 		return;
+	// 	}
+	// 	if (user) navigate("/dashboard");
+	// }, [user, loading]);
 
 
 	return (
