@@ -28,7 +28,7 @@ const Navbar = () => {
           <NavLink to="/sign-up" activeStyle>
             Sign Up
           </NavLink>
-          <nav className="navBar">
+          {/* <nav className="navBar">
             <button onClick={handleToggle}>
               {navbarOpen ? (
                 <MdClose style={{ color: "#fff", width: "40px", height: "40px" }} />
@@ -37,7 +37,7 @@ const Navbar = () => {
               )}
             </button>
             <ul className={`menuNav ${navbarOpen ? " showMenu" : ""}`}>...</ul>
-          </nav>
+          </nav> */}
         </NavMenu>
       </Nav>
     </>
