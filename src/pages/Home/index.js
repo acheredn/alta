@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import bg from '../../images/background.jpg';
 import Box from '@mui/material/Box';
-
+import CssBaseline from '@mui/material/CssBaseline';
 
 
 const Home = () => {
@@ -19,6 +19,7 @@ const Home = () => {
         height: "100vh",
         color: "#f5f5f5"
     }}> 
+    <CssBaseline/>
 	<Container maxWidth="sm">
         <Typography
         component="h1"
