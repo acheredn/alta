@@ -19,10 +19,18 @@ const ItemSelected = () => {
 	return (
 		// <><><h1>ITEM SELECTED
 		// </h1><Button onClick={sayHello}>Contact me</Button></><img src="https://www.tutorialspoint.com/html/images/test.png" alt="Simply Easy Learning" width="200" height="80"></img></>
-		<body>
+		<body >
 			<CssBaseline />
 			<h1>ITEM SELECTED</h1><br />
-			<img src="https://i.pinimg.com/736x/1e/b1/7e/1eb17e74fe8c3619edc8d07001a72957.jpg" alt="itemSelected" width="300" height="500"></img><br />
+			<div style={{
+				display: 'flex',
+				alignItems: 'center',
+
+				height: '100vh',
+			}}>
+				<img src="https://i.pinimg.com/736x/1e/b1/7e/1eb17e74fe8c3619edc8d07001a72957.jpg" alt="itemSelected" width="300" height="500"></img><br />
+			</div>
+
 			<span>
 				<h2><b>Gray croptop with blue shorts</b></h2><br />
 				<i>Elizabeth Young - Saint Paul, MN</i><br />
@@ -32,7 +40,11 @@ const ItemSelected = () => {
 				I bouth this shirt 2 months ago and wore it 3 times. The shorts I bought from H&M last week but it is not fit to me <br />
 				(continue reading)<br />
 			</span><br />
-			<Button onClick={sayHello}>Contact me</Button><br />
+			<Button style={{
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+			}} onClick={sayHello}>Contact me</Button><br />
 		</body>
 	);
 }
