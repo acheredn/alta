@@ -12,6 +12,7 @@ import ItemList from './pages/ItemList/itemList';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import Footer from './components/Footer';
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
     //     const app = initializeApp(firebaseConfig);

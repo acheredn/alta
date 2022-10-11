@@ -2,19 +2,25 @@ import React, { useState } from "react";
 import { Nav, NavLink, NavMenu } from "./NavbarElements";
 import { MdClose } from "react-icons/md"
 import { FiMenu } from "react-icons/fi"
+import 'bootstrap/dist/css/bootstrap.css';
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
   const handleToggle = () => {
     setNavbarOpen(prev => !prev)
+    const navRef = useRef();
+
+    const showNavbar = () => {
+      navRef.current.classList.toggle("responsive_nav");
+    };
   }
   return (
     <>
       <Nav>
 
-        <NavMenu>
-        <NavLink to="/ " activeStyle>
-            Welcome 
+        <NavMenu className="col-lg-12 col-md-12 col-sm-12">
+          <NavLink to="/ " activeStyle>
+            Welcome
           </NavLink>
           <NavLink to="/login" activeStyle>
             Login
@@ -23,11 +29,16 @@ const Navbar = () => {
             Item Selected
           </NavLink>
           <NavLink to="/list" activeStyle>
-            Item List 
+            Item List
           </NavLink>
           <NavLink to="/sign-up" activeStyle>
             Sign Up
           </NavLink>
+          <button
+					className="nav-btn nav-close-btn"
+					onClick={showNavbar}>
+					<FaTimes />
+				</button>
           {/* <nav className="navBar">
             <button onClick={handleToggle}>
               {navbarOpen ? (
@@ -39,6 +50,9 @@ const Navbar = () => {
             <ul className={`menuNav ${navbarOpen ? " showMenu" : ""}`}>...</ul>
           </nav> */}
         </NavMenu>
+        <button className="nav-btn" onClick={showNavbar}>
+				<FaBars />
+			</button>
       </Nav>
     </>
   );

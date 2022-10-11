@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import CssBaseline from '@mui/material/CssBaseline';
+import './itemSelected.css';
 
 
 const ItemSelected = () => {
@@ -22,16 +23,16 @@ const ItemSelected = () => {
 		<body >
 			<CssBaseline />
 			<h1>ITEM SELECTED</h1><br />
-			<div style={{
+			<div sx={{
+				marginTop: 8,
 				display: 'flex',
+				flexDirection: 'column',
 				alignItems: 'center',
-
-				height: '100vh',
 			}}>
 				<img src="https://i.pinimg.com/736x/1e/b1/7e/1eb17e74fe8c3619edc8d07001a72957.jpg" alt="itemSelected" width="300" height="500"></img><br />
 			</div>
 
-			<span>
+			<span className='center' >
 				<h2><b>Gray croptop with blue shorts</b></h2><br />
 				<i>Elizabeth Young - Saint Paul, MN</i><br />
 				<strong>Swap option available</strong><br />
