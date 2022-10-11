@@ -7,10 +7,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
-    typography: { fontFamily: [
-        'Abril Fatface',
-        'cursive'].join(',')
-        (',')}
+    typography: { fontFamily: ["Abril Fatface"]}
   });
 
 const Home = () => {
@@ -35,6 +32,10 @@ const Home = () => {
         gutterBottom
         >
         Clothing Swap 
+        <link
+        href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap"
+        rel="stylesheet"/>
+
     </Typography>
 	</Container>
     </Box>
