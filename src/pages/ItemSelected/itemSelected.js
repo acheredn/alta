@@ -2,10 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import CssBaseline from '@mui/material/CssBaseline';
 import './itemSelected.css';
-import { Fade } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
-import itemSelected from "../../images/itemSelected.png";
-
 
 
 const ItemSelected = () => {
@@ -21,18 +17,10 @@ const ItemSelected = () => {
 	background-color: blue;
   }
 `;
-	const fadeImages = [
-		itemSelected,
-		"https://assets.vogue.com/photos/6230a9e30c75bb354d918725/1:1/w_2667,h_2667,c_limit/slide_4.jpg",
-		"https://di2ponv0v5otw.cloudfront.net/posts/2022/09/26/63325aaef644e5d1a4fdf4fd/m_wp_63325abb32c1dc1574b94303.webp"
-	];
-
 	return (
-
 		// <><><h1>ITEM SELECTED
 		// </h1><Button onClick={sayHello}>Contact me</Button></><img src="https://www.tutorialspoint.com/html/images/test.png" alt="Simply Easy Learning" width="200" height="80"></img></>
 		<body >
-
 			<CssBaseline />
 			<h1>ITEM SELECTED</h1><br />
 			<div sx={{
@@ -41,20 +29,7 @@ const ItemSelected = () => {
 				flexDirection: 'column',
 				alignItems: 'center',
 			}}>
-				{/* <img src="https://i.pinimg.com/736x/1e/b1/7e/1eb17e74fe8c3619edc8d07001a72957.jpg" alt="itemSelected" width="300" height="500"></img><br /> */}
-				<div className="slide-container">
-					<Fade>
-						<div className="each-fade">
-							<img src={fadeImages[0]} />
-						</div>
-						<div className="each-fade">
-							<img src={fadeImages[1]} />
-						</div>
-						<div className="each-fade">
-							<img src={fadeImages[2]} />
-						</div>
-					</Fade>
-				</div>
+				<img src="https://i.pinimg.com/736x/1e/b1/7e/1eb17e74fe8c3619edc8d07001a72957.jpg" alt="itemSelected" width="300" height="500"></img><br />
 			</div>
 
 			<span className='center' >
