@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar/NavBar';
 import { BrowserRouter as Router, Routes, Route }
     from 'react-router-dom';
+import {ThemeProvider, createTheme} from '@mui/material/styles';
 import Home from './pages/Home/index';
 import Login from './pages/Login/login';
 import ItemSelected from './pages/ItemSelected/itemSelected';
@@ -18,18 +19,31 @@ function App() {
     //     const app = initializeApp(firebaseConfig);
     //     const db = getFirestore(app);
 
+    const theme = createTheme({
+        palette: {
+          primary: {
+            main: '#000000'
+          },
+        //   secondary: {
+        //     main: "#494c7d"
+        //   }
+        }
+      });
+
     return (
+        <ThemeProvider theme={theme}>
         <Router>
             <Navbar />
             <Routes>
                 <Route path='/' exact element={<Home />} />
-                <Route path='/itemSelected' element={<ItemSelected />} />
-                <Route path='/itemList' element={<ItemList />} />
+                <Route path='/item-selected' element={<ItemSelected />} />
+                <Route path='/item-list' element={<ItemList />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/sign-up' element={<SignUp />} />
             </Routes>
             <Footer />
         </Router>
+        </ThemeProvider>
 
     );
 }

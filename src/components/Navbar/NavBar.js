@@ -77,9 +77,9 @@ function Navbar() {
 			<nav ref={navRef}>
 				<a href="/#">Welcome</a>
 				<a href="login">Login</a>
-				<a href="itemSelected">Item Selected</a> 
+				<a href="item-selected">Item Selected</a> 
 				<a href="sign-up">Sign Up</a>
-				<a href="itemList">Item List</a>
+				<a href="item-list">Item List</a>
 				<button
 					className="nav-btn nav-close-btn"
 					onClick={showNavbar}>
