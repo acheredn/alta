@@ -12,81 +12,83 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 // import Link from '@mui/material/Link';
 import { Link } from 'react-router-dom';
-// import { createTheme, ThemeProvider } from '@mui/material/styles'; 
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const theme = createTheme();
+// const theme = createTheme();
 
 export default function ItemList() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <main>
-        {/* Hero unit */}
-        <Box
-          sx={{
-            pt: 8,
-            pb: 2,
-          }}
-        >
-          <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            >
-              Items List
-            </Typography>
+    <body>
+   {/* <ThemeProvider theme={theme}> */}
+        <CssBaseline />
+         {/* <main> */}
+           {/* Hero unit */}
+          <Box
+            sx={{
+              pt: 8,
+              pb: 2,
+            }}
+          >
+            <Container maxWidth="sm">
+              <Typography
+                component="h1"
+                variant="h2"
+                align="center"
+                color="text.primary"
+                gutterBottom
+              >
+                Items List
+              </Typography>
 
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Button variant="contained">Search for item</Button>
-              <Button variant="outlined">Add an item</Button>
-            </Stack>
+              <Stack
+                sx={{ pt: 4 }}
+                direction="row"
+                spacing={2}
+                justifyContent="center"
+              >
+                <Button variant="contained">Search for item</Button>
+                <Button variant="outlined">Add an item</Button>
+              </Stack>
+            </Container>
+          </Box>
+
+          <Container sx={{ py: 8 }} maxWidth="md">
+            {/* End hero unit */}
+            <Grid container spacing={4}>
+              {cards.map((card) => (
+                <Grid item key={card} xs={12} sm={6} md={4}>
+                  <Card
+                    sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                  >
+                    <CardMedia
+                      component="img"
+                      sx={{
+                        pt: '0%',
+                      }}
+                      image="http://placeimg.com/640/480/animals"
+                      alt="random"
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Gray croptop with blue shorts
+                      </Typography>
+                      <Typography>
+                        This is brief item description
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button component={Link} to="/item" size="small">View</Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
           </Container>
-        </Box>
-
-        <Container sx={{ py: 8 }} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                >
-                  <CardMedia
-                    component="img"
-                    sx={{
-                      pt: '0%',
-                    }}
-                    image="http://placeimg.com/640/480/animals"
-                    alt="random"
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Gray croptop with blue shorts
-                    </Typography>
-                    <Typography>
-                      This is brief item description
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button component={Link} to="/item" size="small">View</Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </main>
-    </ThemeProvider>
+        {/* </main> */}
+      {/* </ThemeProvider> */}
+    </body>
+    
   );
 }
