@@ -22,7 +22,7 @@ const ItemSelected = () => {
 	return (
 		// <><><h1>ITEM SELECTED
 		// </h1><Button onClick={sayHello}>Contact me</Button></><img src="https://www.tutorialspoint.com/html/images/test.png" alt="Simply Easy Learning" width="200" height="80"></img></>
-		<body >
+		<body>
 			<CssBaseline />
 			<h1>ITEM SELECTED</h1><br />
 			<div sx={{
