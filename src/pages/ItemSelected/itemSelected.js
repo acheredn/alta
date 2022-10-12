@@ -5,6 +5,8 @@ import './itemSelected.css';
 import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import itemSelected from "../../images/itemSelected.png";
+import { Container } from '@mui/system';
+import { autocompleteClasses, Grid } from '@mui/material';
 
 
 
@@ -32,7 +34,7 @@ const ItemSelected = () => {
 		// <><><h1>ITEM SELECTED
 		// </h1><Button onClick={sayHello}>Contact me</Button></><img src="https://www.tutorialspoint.com/html/images/test.png" alt="Simply Easy Learning" width="200" height="80"></img></>
 		<body >
-
+			<Container component="main" maxWidth="s">
 			<CssBaseline />
 			<h1>ITEM SELECTED</h1><br />
 			<div sx={{
@@ -66,11 +68,23 @@ const ItemSelected = () => {
 				I bouth this shirt 2 months ago and wore it 3 times. The shorts I bought from H&M last week but it is not fit to me <br />
 				(continue reading)<br />
 			</span><br />
-			<Button style={{
+			{/* <Button style={{
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
-			}} onClick={sayHello}>Contact me</Button><br />
+			}} onClick={sayHello}>Contact me</Button><br /> */}
+			<Button
+				onClick={sayHello}
+				type="submit"
+				fullWidth
+				variant="contained"
+				sx={{ mt: 3, mb: 2}}
+			>
+				Contact Me
+			</Button>
+			
+			</Container>
+			
 		</body>
 	);
 }
