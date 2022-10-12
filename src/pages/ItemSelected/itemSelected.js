@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import CssBaseline from '@mui/material/CssBaseline';
 import './itemSelected.css';
+import './itemSelected.css'
+import { Typography } from '@mui/material';
 
 
 const ItemSelected = () => {
@@ -33,7 +35,7 @@ const ItemSelected = () => {
 			</div>
 
 			<span className='center' >
-				<h2><b>Gray croptop with blue shorts</b></h2><br />
+				<Typography>Gray croptop with blue shorts</Typography><br />
 				<i>Elizabeth Young - Saint Paul, MN</i><br />
 				<strong>Swap option available</strong><br />
 				For sale: 20$ <br />
