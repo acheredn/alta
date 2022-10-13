@@ -9,6 +9,7 @@ import Login from './pages/Login/login';
 import ItemSelected from './pages/ItemSelected/itemSelected';
 import SignUp from './pages/SignUp/signup';
 import ItemList from './pages/ItemList/itemList';
+import Chat from './pages/Chat/chat'
 
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
@@ -39,7 +40,7 @@ function App() {
                 <Route path='/item-selected' element={<ItemSelected />} />
                 <Route path='/item-list' element={<ItemList />} />
                 <Route path='/login' element={<Login />} />
-                <Route path='/sign-up' element={<SignUp />} />
+                <Route path='/chat' element={<Chat />} />
             </Routes>
             <Footer />
         </Router>

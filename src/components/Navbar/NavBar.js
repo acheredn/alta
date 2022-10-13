@@ -18,6 +18,7 @@ function Navbar() {
 				<a href="item-selected">Item Selected</a> 
 				<a href="sign-up">Sign Up</a>
 				<a href="item-list">Item List</a>
+				<a href="chat">Chat</a>
 				<button
 					className="nav-btn nav-close-btn"
 					onClick={showNavbar}>
