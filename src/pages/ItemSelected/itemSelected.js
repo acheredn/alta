@@ -81,7 +81,7 @@ const ItemSelected = () => {
 					variant="contained"
 					sx={{ mt: 3, mb: 2 }}
 				>
-					<a href='sign-up'> Contact Me</a>
+					<a href='chat'> Contact Me</a>
 				</Button>
 
 			</Container>
