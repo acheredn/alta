@@ -11,7 +11,7 @@ function Navbar() {
 
 	return (
 		<header>
-			<h3>LOGO</h3>
+			<h3>SWAP</h3>
 			<nav ref={navRef}>
 				<a href="/#">Welcome</a>
 				<a href="login">Login</a>
