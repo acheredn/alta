@@ -6,7 +6,7 @@ import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import itemSelected from "../../images/itemSelected.png";
 import { Container } from '@mui/system';
-import { autocompleteClasses, Grid } from '@mui/material';
+
 
 
 

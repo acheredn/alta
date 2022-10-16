@@ -7,6 +7,11 @@
 	font-family: "Titillium Web", sans-serif;
 }
 
+.logo{
+	color: white;
+	font-size: 1.5rem;
+}
+
 :root {
 	--mainColor: #000000;
 	--mainColorLight: #5767aa;
@@ -19,7 +24,7 @@ header {
 	align-items: center;
 	justify-content: space-between;
 	height: 80px;
-	padding: 0 2rem;
+	padding: 0 0 rem;
 	background-color: var(--mainColor);
 	color: var(--textColor);
 }
@@ -85,6 +90,11 @@ nav {
 	}
 
 	nav a {
+		font-size: 1.5rem;
+	}
+
+	.logo{
+		color: white;
 		font-size: 1.5rem;
 	}
 }

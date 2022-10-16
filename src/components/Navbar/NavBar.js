@@ -1,6 +1,13 @@
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./navBar.css";
+import React from 'react';
+import styled from 'styled-components';
+import CssBaseline from '@mui/material/CssBaseline';
+import "react-slideshow-image/dist/styles.css";
+import { Container } from '@mui/system';
+
+
 
 function Navbar() {
 	const navRef = useRef();
@@ -11,7 +18,7 @@ function Navbar() {
 
 	return (
 		<header>
-			<h3>SWAP</h3>
+			<a class = "logo" href = "/#">SWAP</a>
 			<nav ref={navRef}>
 				<a href="/#">Welcome</a>
 				<a href="login">Login</a>
