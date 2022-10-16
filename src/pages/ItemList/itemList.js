@@ -10,6 +10,9 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import Data from "./data.json";
+import { useState } from "react";
+
 // import Link from '@mui/material/Link';
 import { Link } from 'react-router-dom';
 // import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -19,6 +22,7 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // const theme = createTheme();
 
 export default function ItemList() {
+  const [query, setQuery] = useState("")
   return (
     <body>
    {/* <ThemeProvider theme={theme}> */}
@@ -42,6 +46,21 @@ export default function ItemList() {
                 Items List
               </Typography>
 
+              <div> <input placeholder="Search..." onChange={event => setQuery(event.target.value)} />
+              {
+                Data.filter(post => {
+                  if (query === '') {
+                    return post;
+                  } else if (post.itemName.toLowerCase().includes(query.toLowerCase())) {
+                    return post;
+                  }
+                }).map((post, index) => (
+                  <div className="box" key={index}>
+                    <p>{post.itemName}</p>
+                  </div>
+                ))
+              } </div>
+
               <Stack
                 sx={{ pt: 4 }}
                 direction="row"
@@ -56,7 +75,11 @@ export default function ItemList() {
 
           <Container sx={{ py: 8 }} maxWidth="md">
             {/* End hero unit */}
+
+
             <Grid container spacing={4}>
+
+
               {cards.map((card) => (
                 <Grid item key={card} xs={12} sm={6} md={4}>
                   <Card
