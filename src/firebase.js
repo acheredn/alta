@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
 import {
   GoogleAuthProvider,
   getAuth,
@@ -26,10 +27,14 @@ const firebaseConfig = {
   measurementId: "G-67XB90KPZK"
 };
 
+
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
+export default storage;
 
 const googleProvider = new GoogleAuthProvider();
 const signInWithGoogle = async () => {
@@ -99,4 +104,6 @@ export {
   registerWithEmailAndPassword,
   sendPasswordReset,
   logout,
+
 };
+

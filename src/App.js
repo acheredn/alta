@@ -10,10 +10,12 @@ import ItemSelected from './pages/ItemSelected/itemSelected';
 import SignUp from './pages/SignUp/signup';
 import ItemList from './pages/ItemList/itemList';
 import Chat from './pages/Chat/chat'
+import MyItem from './pages/MyItems/myItems'
 
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import Footer from './components/Footer';
+import MyItems from './pages/MyItems/myItems';
 // import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
@@ -42,6 +44,7 @@ function App() {
                 <Route path='/login' element={<Login />} />
                 <Route path='/sign-up' element={<SignUp />} />
                 <Route path='/chat' element={<Chat />} />
+                <Route path='/my-items' element={<MyItems />} />
             </Routes>
             <Footer />
         </Router>
