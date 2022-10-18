@@ -1,9 +1,12 @@
+
+
 import React from 'react';
 import styled from 'styled-components';
 import CssBaseline from '@mui/material/CssBaseline';
-import './myItems.css';
+import './itemSelected.css';
 import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import itemSelected from "../../images/itemSelected.png";
 import { Container } from '@mui/system';
 import storage from '../../firebase';
 import { useEffect, useState } from "react";
@@ -13,11 +16,12 @@ import {
 	getDownloadURL,
 	listAll,
 	list,
+	getStorage, deleteObject
 } from "firebase/storage";
 import { v4 } from "uuid";
 
 
-const MyItems = () => {
+const ItemSelected = () => {
 	const [imageUpload, setImageUpload] = useState(null);
 	const [imageUrls, setImageUrls] = useState([]);
 
@@ -31,6 +35,19 @@ const MyItems = () => {
 			});
 		});
 	};
+
+	const storage = getStorage();
+
+	// Create a reference to the file to delete
+	const desertRef = ref(storage, 'images/desert.jpg');
+
+	// Delete the file
+	deleteObject(desertRef).then(() => {
+		// File deleted successfully
+	}).catch((error) => {
+		// Uh-oh, an error occurred!
+	});
+
 
 	useEffect(() => {
 		listAll(imagesListRef).then((response) => {
@@ -54,6 +71,11 @@ const MyItems = () => {
 	background-color: blue;
   }
 `;
+	const fadeImages = [
+		itemSelected,
+		"https://assets.vogue.com/photos/6230a9e30c75bb354d918725/1:1/w_2667,h_2667,c_limit/slide_4.jpg",
+		"https://di2ponv0v5otw.cloudfront.net/posts/2022/09/26/63325aaef644e5d1a4fdf4fd/m_wp_63325abb32c1dc1574b94303.webp"
+	];
 
 	return (
 
@@ -70,7 +92,19 @@ const MyItems = () => {
 					alignItems: 'center',
 				}}>
 					{/* <img src="https://i.pinimg.com/736x/1e/b1/7e/1eb17e74fe8c3619edc8d07001a72957.jpg" alt="itemSelected" width="300" height="500"></img><br /> */}
-				
+					<div className="slide-container">
+						<Fade>
+							<div className="each-fade">
+								<img src={fadeImages[0]} />
+							</div>
+							<div className="each-fade">
+								<img src={fadeImages[1]} />
+							</div>
+							<div className="each-fade">
+								<img src={fadeImages[2]} />
+							</div>
+						</Fade>
+					</div>
 				</div>
 
 				<span className='center' >
@@ -90,7 +124,7 @@ const MyItems = () => {
 						variant="contained"
 						sx={{ mt: 3, mb: 2 }}
 					>
-						Contact Me
+						Hello
 					</Button>
 					<input
 						type="file"
@@ -102,6 +136,15 @@ const MyItems = () => {
 					{imageUrls.map((url) => {
 						return <img src={url} />;
 					})}
+					<Button
+						onClick={sayHello}
+						type="submit"
+						fullWidth
+						variant="contained"
+						sx={{ mt: 3, mb: 2 }}
+					>
+						Hello
+					</Button>
 
 				</span><br />
 				{/* <Button style={{
@@ -126,4 +169,4 @@ function sayHello() {
 // Usage
 
 
-export default MyItems;
+export default ItemSelected;
