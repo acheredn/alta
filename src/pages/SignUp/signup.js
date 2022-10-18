@@ -112,16 +112,6 @@ export default function SignUp() {
 							Sign Up
 						</Button>
 						<Button onClick={signInWithGoogle}
-<<<<<<< Updated upstream
-							fullWidth
-							variant="contained"
-							sx={{ mt: 1, mb: 2 }}
-							startIcon={<img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="googleLogo" height={25} ></img>}
-						>
-							Sign Up With Google
-						</Button>
-						
-=======
 							type="submit"
 							fullWidth
 							variant="contained"
@@ -132,7 +122,6 @@ export default function SignUp() {
 						{/* <Button className="login__btn login__google" onClick={signInWithGoogle}>
 							Login with Google
 						</Button> */}
->>>>>>> Stashed changes
 						<Grid container>
 							<Grid item>
 								<Link href="login" variant="body2">
