@@ -1,14 +1,13 @@
-
-
 import React from 'react';
 import styled from 'styled-components';
+import db from "../../firebase";
 import CssBaseline from '@mui/material/CssBaseline';
-import './itemSelected.css';
+import './myItems.css';
 import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import itemSelected from "../../images/itemSelected.png";
 import { Container } from '@mui/system';
 import storage from '../../firebase';
+import database from '../../firebase';
 import { useEffect, useState } from "react";
 import {
 	ref,
@@ -16,14 +15,14 @@ import {
 	getDownloadURL,
 	listAll,
 	list,
-	getStorage, deleteObject
 } from "firebase/storage";
 import { v4 } from "uuid";
 
 
-const ItemSelected = () => {
+const MyItems = () => {
 	const [imageUpload, setImageUpload] = useState(null);
 	const [imageUrls, setImageUrls] = useState([]);
+
 
 	const imagesListRef = ref(storage, "images/");
 	const uploadFile = () => {
@@ -36,18 +35,36 @@ const ItemSelected = () => {
 		});
 	};
 
-	const storage = getStorage();
+	const [customerName, setCustomerName] = useState("");
+	const [customerPassword, setCustomerPassword] = useState("");
+	const [customersData, setCustomersData] = useState([]);
+	const [updatedCustomerName, setUpdatedCustomerName] = useState("");
+	const [updatedCustomerPassword, setUpdatedCustomerPassword] = useState("");
+	const [dataIdToBeUpdated, setDataIdToBeUpdated] = useState("");
 
-	// Create a reference to the file to delete
-	const desertRef = ref(storage, 'images/desert.jpg');
 
-	// Delete the file
-	deleteObject(desertRef).then(() => {
-		// File deleted successfully
-	}).catch((error) => {
-		// Uh-oh, an error occurred!
-	});
+	const submit = (e) => {
+		e.preventDefault();
+		db.collection("customersData").add({
+			name: customerName,
+			password: customerPassword,
+		});
 
+		setCustomerName("");
+		setCustomerPassword("");
+	};
+
+	const updateData = (e) => {
+		e.preventDefault();
+		db.collection("customersData").doc(dataIdToBeUpdated).update({
+			name: updatedCustomerName,
+			password: updatedCustomerPassword,
+		});
+
+		setUpdatedCustomerPassword("");
+		setUpdatedCustomerName("");
+		setDataIdToBeUpdated("");
+	};
 
 	useEffect(() => {
 		listAll(imagesListRef).then((response) => {
@@ -57,7 +74,18 @@ const ItemSelected = () => {
 				});
 			});
 		});
+
+		db.collection("customersData").onSnapshot((snapshot) => {
+			setCustomersData(
+				snapshot.docs.map((doc) => ({
+					id: doc.id,
+					data: doc.data(),
+				}))
+			);
+		});
 	}, []);
+
+
 
 	const Button = styled.button`
   background-color: black;
@@ -71,11 +99,6 @@ const ItemSelected = () => {
 	background-color: blue;
   }
 `;
-	const fadeImages = [
-		itemSelected,
-		"https://assets.vogue.com/photos/6230a9e30c75bb354d918725/1:1/w_2667,h_2667,c_limit/slide_4.jpg",
-		"https://di2ponv0v5otw.cloudfront.net/posts/2022/09/26/63325aaef644e5d1a4fdf4fd/m_wp_63325abb32c1dc1574b94303.webp"
-	];
 
 	return (
 
@@ -98,6 +121,38 @@ const ItemSelected = () => {
 
 
 			</Container>
+			<div className="App">
+				<div className="App__form">
+					<input
+						type="text"
+						placeholder="Name"
+						value={customerName}
+						onChange={(e) => setCustomerName(e.target.value)}
+					/>
+					<input
+						type="text"
+						placeholder="Password"
+						value={customerPassword}
+						onChange={(e) => setCustomerPassword(e.target.value)}
+					/>
+					<button onClick={submit}>Submit</button>
+				</div>
+			</div>
+			<div className="App__DataDisplay">
+				<table>
+					<tr>
+						<th>NAME</th>
+						<th>PASSWORD</th>
+					</tr>
+
+					{customersData?.map(({ id, data }) => (
+						<tr key={id}>
+							<td>{data.name}</td>
+							<td>{data.password}</td>
+						</tr>
+					))}
+				</table>
+			</div>
 
 		</body>
 	);
@@ -112,4 +167,4 @@ function sayHello() {
 // Usage
 
 
-export default ItemSelected;
+export default MyItems;
