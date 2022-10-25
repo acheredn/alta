@@ -112,14 +112,16 @@ export default function SignUp() {
 							Sign Up
 						</Button>
 						<Button onClick={signInWithGoogle}
+							type="submit"
 							fullWidth
 							variant="contained"
-							sx={{ mt: 1, mb: 2 }}
-							startIcon={<img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="googleLogo" height={25} ></img>}
+							sx={{ mt: 2, mb: 2 }}
 						>
-							Sign Up With Google
+							Login With Google
 						</Button>
-						
+						{/* <Button className="login__btn login__google" onClick={signInWithGoogle}>
+							Login with Google
+						</Button> */}
 						<Grid container>
 							<Grid item>
 								<Link href="login" variant="body2">
