@@ -27,6 +27,7 @@ function Navbar() {
 				<a href="item-list">Item List</a>
 				<a href="my-items">My Items</a>
 				<a href="chat">Chat</a>
+				<a href="test"> Test </a>
 				<button
 					className="nav-btn nav-close-btn"
 					onClick={showNavbar}>

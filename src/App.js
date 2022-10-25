@@ -10,6 +10,7 @@ import ItemSelected from './pages/ItemSelected/itemSelected';
 import SignUp from './pages/SignUp/signup';
 import ItemList from './pages/ItemList/itemList';
 import Chat from './pages/Chat/chat'
+import Test from './pages/Test/test';
 import MyItem from './pages/MyItems/myItems'
 
 import { initializeApp } from 'firebase/app';
@@ -45,6 +46,7 @@ function App() {
                 <Route path='/sign-up' element={<SignUp />} />
                 <Route path='/chat' element={<Chat />} />
                 <Route path='/my-items' element={<MyItems />} />
+                <Route path='/test' element={<Test />} />
             </Routes>
             <Footer />
         </Router>
