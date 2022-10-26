@@ -33,6 +33,8 @@ const ItemSelected = () => {
 		});
 	};
 
+
+
 	useEffect(() => {
 		listAll(imagesListRef).then((response) => {
 			response.items.forEach((item) => {
