@@ -5,18 +5,6 @@ import bg from '../../images/background.jpg';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {createRoot} from 'react-dom/client';
-import App from './App';
-import {BrowserRouter as Router} from 'react-router-dom';
-
-const rootElement = document.getElementById('root');
-const root = createRoot(rootElement);
-
-root.render(
-  <Router>
-    <App />
-  </Router>
-);
 
 const theme = createTheme({
     typography: { fontFamily: ["Abril Fatface"]}

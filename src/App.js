@@ -18,9 +18,6 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import Footer from './components/Footer';
 import MyItems from './pages/MyItems/myItems';
 // import 'bootstrap/dist/css/bootstrap.css';
-import { useNavigate} from 'react-router-dom';
-
-
 
 function App() {
     //     const app = initializeApp(firebaseConfig);
@@ -66,27 +63,4 @@ async function getCities(db) {
 }
 
 
-export default function App() {
-    const navigate = useNavigate();
-
-    const navigateToItemList = () => {
-    navigate('/ItemList');
-    };
-  
-    return (
-      <div>
-        <div>
-          <button onClick={navigateToItemList}>ItemList</button>
-        
-  
-          <Routes>
-            <Route path="/itemList" element={<ItemList />} />
-          </Routes>
-        </div>
-      </div>
-    );
-  }
-  
-  function itemList() {
-    return <h2>itemList</h2>;
-  }
+export default App; 
