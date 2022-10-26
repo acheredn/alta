@@ -13,7 +13,7 @@ function AddTask({onClose, open}) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await addDoc(collection(db, 'tasks'), {
+      await addDoc(collection(db, 'items'), {
         title: title,
         description: description,
         completed: false,
@@ -26,7 +26,7 @@ function AddTask({onClose, open}) {
   }
 
   return (
-    <Modal modalLable='Add Task' onClose={onClose} open={open}>
+    <Modal modalLable='Add Item' onClose={onClose} open={open}>
       <form onSubmit={handleSubmit} className='addTask' name='addTask'>
         <input 
           type='text' 
@@ -36,7 +36,7 @@ function AddTask({onClose, open}) {
           placeholder='Enter title'/>
         <textarea 
           onChange={(e) => setDescription(e.target.value)}
-          placeholder='Enter task decription'
+          placeholder='Enter item decription'
           value={description}></textarea>
         <button type='submit'>Done</button>
       </form> 
