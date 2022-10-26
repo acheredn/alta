@@ -51,5 +51,4 @@ function MyItems() {
     </div>
   )
 }
-
-export default MyItems
+export default MyItems;
