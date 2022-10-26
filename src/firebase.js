@@ -36,6 +36,8 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 export default storage;
 
+  
+
 const googleProvider = new GoogleAuthProvider();
 const signInWithGoogle = async () => {
   try {
