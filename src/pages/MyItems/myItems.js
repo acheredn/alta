@@ -1,36 +1,54 @@
-import React, {useState, useEffect } from 'react';
-import {TextField , Button } from '@mui/material';
-import Todo from '../../components/todo';
-import { db } from '../../firebase';
-import { collection , onSnapshot, serverTimestamp, addDoc } from 'firebase/firestore';
-function App() {
-const [todos,setTodos]=useState([]);
-const [input, setInput]=useState('');
-useEffect(() => {
-onSnapshot(collection(db,'todos'),(snapshot)=>{
-setTodos(snapshot.docs.map(doc => doc.data()))
-})
-}, [input])
-const addTodo=(e)=>{
-e.preventDefault();
-addDoc(collection(db,'todos'),{
-todo:input,
-timestamp: serverTimestamp()
-})
-setInput('')
-};
-return (
-<div className="App">
-<h2> TODO List App</h2>
-<form>
-<TextField id="outlined-basic" label="Make Todo" variant="outlined" style={{margin:"0px 5px"}} size="small" value={input}
-onChange={e=>setInput(e.target.value)} />
-<Button variant="contained" color="primary" onClick={addTodo}  >Add Todo</Button>
-</form>
-<ul>
-{todos.map(({todo})=> <Todo todo={todo} />)}
-</ul>
-</div>
-);
+import './myItems.css'
+import Task from './Task'
+import {useState, useEffect} from 'react'
+import {collection, query, orderBy, onSnapshot} from "firebase/firestore"
+import {db} from '../../firebase'
+import AddTask from './AddTask'
+
+function MyItems() {
+
+  const [openAddModal, setOpenAddModal] = useState(false)
+  const [Items, setItems] = useState([])
+
+  /* function to get all Items from firestore in realtime */ 
+  useEffect(() => {
+    const taskColRef = query(collection(db, 'items'), orderBy('created', 'desc'))
+    onSnapshot(taskColRef, (snapshot) => {
+      setItems(snapshot.docs.map(doc => ({
+        id: doc.id,
+        data: doc.data()
+      })))
+    })
+  },[])
+
+  return (
+    <div className='taskManager'>
+      <header>My Items List</header>
+      <div className='taskManager__container'>
+        <button 
+          onClick={() => setOpenAddModal(true)}>
+          Add Item +
+        </button>
+        <div className='taskManager__Items'>
+
+          {Items.map((task) => (
+            <Task
+              id={task.id}
+              key={task.id}
+              completed={task.data.completed}
+              title={task.data.title} 
+              description={task.data.description}
+            />
+          ))}
+
+        </div>
+      </div>
+
+      {openAddModal &&
+        <AddTask onClose={() => setOpenAddModal(false)} open={openAddModal}/>
+      }
+
+    </div>
+  )
 }
-export default App;
+export default MyItems;
