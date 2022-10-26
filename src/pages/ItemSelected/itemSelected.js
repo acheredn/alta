@@ -44,7 +44,6 @@ const ItemSelected = () => {
 	}, []);
 
 	const Button = styled.button`
-
   background-color: black;
   color: white;
   font-size: 20px;
@@ -67,23 +66,32 @@ const ItemSelected = () => {
 		// <><><h1>ITEM SELECTED
 		// </h1><Button onClick={sayHello}>Contact me</Button></><img src="https://www.tutorialspoint.com/html/images/test.png" alt="Simply Easy Learning" width="200" height="80"></img></>
 		<body >
-			<CssBaseline />
-			<h1> ITEM SELECTED </h1><br />
-			<div class="container">
-				<div className="slide-container">
-					<Fade>
-						<div className="each-fade">
-							<img class="img-slide" src={fadeImages[0]} />
-						</div>
-						<div className="each-fade">
-							<img class="img-slide" src={fadeImages[1]} />
-						</div>
-						<div className="each-fade">
-							<img class="img-slide" src={fadeImages[2]} />
-						</div>
-					</Fade>
+			<Container component="main" maxWidth="s">
+				<CssBaseline />
+				<h1>ITEM SELECTED</h1><br />
+				<div sx={{
+					marginTop: 8,
+					display: 'flex',
+					flexDirection: 'column',
+					alignItems: 'center',
+				}}>
+					{/* <img src="https://i.pinimg.com/736x/1e/b1/7e/1eb17e74fe8c3619edc8d07001a72957.jpg" alt="itemSelected" width="300" height="500"></img><br /> */}
+					<div className="slide-container">
+						<Fade>
+							<div className="each-fade">
+								<img src={fadeImages[0]} />
+							</div>
+							<div className="each-fade">
+								<img src={fadeImages[1]} />
+							</div>
+							<div className="each-fade">
+								<img src={fadeImages[2]} />
+							</div>
+						</Fade>
+					</div>
 				</div>
-				<div class="text">
+
+				<span className='center' >
 					<h2><b>Gray croptop with blue shorts</b></h2><br />
 					<i>Elizabeth Young - Saint Paul, MN</i><br />
 					<strong>Swap option available</strong><br />
@@ -91,37 +99,37 @@ const ItemSelected = () => {
 					<em>Description:</em><br />
 					I bouth this shirt 2 months ago and wore it 3 times. The shorts I bought from H&M last week but it is not fit to me <br />
 					(continue reading)<br />
-				</div>
-			</div>
-
-			<span>
-				<br />
-				<br />
-				<button class="button"
-					onClick={sayHello}
-					type="submit"
-				>
-					Contact Me
-				</button>
-				<input
-					type="file"
-					onChange={(event) => {
-						setImageUpload(event.target.files[0]);
-					}}
-				/>
-				<Button onClick={uploadFile}> Upload Image</Button>
-				<div class='image-map'>
+					<br />
+					<br />
+					<Button
+						onClick={sayHello}
+						type="submit"
+						fullWidth
+						variant="contained"
+						sx={{ mt: 3, mb: 2 }}
+					>
+						Contact Me
+					</Button>
+					<input
+						type="file"
+						onChange={(event) => {
+							setImageUpload(event.target.files[0]);
+						}}
+					/>
+					<Button onClick={uploadFile}> Upload Image</Button>
 					{imageUrls.map((url) => {
-						return <img src={url}/>
-
+						return <img src={url} />;
 					})}
-				</div>
+
+				</span><br />
+				{/* <Button style={{
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+			}} onClick={sayHello}>Contact me</Button><br /> */}
 
 
-			</span><br />
-
-
-
+			</Container>
 
 		</body>
 	);
