@@ -13,7 +13,6 @@ import {
 	uploadBytes,
 	getDownloadURL,
 	listAll,
-	list,
 } from "firebase/storage";
 import { v4 } from "uuid";
 
