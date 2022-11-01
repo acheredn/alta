@@ -1,5 +1,4 @@
 import Modal from "./Modal"
-import { useState } from 'react'
 import './addTask.css'
 import { db } from '../../firebase'
 import { collection, addDoc, Timestamp } from 'firebase/firestore'
@@ -7,10 +6,13 @@ import {
   ref,
   uploadBytes,
   getDownloadURL,
+  listAll,
 } from "firebase/storage";
 import { v4 } from "uuid";
 import storage from '../../firebase';
 import styled from 'styled-components';
+import { useEffect, useState } from "react";
+
 function AddTask({ onClose, open }) {
 
   const [title, setTitle] = useState('')
@@ -30,6 +32,16 @@ function AddTask({ onClose, open }) {
       });
     });
   };
+
+  useEffect(() => {
+		listAll(imagesListRef).then((response) => {
+			response.items.forEach((item) => {
+				getDownloadURL(item).then((url) => {
+					setImageUrls((prev) => [...prev, url]);
+				});
+			});
+		});
+	}, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -81,10 +93,6 @@ function AddTask({ onClose, open }) {
         />
         <Button onClick={uploadFile}> Upload Image</Button>
         <div class='image-map'>
-          {imageUrls.map((url) => {
-            return <img src={imageUrls[0]} />
-
-          })}
         </div>
         <button type='submit'>Done</button>
       </form>

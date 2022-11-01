@@ -20,19 +20,6 @@
   height: 30%;
 }
 
-.button {
-  background-color: black;
-  color: white;
-  font-size:15px;
-  border-radius: 5px;
-  margin: 10px 0px;
-  cursor: pointer;
-  height: 15%;
-  width: 18%;
-  margin-left: 3%;
-  margin-right: 3%;
-  justify-content: center;
-}
 
 .img-slide {
   display: flex;
@@ -40,10 +27,6 @@
   width: 100%;
 }
 
-.img-map {
-  height: 30%;
-  width: 30%;;
-}
 
 .grid-container {
   display: grid;
@@ -59,4 +42,8 @@ img{
   height: 30%;
   margin: 5% 5% 5% 5%;
   width: 30%;
+}
+
+#contact-button{
+  margin-top: 5%;
 }

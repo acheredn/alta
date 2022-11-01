@@ -18,29 +18,6 @@ import { v4 } from "uuid";
 
 
 const ItemSelected = () => {
-	const [imageUpload, setImageUpload] = useState(null);
-	const [imageUrls, setImageUrls] = useState([]);
-
-	const imagesListRef = ref(storage, "images/");
-	const uploadFile = () => {
-		if (imageUpload == null) return;
-		const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
-		uploadBytes(imageRef, imageUpload).then((snapshot) => {
-			getDownloadURL(snapshot.ref).then((url) => {
-				setImageUrls((prev) => [...prev, url]);
-			});
-		});
-	};
-
-	useEffect(() => {
-		listAll(imagesListRef).then((response) => {
-			response.items.forEach((item) => {
-				getDownloadURL(item).then((url) => {
-					setImageUrls((prev) => [...prev, url]);
-				});
-			});
-		});
-	}, []);
 
 	const Button = styled.button`
 
@@ -62,9 +39,6 @@ const ItemSelected = () => {
 	];
 
 	return (
-
-		// <><><h1>ITEM SELECTED
-		// </h1><Button onClick={sayHello}>Contact me</Button></><img src="https://www.tutorialspoint.com/html/images/test.png" alt="Simply Easy Learning" width="200" height="80"></img></>
 		<body >
 			<CssBaseline />
 			<h1> ITEM SELECTED </h1><br />
@@ -90,32 +64,24 @@ const ItemSelected = () => {
 					<em>Description:</em><br />
 					I bouth this shirt 2 months ago and wore it 3 times. The shorts I bought from H&M last week but it is not fit to me <br />
 					(continue reading)<br />
+					<div  id = "contact-button">
+					<Button
+                                style={{
+                                    backgroundColor: "#000000",
+                                    padding: "1px 20px",
+                                    fontSize: "12px",
+                                }} variant="contained"> 
+                                <a href="/chat">Contact Me</a>
+                               </Button>
+					</div>
+					
 				</div>
 			</div>
 
 			<span>
 				<br />
 				<br />
-				<button class="button"
-					onClick={sayHello}
-					type="submit"
-				>
-					Contact Me
-				</button>
-				<input
-					type="file"
-					onChange={(event) => {
-						setImageUpload(event.target.files[0]);
-					}}
-				/>
-				<Button onClick={uploadFile}> Upload Image</Button>
-				<div class='image-map'>
-					{imageUrls.map((url) => {
-						return <img src={url}/>
-
-					})}
-				</div>
-
+		
 
 			</span><br />
 

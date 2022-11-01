@@ -8,12 +8,7 @@ function TaskItem({onClose, open, title, description, imageUrls}) {
       <div className='taskItem'>
         <h2>{title}</h2>
         <p>{description}</p>
-        <div class='image-map'>
-					{imageUrls.map((url) => {
-						return <img src={url}/>
 
-					})}
-				</div>
       </div>
     </Modal>
   )
