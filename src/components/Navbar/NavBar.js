@@ -6,7 +6,13 @@ import styled from 'styled-components';
 import CssBaseline from '@mui/material/CssBaseline';
 import "react-slideshow-image/dist/styles.css";
 import { Container } from '@mui/system';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Typography from '@mui/material/Typography';
 
+
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout']; // change these as needed
 
 
 function Navbar() {
@@ -14,6 +20,24 @@ function Navbar() {
 
 	const showNavbar = () => {
 		navRef.current.classList.toggle("responsive_nav");
+	};
+
+	const [anchorElNav, setAnchorElNav] = React.useState(null);
+	const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+	const handleOpenNavMenu = (event) => {
+		setAnchorElNav(event.currentTarget);
+	};
+	const handleOpenUserMenu = (event) => {
+		setAnchorElUser(event.currentTarget);
+	};
+
+	const handleCloseNavMenu = () => {
+		setAnchorElNav(null);
+	};
+
+	const handleCloseUserMenu = () => {
+		setAnchorElUser(null);
 	};
 
 	return (
@@ -24,10 +48,35 @@ function Navbar() {
 				<a href="login">Login</a>
 				<a href="item-selected">Item Selected</a> 
 				<a href="sign-up">Sign Up</a>
-				<a href="item-list">Item List</a>
+				{/* <a href="item-list">Item List</a> */}
 				<a href="my-items">My Items</a>
 				<a href="chat">Chat</a>
 				<a href="test"> Test </a>
+				<IconButton onClick={handleOpenUserMenu} sx={{ width: .1 }}>
+					<img src="http://www.clker.com/cliparts/f/a/0/c/1434020125875430376profile-hi.png"></img>
+				</IconButton>
+				<Menu
+					sx={{ mt: '45px' }}
+					id="menu-appbar"
+					anchorEl={anchorElUser}
+					anchorOrigin={{
+						vertical: 'top',
+						horizontal: 'right',
+					}}
+					keepMounted
+					transformOrigin={{
+						vertical: 'top',
+						horizontal: 'right',
+					}}
+					open={Boolean(anchorElUser)}
+					onClose={handleCloseUserMenu}
+					>
+					{settings.map((setting) => (
+						<MenuItem key={setting} onClick={handleCloseUserMenu}>
+						<Typography textAlign="center">{setting}</Typography>
+						</MenuItem>
+					))}
+				</Menu>
 				<button
 					className="nav-btn nav-close-btn"
 					onClick={showNavbar}>
