@@ -115,7 +115,8 @@ export default function SignUp() {
 							type="submit"
 							fullWidth
 							variant="contained"
-							sx={{ mt: 2, mb: 2 }}
+							sx={{ mt: 1, mb: 2 }}
+							startIcon={<img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="googleLogo" height={25} ></img>}
 						>
 							Login With Google
 						</Button>
