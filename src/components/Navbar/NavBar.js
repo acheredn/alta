@@ -10,10 +10,12 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
+import logout from '../../firebase.js'
 
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']; // change these as needed
 
+const actions = ['Profile', 'a', 'b', logout]
 
 function Navbar() {
 	const navRef = useRef();
@@ -71,7 +73,7 @@ function Navbar() {
 					open={Boolean(anchorElUser)}
 					onClose={handleCloseUserMenu}
 					>
-					{settings.map((setting) => (
+					{settings.map((setting, index) => (
 						<MenuItem key={setting} onClick={handleCloseUserMenu}>
 						<Typography textAlign="center">{setting}</Typography>
 						</MenuItem>

@@ -36,7 +36,7 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 export default storage;
 
-  
+
 
 const googleProvider = new GoogleAuthProvider();
 const signInWithGoogle = async () => {
@@ -53,6 +53,8 @@ const signInWithGoogle = async () => {
         email: user.email,
       });
     }
+    
+
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -95,7 +97,9 @@ const sendPasswordReset = async (email) => {
 };
 
 const logout = () => {
+  alert('Log out successfuly');
   signOut(auth);
+
 };
 
 export {

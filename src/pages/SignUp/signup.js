@@ -119,9 +119,7 @@ export default function SignUp() {
 						>
 							Login With Google
 						</Button>
-						{/* <Button className="login__btn login__google" onClick={signInWithGoogle}>
-							Login with Google
-						</Button> */}
+			
 						<Grid container>
 							<Grid item>
 								<Link href="login" variant="body2">

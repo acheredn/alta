@@ -64,24 +64,24 @@ const ItemSelected = () => {
 					<em>Description:</em><br />
 					I bouth this shirt 2 months ago and wore it 3 times. The shorts I bought from H&M last week but it is not fit to me <br />
 					(continue reading)<br />
-					<div  id = "contact-button">
-					<Button
-                                style={{
-                                    backgroundColor: "#000000",
-                                    padding: "1px 20px",
-                                    fontSize: "12px",
-                                }} variant="contained"> 
-                                <a href="/chat">Contact Me</a>
-                               </Button>
+					<div id="contact-button">
+						<Button
+							style={{
+								backgroundColor: "#000000",
+								padding: "1px 20px",
+								fontSize: "12px",
+							}} variant="contained">
+							<a href="/chat">Contact Me</a>
+						</Button>
 					</div>
-					
+
 				</div>
 			</div>
 
 			<span>
 				<br />
 				<br />
-		
+
 
 			</span><br />
 
