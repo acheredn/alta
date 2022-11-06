@@ -8,29 +8,21 @@ import Home from './pages/Home/index';
 import Login from './pages/Login/login';
 import ItemSelected from './pages/ItemSelected/itemSelected';
 import SignUp from './pages/SignUp/signup';
-import ItemList from './pages/ItemList/itemList';
 import Chat from './pages/Chat/chat'
 import Test from './pages/Test/test';
-import MyItem from './pages/MyItems/myItems'
 
-import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import Footer from './components/Footer';
 import MyItems from './pages/MyItems/myItems';
 // import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
-    //     const app = initializeApp(firebaseConfig);
-    //     const db = getFirestore(app);
 
     const theme = createTheme({
         palette: {
           primary: {
             main: '#000000'
           },
-        //   secondary: {
-        //     main: "#494c7d"
-        //   }
         }
       });
 

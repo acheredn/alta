@@ -1,5 +1,5 @@
 import Modal from "./Modal"
-import './addTask.css'
+import './addItem.css'
 import { db } from '../../firebase'
 import { collection, addDoc, Timestamp } from 'firebase/firestore'
 import {
@@ -17,9 +17,11 @@ function AddTask({ onClose, open }) {
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
+  const [image, setImage] = useState('')
+  const [imageUpload, setImageUpload] = useState('');
 
-  /* function to add new task to firestore */
-  const [imageUpload, setImageUpload] = useState(null);
+
+
   const [imageUrls, setImageUrls] = useState([]);
 
   const imagesListRef = ref(storage, "images/");
@@ -29,26 +31,30 @@ function AddTask({ onClose, open }) {
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         setImageUrls((prev) => [...prev, url]);
+        return url;
       });
     });
   };
 
   useEffect(() => {
-		listAll(imagesListRef).then((response) => {
-			response.items.forEach((item) => {
-				getDownloadURL(item).then((url) => {
-					setImageUrls((prev) => [...prev, url]);
-				});
-			});
-		});
-	}, []);
+    listAll(imagesListRef).then((response) => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setImageUrls((prev) => [...prev, url]);
+        });
+      });
+    });
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    uploadFile()
+    const image = uploadFile()
     try {
       await addDoc(collection(db, 'items'), {
         title: title,
         description: description,
+        image: image,
         completed: false,
         created: Timestamp.now()
       })
@@ -91,7 +97,10 @@ function AddTask({ onClose, open }) {
             setImageUpload(event.target.files[0]);
           }}
         />
-        <Button onClick={uploadFile}> Upload Image</Button>
+        {/* <Button onClick={uploadFile}> Upload Image</Button> */}
+        <input
+          value = {imageUrls}
+        />
         <div class='image-map'>
         </div>
         <button type='submit'>Done</button>

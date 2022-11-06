@@ -1,6 +1,6 @@
 import Modal from "./Modal"
 import {useState} from 'react'
-import './editTask.css'
+import './editItem.css'
 import { doc, updateDoc } from "firebase/firestore";
 import {db} from '../../firebase'
 

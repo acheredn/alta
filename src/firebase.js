@@ -53,7 +53,7 @@ const signInWithGoogle = async () => {
         email: user.email,
       });
     }
-    
+
 
   } catch (err) {
     console.error(err);
@@ -110,6 +110,5 @@ export {
   registerWithEmailAndPassword,
   sendPasswordReset,
   logout,
-
 };
 
