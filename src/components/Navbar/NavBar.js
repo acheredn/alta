@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef,useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./navBar.css";
 import React from 'react';
@@ -15,6 +15,27 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout']; // change these 
 const actions = ['Profile', 'a', 'b', logout]
 
 function Navbar() {
+
+	const [scrolled, setScrolled] = React.useState(false);
+	const handleScroll = () => {
+		const offset = window.scrollY;
+		if (offset > 50) {
+			setScrolled(true);
+		}
+		else {
+			setScrolled(false);
+		}
+	}
+
+	useEffect(() => {
+		window.addEventListener('scroll', handleScroll)
+	})
+
+	let navbarClasses = ['navbar'];
+	if (scrolled) {
+		navbarClasses.push('scrolled');
+	}
+
 	const navRef = useRef();
 
 	const showNavbar = () => {
@@ -40,14 +61,13 @@ function Navbar() {
 	};
 
 	return (
-		<header>
-			<a class = "logo" href = "/#">SWAP</a>
+		<header className={navbarClasses.join(" ")}>
+			<a class="logo" href="/#">SWAP</a>
 			<nav ref={navRef}>
 				<a href="/#">Welcome</a>
 				<a href="login">Login</a>
-				<a href="item-selected">Item Selected</a> 
+				<a href="item-selected">Item Selected</a>
 				<a href="sign-up">Sign Up</a>
-				{/* <a href="item-list">Item List</a> */}
 				<a href="my-items">My Items</a>
 				<a href="chat">Chat</a>
 				<a href="test"> Test </a>
@@ -69,10 +89,10 @@ function Navbar() {
 					}}
 					open={Boolean(anchorElUser)}
 					onClose={handleCloseUserMenu}
-					>
+				>
 					{settings.map((setting, index) => (
 						<MenuItem key={setting} onClick={handleCloseUserMenu}>
-						<Typography textAlign="center">{setting}</Typography>
+							<Typography textAlign="center">{setting}</Typography>
 						</MenuItem>
 					))}
 				</Menu>

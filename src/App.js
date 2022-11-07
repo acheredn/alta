@@ -33,7 +33,6 @@ function App() {
             <Routes>
                 <Route path='/' exact element={<Home />} />
                 <Route path='/item-selected' element={<ItemSelected />} />
-                {/* <Route path='/item-list' element={<ItemList />} /> */}
                 <Route path='/login' element={<Login />} />
                 <Route path='/sign-up' element={<SignUp />} />
                 <Route path='/chat' element={<Chat />} />
@@ -45,13 +44,6 @@ function App() {
         </ThemeProvider>
 
     );
-}
-
-async function getCities(db) {
-    const citiesCol = collection(db, 'cities');
-    const citySnapshot = await getDocs(citiesCol);
-    const cityList = citySnapshot.docs.map(doc => doc.data());
-    return cityList;
 }
 
 

@@ -98,3 +98,13 @@ nav {
 		font-size: 1.5rem;
 	}
 }
+
+.scrolled{
+  position: fixed;
+  background-color: black;
+  width: 100%;
+}
+
+/* .navigation{
+    //your navigation styles
+} */
