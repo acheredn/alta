@@ -24,7 +24,7 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 export default function ItemList() {
   const [query, setQuery] = useState("")
   return (
-    <body>
+    <body id = "items">
    {/* <ThemeProvider theme={theme}> */}
         <CssBaseline />
          {/* <main> */}

@@ -1,14 +1,14 @@
 import './myItems.css'
-import Task from './Task'
-import {useState, useEffect} from 'react'
-import {collection, query, orderBy, onSnapshot} from "firebase/firestore"
-import {db} from '../../firebase'
-import AddTask from './AddTask'
+import Item from './Item'
+import { useState, useEffect } from 'react'
+import { collection, query, orderBy, onSnapshot } from "firebase/firestore"
+import { db } from '../../firebase'
+import AddTask from './AddItem'
 import {
-	ref,
-	uploadBytes,
-	getDownloadURL,
-	listAll,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  listAll,
 } from "firebase/storage";
 import { v4 } from "uuid";
 import storage from '../../firebase';
@@ -19,27 +19,27 @@ function MyItems() {
   const [Items, setItems] = useState([])
   const [imageUrls, setImageUrls] = useState([]);
   const [imageUpload, setImageUpload] = useState(null);
-  	const imagesListRef = ref(storage, "images/");
+  const imagesListRef = ref(storage, "images/");
 
   const uploadFile = () => {
-		if (imageUpload == null) return;
-		const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
-		uploadBytes(imageRef, imageUpload).then((snapshot) => {
-			getDownloadURL(snapshot.ref).then((url) => {
-				setImageUrls((prev) => [...prev, url]);
-			});
-		});
-	};
+    if (imageUpload == null) return;
+    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+    uploadBytes(imageRef, imageUpload).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImageUrls((prev) => [...prev, url]);
+      });
+    });
+  };
 
-  /* function to get all Items from firestore in realtime */ 
+  /* function to get all Items from firestore in realtime */
   useEffect(() => {
     listAll(imagesListRef).then((response) => {
-			response.items.forEach((item) => {
-				getDownloadURL(item).then((url) => {
-					setImageUrls((prev) => [...prev, url]);
-				});
-			});
-		});
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setImageUrls((prev) => [...prev, url]);
+        });
+      });
+    });
 
     const taskColRef = query(collection(db, 'items'), orderBy('created', 'desc'))
     onSnapshot(taskColRef, (snapshot) => {
@@ -48,32 +48,33 @@ function MyItems() {
         data: doc.data()
       })))
     })
-  },[])
+  }, [])
 
 
   return (
     <div className='taskManager'>
       <header>My Items List</header>
       <div className='taskManager__container'>
-        <button 
+        <button
           onClick={() => setOpenAddModal(true)}>
           Add Item +
         </button>
         <div class='image-map'>
-					{imageUrls.map((url) => {
-						return <img src={url}/>
+          {imageUrls.map((url) => {
+            return <img src={url} />
 
-					})}
-				</div>
+          })}
+        </div>
         <div className='taskManager__Items'>
 
-          {Items.map((task) => (
-            <Task
-              id={task.id}
-              key={task.id}
-              completed={task.data.completed}
-              title={task.data.title} 
-              description={task.data.description}
+          {Items.map((items) => (
+            <Item
+              id={items.id}
+              key={items.id}
+              completed={items.data.completed}
+              title={items.data.title}
+              description={items.data.description}
+              image={items.data.image}
             />
           ))}
 
@@ -81,7 +82,7 @@ function MyItems() {
       </div>
 
       {openAddModal &&
-        <AddTask onClose={() => setOpenAddModal(false)} open={openAddModal}/>
+        <AddTask onClose={() => setOpenAddModal(false)} open={openAddModal} />
       }
 
     </div>

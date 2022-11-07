@@ -1,15 +1,14 @@
-import './task.css'
+import './item.css'
 import { useState } from 'react'
-import TaskItem from './TaskItem'
-import EditTask from './EditTask'
+import TaskItem from './ItemView'
+import EditTask from './EditItem'
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from '../../firebase'
 
-function MyItems({ id, title, description, completed }) {
+function MyItems({ id, title, description, image, completed }) {
 
   const [checked, setChecked] = useState(completed)
   const [open, setOpen] = useState({ edit: false, view: false })
-  const [imageUrls, setImageUrls] = useState([]);
 
   const handleClose = () => {
     setOpen({ edit: false, view: false })
@@ -55,6 +54,7 @@ function MyItems({ id, title, description, completed }) {
       <div className='task__body'>
         <h2>{title}</h2>
         <p>{description}</p>
+        <img src={image}/>
         <div className='task__buttons'>
           <div className='task__deleteNedit'>
             <button
@@ -76,7 +76,7 @@ function MyItems({ id, title, description, completed }) {
           onClose={handleClose}
           title={title}
           description={description}
-          imageUrls={imageUrls}
+          // image={image}
           open={open.view} />
       }
 
