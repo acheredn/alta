@@ -19,7 +19,7 @@ function Navbar() {
 	const [scrolled, setScrolled] = React.useState(false);
 	const handleScroll = () => {
 		const offset = window.scrollY;
-		if (offset > 50) {
+		if (offset > 0) {
 			setScrolled(true);
 		}
 		else {
@@ -69,7 +69,6 @@ function Navbar() {
 				<a href="item-selected">Item Selected</a>
 				<a href="sign-up">Sign Up</a>
 				<a href="my-items">My Items</a>
-				<a href="chat">Chat</a>
 				<a href="test"> Test </a>
 				<IconButton onClick={handleOpenUserMenu} sx={{ width: .1 }}>
 					<img src="http://www.clker.com/cliparts/f/a/0/c/1434020125875430376profile-hi.png"></img>
