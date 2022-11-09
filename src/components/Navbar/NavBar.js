@@ -1,4 +1,4 @@
-import { useRef,useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./navBar.css";
 import React from 'react';
@@ -8,6 +8,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import logout from '../../firebase.js'
+import { getAuth} from "firebase/auth";
 
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']; // change these as needed
@@ -15,6 +16,24 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout']; // change these 
 const actions = ['Profile', 'a', 'b', logout]
 
 function Navbar() {
+
+
+
+	// const auth = getAuth();
+	const user = getAuth.currentUser;
+	// if (user !== null) {
+	// 	// The user object has basic properties such as display name, email, etc.
+	// 	const displayName = user.displayName;
+	// 	const email = user.email;
+	// 	const photoURL = user.photoURL;
+	// 	const emailVerified = user.emailVerified;
+
+	// 	// The user's ID, unique to the Firebase project. Do NOT use
+	// 	// this value to authenticate with your backend server, if
+	// 	// you have one. Use User.getToken() instead.
+	// 	const uid = user.uid;
+	// }
+
 
 	const [scrolled, setScrolled] = React.useState(false);
 	const handleScroll = () => {
@@ -74,7 +93,7 @@ function Navbar() {
 					<img src="http://www.clker.com/cliparts/f/a/0/c/1434020125875430376profile-hi.png"></img>
 				</IconButton>
 				<Menu
-					sx={{ mt: '45px' }}
+					sx={{ mt: '25px' }}
 					id="menu-appbar"
 					anchorEl={anchorElUser}
 					anchorOrigin={{
@@ -95,15 +114,8 @@ function Navbar() {
 						</MenuItem>
 					))}
 				</Menu>
-				<button
-					className="nav-btn nav-close-btn"
-					onClick={showNavbar}>
-					<FaTimes />
-				</button>
+				<Typography fontSize={15} textAlign="left" >{user.displayName}</Typography>
 			</nav>
-			<button className="nav-btn" onClick={showNavbar}>
-				<FaBars />
-			</button>
 		</header>
 	);
 }
