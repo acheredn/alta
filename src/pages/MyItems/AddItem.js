@@ -49,12 +49,10 @@ function AddTask({ onClose, open }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     uploadFile()
-    const image = uploadFile()
     try {
       await addDoc(collection(db, 'items'), {
         title: title,
         description: description,
-        image: image,
         completed: false,
         created: Timestamp.now()
       })
@@ -97,7 +95,6 @@ function AddTask({ onClose, open }) {
             setImageUpload(event.target.files[0]);
           }}
         />
-        {/* <Button onClick={uploadFile}> Upload Image</Button> */}
         <input
           value = {imageUrls}
         />
