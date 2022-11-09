@@ -71,7 +71,7 @@ const ItemSelected = () => {
 								padding: "1px 20px",
 								fontSize: "12px",
 							}} variant="contained">
-							<a href="/chat">Contact Me</a>
+							<a href="/items">Contact Me</a>
 						</Button>
 					</div>
 
@@ -93,7 +93,7 @@ const ItemSelected = () => {
 }
 
 function sayHello() {
-	alert('Go to chat page');
+	alert('Go to another page');
 }
 
 
