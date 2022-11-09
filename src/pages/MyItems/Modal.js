@@ -1,3 +1,4 @@
+import React from 'react';
 import './modal.css'
 
 function Modal({ open, modalLable, children, custom_modal, onClose }) {
