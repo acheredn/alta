@@ -1,3 +1,4 @@
+import React from 'react';
 import Modal from "./Modal"
 import './addItem.css'
 import { db } from '../../firebase'
