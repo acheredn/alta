@@ -12,11 +12,14 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-// import { auth, signInWithEmailAndPassword, signInWithGoogle } from "./firebase";
-// import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 
 export default function SignIn() {
+	// const [email, setEmail] = useState("");
+	// const [password, setPassword] = useState("");
+	const [user, loading, error] = useAuthState(auth);
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		const data = new FormData(event.currentTarget);
@@ -77,14 +80,14 @@ export default function SignIn() {
 					>
 					Sign In
 					</Button>
-					<Button
-					type="submit"
-					fullWidth
-					variant="contained"
-					sx={{ mt: 1, mb: 2 }}
-					startIcon={<img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="googleLogo" height={25} ></img>}
+					<Button onClick={signInWithGoogle}
+						type="submit"
+						fullWidth
+						variant="contained"
+						sx={{ mt: 1, mb: 2 }}
+						startIcon={<img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="googleLogo" height={25} ></img>}
 					>
-					Sign In With Google
+						Sign in With Google
 					</Button>
 					<Grid container>
 					<Grid item xs>
