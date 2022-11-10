@@ -1,31 +1,29 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react'
+import { collection, addDocs, getDocs, query, orderBy, onSnapshot } from "firebase/firestore"
 import SearchBar from './searchbar';
-import Quote from './quote';
+import { db } from '../../firebase'
 import './test.css'
 
 export default function Test() {
 
-    const [quotes, setQuotes] = useState([]);
+    const [todos, setTodos] = useState([]);
     const [noResults, setNoResults] = useState(false);
 
-    const onSearchSubmit = async term => {
-      console.log('New Search submit:', term);
-      const res = await fetch(`https://animechan.vercel.app/api/quotes/anime?title=${term}`)
-      if (res.status == 200) {
-        const quotesArray = await res.json(term.toLowerCase());
-        setQuotes(quotesArray);
-      }
-
-      if (res.status == 404) {
-        setNoResults();
-      }      
-    };
-  
-    const clearResults = () => setQuotes([]);
-  
-    const renderedQuotes = quotes.map((quote, i) => {
-      return <Quote quote={quote} key={i} />
-    })
+    const fetchPost = async () => {
+       
+      await getDocs(collection(db, "items"))
+          .then((querySnapshot)=>{               
+              const newData = querySnapshot.docs
+                  .map((doc) => ({...doc.data(), id:doc.id }));
+              setTodos(newData);                
+              console.log(todos, newData);
+          })
+     
+  }
+ 
+  useEffect(()=>{
+      fetchPost();
+  }, [])
 
     return (
       <div className='test'>
@@ -33,20 +31,31 @@ export default function Test() {
   
         <div className='disclaimer-container'>
           <p className='disclaimer'>
-            Get 10 quotes from your favorite <span className='highlight'>anime</span>!
+            Search through the clothes you'd like!
           </p>
 
-        </div>
+        {/* </div>
         <SearchBar onSearchSubmit={onSearchSubmit} clearResults={clearResults}/>
         { noResults &&
           <p className='no-results'>
             No results found.
           </p>
-        }
+        } */}
 
-        <div className='main-content'>
+          <div className="main-content">
+                    {
+                        todos?.map((todo,i)=>(
+                            <p key={i}>
+                                {todo.title}
+                            </p>
+                        ))
+                    }
+                </div>
+
+        {/* <div className='main-content'>
           {renderedQuotes}
-        </div>
+        </div> */}
+      </div>
       </div>
     );
   };
