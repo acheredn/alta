@@ -60,12 +60,6 @@ function MyItems() {
           onClick={() => setOpenAddModal(true)}>
           Add Item +
         </button>
-        <div class='image-map'>
-          {imageUrls.map((url) => {
-            return <img src={url} />
-
-          })}
-        </div>
         <div className='taskManager__Items'>
 
           {Items.map((items) => (

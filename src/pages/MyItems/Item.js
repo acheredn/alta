@@ -17,9 +17,9 @@ function MyItems({ id, title, description, image, completed }) {
 
   /* function to update firestore */
   const handleChange = async () => {
-    const taskDocRef = doc(db, 'items', id)
+    const itemDocRef = doc(db, 'items', id)
     try {
-      await updateDoc(taskDocRef, {
+      await updateDoc(itemDocRef, {
         completed: checked
       })
     } catch (err) {
@@ -29,9 +29,9 @@ function MyItems({ id, title, description, image, completed }) {
 
   /* function to delete a document from firstore */
   const handleDelete = async () => {
-    const taskDocRef = doc(db, 'items', id)
+    const itemDocRef = doc(db, 'items', id)
     try {
-      await deleteDoc(taskDocRef)
+      await deleteDoc(itemDocRef)
     } catch (err) {
       alert(err)
     }

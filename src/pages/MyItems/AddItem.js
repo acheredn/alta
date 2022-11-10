@@ -32,7 +32,6 @@ function AddTask({ onClose, open }) {
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         setImageUrls((prev) => [...prev, url]);
-        return url;
       });
     });
   };
@@ -49,11 +48,12 @@ function AddTask({ onClose, open }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    uploadFile()
+    uploadFile();
     try {
       await addDoc(collection(db, 'items'), {
         title: title,
         description: description,
+        image: imageUrls,
         completed: false,
         created: Timestamp.now()
       })
@@ -88,16 +88,13 @@ function AddTask({ onClose, open }) {
           placeholder='Enter title' />
         <textarea
           onChange={(e) => setDescription(e.target.value)}
-          placeholder='Enter item decription'
+          placeholder='Enter item description'
           value={description}></textarea>
         <input
           type="file"
           onChange={(event) => {
             setImageUpload(event.target.files[0]);
           }}
-        />
-        <input
-          value = {imageUrls}
         />
         <div class='image-map'>
         </div>
