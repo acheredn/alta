@@ -77,7 +77,6 @@ function MyItems({ id, title, description, image, completed }) {
           onClose={handleClose}
           title={title}
           description={description}
-          // image={image}
           open={open.view} />
       }
 

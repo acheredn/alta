@@ -23,7 +23,7 @@ function Navbar() {
 
 
 	// const auth = getAuth();
-	const user = getAuth.currentUser;
+	// const user = getAuth.currentUser;
 	// if (user !== null) {
 	// 	// The user object has basic properties such as display name, email, etc.
 	// 	const displayName = user.displayName;
@@ -168,7 +168,6 @@ function Navbar() {
 						</MenuItem>
 					))}
 				</Menu>
-				<Typography fontSize={15} textAlign="left" >{user.displayName}</Typography>
 			</nav>
 		</header>
 	);
