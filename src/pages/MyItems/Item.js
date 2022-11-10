@@ -1,7 +1,7 @@
 import React from 'react';
 import './item.css'
 import { useState } from 'react'
-import TaskItem from './ItemView'
+import ItemView from './ItemView'
 import EditTask from './EditItem'
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from '../../firebase'
@@ -73,10 +73,11 @@ function MyItems({ id, title, description, image, completed }) {
       </div>
 
       {open.view &&
-        <TaskItem
+        <ItemView
           onClose={handleClose}
           title={title}
           description={description}
+          image = {image}
           open={open.view} />
       }
 
