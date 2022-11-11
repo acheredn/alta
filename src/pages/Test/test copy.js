@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SearchBar from './searchbar';
-import Quote from './quote';
+import Quote from './item';
 import './test.css'
 
 export default function Test() {
