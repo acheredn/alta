@@ -1,8 +1,8 @@
 import React from 'react';
 import './item.css'
 import { useState } from 'react'
-import TaskItem from './ItemView'
-import EditTask from './EditItem'
+import ItemView from './ItemView'
+import EditItem from './EditItem'
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from '../../firebase'
 
@@ -17,9 +17,9 @@ function MyItems({ id, title, description, image, completed }) {
 
   /* function to update firestore */
   const handleChange = async () => {
-    const taskDocRef = doc(db, 'tasks', id)
+    const itemDocRef = doc(db, 'items', id)
     try {
-      await updateDoc(taskDocRef, {
+      await updateDoc(itemDocRef, {
         completed: checked
       })
     } catch (err) {
@@ -29,16 +29,16 @@ function MyItems({ id, title, description, image, completed }) {
 
   /* function to delete a document from firstore */
   const handleDelete = async () => {
-    const taskDocRef = doc(db, 'tasks', id)
+    const itemDocRef = doc(db, 'items', id)
     try {
-      await deleteDoc(taskDocRef)
+      await deleteDoc(itemDocRef)
     } catch (err) {
       alert(err)
     }
   }
 
   return (
-    <div className={`task ${checked && 'task--borderColor'}`}>
+    <div className={`item ${checked && 'item--borderColor'}`}>
       <div>
         <input
           id={`checkbox-${id}`}
@@ -52,20 +52,20 @@ function MyItems({ id, title, description, image, completed }) {
           className="checkbox-custom-label"
           onClick={() => setChecked(!checked)} ></label>
       </div>
-      <div className='task__body'>
+      <div className='item__body'>
         <h2>{title}</h2>
         <p>{description}</p>
         <img src={image}/>
-        <div className='task__buttons'>
-          <div className='task__deleteNedit'>
+        <div className='item__buttons'>
+          <div className='item__deleteNedit'>
             <button
-              className='task__editButton'
+              className='item__editButton'
               onClick={() => setOpen({ ...open, edit: true })}>
               Edit
             </button>
-            <button className='task__deleteButton' onClick={handleDelete}>Delete</button>
+            <button className='item__deleteButton' onClick={handleDelete}>Delete</button>
           </div>
-          <button
+          <button className='item_viewButton'
             onClick={() => setOpen({ ...open, view: true })}>
             View
           </button>
@@ -73,16 +73,16 @@ function MyItems({ id, title, description, image, completed }) {
       </div>
 
       {open.view &&
-        <TaskItem
+        <ItemView
           onClose={handleClose}
           title={title}
           description={description}
-          // image={image}
+          image = {image}
           open={open.view} />
       }
 
       {open.edit &&
-        <EditTask
+        <EditItem
           onClose={handleClose}
           toEditTitle={title}
           toEditDescription={description}

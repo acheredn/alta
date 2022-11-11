@@ -1,6 +1,12 @@
 .quote-container{
+    border-top: 1px solid grey;
     border-bottom: 1px solid grey;
     padding-top: 2%;
+}
+
+.image{
+    max-width:450px;
+    max-height:450px;
 }
 
 .quote{
@@ -15,5 +21,5 @@
 
 .highlight{
     font-weight: bold;
-    color: aquamarine;
+    color: rgb(43, 255, 0);
 }

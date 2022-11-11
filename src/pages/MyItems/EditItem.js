@@ -5,7 +5,7 @@ import './editItem.css'
 import { doc, updateDoc } from "firebase/firestore";
 import {db} from '../../firebase'
 
-function EditTask({open, onClose, toEditTitle, toEditDescription, id}) {
+function EditItem({open, onClose, toEditTitle, toEditDescription, id}) {
 
   const [title, setTitle] = useState(toEditTitle)
   const [description, setDescription] = useState(toEditDescription)
@@ -13,7 +13,7 @@ function EditTask({open, onClose, toEditTitle, toEditDescription, id}) {
   /* function to update firestore */
   const handleUpdate = async (e) => {
     e.preventDefault()
-    const taskDocRef = doc(db, 'tasks', id)
+    const taskDocRef = doc(db, 'items', id)
     try{
       await updateDoc(taskDocRef, {
         title: title,
@@ -37,4 +37,4 @@ function EditTask({open, onClose, toEditTitle, toEditDescription, id}) {
   )
 }
 
-export default EditTask
+export default EditItem

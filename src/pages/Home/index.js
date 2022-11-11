@@ -11,7 +11,7 @@ import { useState } from "react";
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import SearchBar from '../../pages/Test/searchbar';
-import Quote from '../../pages/Test/quote';
+import Item from '../../pages/Test/item';
 import '../../pages/Test/test.css'
 import { Link, animateScroll as scroll } from "react-scroll";
 import ItemList from '../ItemList/itemList';
@@ -48,7 +48,7 @@ const Home = () => {
     const clearResults = () => setQuotes([]);
 
     const renderedQuotes = quotes.map((quote, i) => {
-        return <Quote quote={quote} key={i} />
+        return <Item quote={quote} key={i} />
     })
 
     return (
