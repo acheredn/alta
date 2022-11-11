@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
-import logout from '../../firebase.js'
+import {logout, auth} from '../../firebase.js'
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
@@ -23,7 +23,7 @@ function Navbar() {
 
 
 	// const auth = getAuth();
-	// const user = getAuth.currentUser;
+	const user = auth.currentUser;
 	// if (user !== null) {
 	// 	// The user object has basic properties such as display name, email, etc.
 	// 	const displayName = user.displayName;
@@ -143,7 +143,7 @@ function Navbar() {
 						inputProps={{ 'aria-label': 'search' }}
 					/>
 				</Search>
-				<IconButton onClick={handleOpenUserMenu} sx={{ width: .1 }}>
+				<IconButton onClick={handleOpenUserMenu} sx={{ width: .09 }}>
 					<img src="http://www.clker.com/cliparts/f/a/0/c/1434020125875430376profile-hi.png"></img>
 				</IconButton>
 				{user ? (

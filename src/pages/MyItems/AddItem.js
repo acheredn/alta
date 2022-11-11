@@ -18,20 +18,16 @@ function AddTask({ onClose, open }) {
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
-  const [image, setImage] = useState('')
   const [imageUpload, setImageUpload] = useState('');
-
-
-
   const [imageUrls, setImageUrls] = useState([]);
 
   const imagesListRef = ref(storage, "images/");
-  const uploadFile = () => {
+  const uploadFile = async () => {
     if (imageUpload == null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then((url) => {
-        setImageUrls((prev) => [...prev, url]);
+      getDownloadURL(snapshot.ref).then( (url) => {
+         setImageUrls(url);
       });
     });
   };
