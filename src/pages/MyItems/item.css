@@ -109,19 +109,19 @@
   background-color: transparent;
   border: none;
   font-size: 16px;
-  color: hsl(210, 10%, 55%);
+  color: hsl(0, 0%, 0%);
 }
 
 .item__editButton:hover {
-  color: hsl(210, 20%, 25%);
+  color: hsl(209, 19%, 34%);
 }
 
 .item__editButton:active {
-  color: hsl(210, 10%, 55%);
+  color: hsl(210, 100%, 2%);
 }
 
 .item__deleteNedit .item__deleteButton {
-  color: hsl(0, 80%, 80%);
+  color: hsl(0, 93%, 50%);
 }
 
 .item__deleteButton:hover {
