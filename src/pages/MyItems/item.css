@@ -1,4 +1,4 @@
-.task{
+.item {
   width: 100%;
   padding: 15px 20px;
   border-left: 4px solid hsl(210, 10%, 75%);
@@ -11,12 +11,12 @@
   box-sizing: border-box;
 }
 
-.task--borderColor{
+.item--borderColor {
   border-color: green;
   box-shadow: 0 6px 18px -9px hsl(210, 15%, 65%);
 }
 
-.task__body {
+.item__body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -25,6 +25,7 @@
 .checkbox-custom {
   display: none;
 }
+
 .checkbox-custom-label {
   display: inline-block;
   position: relative;
@@ -32,19 +33,21 @@
   margin: 5px;
   cursor: pointer;
 }
-.checkbox-custom + .checkbox-custom-label:before {
+
+.checkbox-custom+.checkbox-custom-label:before {
   content: '';
   background: inherit;
   border-radius: 5px;
   border: 2px solid hsl(210, 15%, 70%);
   display: inline-block;
   vertical-align: middle;
-  width: 12px; 
+  width: 12px;
   height: 12px;
-  padding: 2px; 
+  padding: 2px;
   margin-right: 10px;
 }
-.checkbox-custom:checked + .checkbox-custom-label:after {
+
+.checkbox-custom:checked+.checkbox-custom-label:after {
   content: "";
   padding: 2px;
   position: absolute;
@@ -53,26 +56,37 @@
   border: solid green;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
-  top: 2px; left: 5px;
+  top: 2px;
+  left: 5px;
 }
 
-.task__body p{
+.item__body p {
   margin: 10px 0 0 0;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical; 
+  -webkit-box-orient: vertical;
 }
 
-.task__buttons{
+.item__buttons {
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
   align-items: center;
 }
 
-.task__buttons > button {
-  background-color: hsl(210, 70%, 60%);
+.item_viewButton {
+  width: 12%;
+  height: 12%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+  align-items: center;
+  color: black;
+}
+
+.item__buttons>button {
+  background-color: hsl(210, 100%, 2%);
   padding: 5px 10px;
   font-size: 16px;
   border: none;
@@ -80,15 +94,17 @@
   color: white;
 }
 
-.task__buttons > button:hover {
-  background-color: hsl(210, 70%, 50%);
+
+
+.item__buttons>button:hover {
+  background-color: hsl(210, 20%, 25%);
 }
 
-.task__buttons > button:active{
+.item__buttons>button:active {
   background-color: hsl(210, 70%, 60%);
 }
 
-.task__deleteNedit button {
+.item__deleteNedit button {
   margin-right: 20px;
   background-color: transparent;
   border: none;
@@ -96,22 +112,22 @@
   color: hsl(210, 10%, 55%);
 }
 
-.task__editButton:hover {
+.item__editButton:hover {
   color: hsl(210, 20%, 25%);
 }
 
-.task__editButton:active {
+.item__editButton:active {
   color: hsl(210, 10%, 55%);
 }
 
-.task__deleteNedit .task__deleteButton {
+.item__deleteNedit .item__deleteButton {
   color: hsl(0, 80%, 80%);
 }
 
-.task__deleteButton:hover {
+.item__deleteButton:hover {
   color: hsl(0, 70%, 70%);
 }
 
-.task__deleteButton:active {
+.item__deleteButton:active {
   color: hsl(0, 80%, 80%);
 }
