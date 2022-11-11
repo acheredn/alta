@@ -25,7 +25,7 @@
   height: 40px;
   border: none;
   color: white;
-  background-color: hsl(210, 12%, 15%);
+  background-color: black;
 }
 
 .editTask textarea {

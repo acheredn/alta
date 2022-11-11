@@ -2,7 +2,7 @@ import React from 'react';
 import './item.css'
 import { useState } from 'react'
 import ItemView from './ItemView'
-import EditTask from './EditItem'
+import EditItem from './EditItem'
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from '../../firebase'
 
@@ -38,7 +38,7 @@ function MyItems({ id, title, description, image, completed }) {
   }
 
   return (
-    <div className={`task ${checked && 'task--borderColor'}`}>
+    <div className={`item ${checked && 'item--borderColor'}`}>
       <div>
         <input
           id={`checkbox-${id}`}
@@ -52,20 +52,20 @@ function MyItems({ id, title, description, image, completed }) {
           className="checkbox-custom-label"
           onClick={() => setChecked(!checked)} ></label>
       </div>
-      <div className='task__body'>
+      <div className='item__body'>
         <h2>{title}</h2>
         <p>{description}</p>
         <img src={image}/>
-        <div className='task__buttons'>
-          <div className='task__deleteNedit'>
+        <div className='item__buttons'>
+          <div className='item__deleteNedit'>
             <button
-              className='task__editButton'
+              className='item__editButton'
               onClick={() => setOpen({ ...open, edit: true })}>
               Edit
             </button>
-            <button className='task__deleteButton' onClick={handleDelete}>Delete</button>
+            <button className='item__deleteButton' onClick={handleDelete}>Delete</button>
           </div>
-          <button
+          <button className='item_viewButton'
             onClick={() => setOpen({ ...open, view: true })}>
             View
           </button>
@@ -82,7 +82,7 @@ function MyItems({ id, title, description, image, completed }) {
       }
 
       {open.edit &&
-        <EditTask
+        <EditItem
           onClose={handleClose}
           toEditTitle={title}
           toEditDescription={description}
