@@ -63,7 +63,7 @@ const Home = () => {
                 }}>
                 <CssBaseline />
                 <Container maxWidth="sm">
-                    <IconButton onClick={() => setShow(prev => !prev)} Click size="large" >
+                    <IconButton onClick={() => setShow(prev => !prev)} size="large" >
                         <SearchIcon fontSize="large" />
                     </IconButton>
                     {show && <Box style={{

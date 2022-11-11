@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, {useState} from "react";
 import './App.css';
 import Navbar from './components/Navbar/NavBar';
 import { BrowserRouter as Router, Routes, Route }
@@ -9,10 +10,11 @@ import Login from './pages/Login/login';
 import ItemSelected from './pages/ItemSelected/itemSelected';
 import SignUp from './pages/SignUp/signup';
 import Test from './pages/Test/test';
-
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import Footer from './components/Footer';
 import MyItems from './pages/MyItems/myItems';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 // import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
@@ -24,7 +26,6 @@ function App() {
           },
         }
       });
-
     return (
         <ThemeProvider theme={theme}>
         <Router>
