@@ -17,6 +17,7 @@ import {
   where,
   addDoc,
 } from "firebase/firestore";
+import { useState } from "react";
 const firebaseConfig = {
   apiKey: "AIzaSyCN_sGw707q3vMIN8su4xS_vaEg6aPEOAk",
   authDomain: "alta-225.firebaseapp.com",
@@ -25,6 +26,7 @@ const firebaseConfig = {
   messagingSenderId: "423126277352",
   appId: "1:423126277352:web:cfb37640849725d33d3d5d",
   measurementId: "G-67XB90KPZK"
+
 };
 
 
@@ -59,6 +61,8 @@ const signInWithGoogle = async () => {
     console.error(err);
     alert(err.message);
   }
+
+  
 };
 
 const logInWithEmailAndPassword = async (email, password) => {
