@@ -146,11 +146,11 @@ function Navbar() {
 				<IconButton onClick={handleOpenUserMenu} sx={{ width: .1 }}>
 					<img src="http://www.clker.com/cliparts/f/a/0/c/1434020125875430376profile-hi.png"></img>
 				</IconButton>
-				{user ? (
+				{/* {user ? (
 				<Typography>
 					{user.displayName}
 				</Typography>): (
-				<a href="login">Login</a>)}
+				<a href="login">Login</a>)} */}
 				<Menu
 					sx={{ mt: '25px' }}
 					id="menu-appbar"
