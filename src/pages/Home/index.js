@@ -14,13 +14,18 @@ import SearchBar from '../../pages/Test/searchbar';
 import Item from '../../pages/Test/item';
 import '../../pages/Test/test.css'
 import { Link, animateScroll as scroll } from "react-scroll";
-import ItemList from '../ItemList/itemList';
-
+import { useEffect } from 'react'
+import { collection, query, orderBy, onSnapshot } from "firebase/firestore"
+import { db } from '../../firebase'
+import ItemsList from '../MyItems/myItems';
 
 const theme = createTheme({
     typography: { fontFamily: ["Abril Fatface"] }
 });
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+
+
+
 
 const scollToTop = () => {
     scroll.scrollToTop();
@@ -31,6 +36,9 @@ const Home = () => {
     const [show, setShow] = useState(false);
     const [quotes, setQuotes] = useState([]);
     const [noResults, setNoResults] = useState(false);
+    const [Items, setItems] = useState([])
+
+
 
     const onSearchSubmit = async term => {
         console.log('New Search submit:', term);
@@ -44,6 +52,18 @@ const Home = () => {
             setNoResults();
         }
     };
+
+    /* function to get all Items from firestore in realtime */
+    useEffect(() => {
+      const itemColRef = query(collection(db, 'items'), orderBy('created', 'desc'))
+      onSnapshot(itemColRef, (snapshot) => {
+        setItems(snapshot.docs.map(doc => ({
+          id: doc.id,
+          data: doc.data()
+        })))
+      })
+    }, [])
+  
 
     const clearResults = () => setQuotes([]);
 
@@ -74,12 +94,13 @@ const Home = () => {
 
                             <div className='disclaimer-container'>
                                 <p className='disclaimer' />
-                             
+
                             </div>
                             <SearchBar onSearchSubmit={onSearchSubmit} clearResults={clearResults} />
                             {noResults &&
                                 <p className='no-results'>
                                     No results found.
+                                   
                                 </p>
                             }
 
@@ -124,13 +145,16 @@ const Home = () => {
                                     offset={50}
                                     duration={500}
                                 >Start Shopping</Link>
+            
                             </Button>
                         </Stack>
                     </Typography>
                 </Container>
             </Box>
         </ThemeProvider>
-            <ItemList />
+  
+      <ItemsList/>
+
         </>
 
     );

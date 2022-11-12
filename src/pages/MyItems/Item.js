@@ -55,7 +55,9 @@ function MyItems({ id, title, description, image, completed }) {
       <div className='item__body'>
         <h2>{title}</h2>
         <p>{description}</p>
-        <img src={image}/>
+        <div class = "image">
+          <img width = "200" height = "200" src={image}/>
+        </div> 
         <div className='item__buttons'>
           <div className='item__deleteNedit'>
             <button
