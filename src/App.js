@@ -20,6 +20,9 @@ import 'firebase/compat/firestore';
 function App() {
 
     const theme = createTheme({
+      typography: {
+        fontFamily:  ["Abril Fatface", "cursive"].join(",")
+      },
         palette: {
           primary: {
             main: '#000000'
