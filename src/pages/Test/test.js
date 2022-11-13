@@ -1,59 +1,56 @@
-import { useState, useEffect } from 'react'
-import { collection, addDocs, getDocs, query, orderBy, onSnapshot, where } from "firebase/firestore"
-import SearchBar from './searchbar';
-import Item from './item';
-import { db } from '../../firebase'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import algoliasearch from 'algoliasearch/lite';
+import {
+  InstantSearch,
+  Configure,
+  Hits,
+  SearchBox,
+  Panel,
+  RefinementList,
+  Pagination,
+  Highlight,
+} from 'react-instantsearch-dom';
+import Hit from './hit'
 import './test.css'
+
 
 export default function Test() {
 
-    const [items, setItems] = useState([]);
-    const [noResults, setNoResults] = useState(false);
 
-    const onSearchSubmit = async term => {
+const searchClient = algoliasearch(
+  'FUH27QK0B4',
+  '95975dfd853601f433605af8a9de4734'
+);
 
-      console.log('New Search submit:', term);
+return (
+        <div className="container">
+        <InstantSearch searchClient={searchClient} indexName="items">
+          <Configure hitsPerPage={8} />
+          <div className="search-panel">
+            <div className="search-panel__filters">
+              <Panel header="Search">
+                <RefinementList attribute="items" />
+              </Panel>
+            </div>
 
-      const q = query(collection(db, "items"), where("title", "==", term));
+            <div className="search-panel__results">
+              <SearchBox
+                className="searchbox"
+                translations={{
+                  placeholder: '',
+                }}
+              />
 
-      await getDocs(q)
-          .then((querySnapshot)=>{               
-              const itemsArray = querySnapshot.docs
-                  .map((doc) => ({...doc.data(), id:doc.id }));
-              setItems(itemsArray);                
-              console.log(itemsArray);
-          })
-  }
+              <Hits hitComponent={Hit} />
 
-  const clearResults = () => setItems([]);
-
-  const renderedItems = items.map((item, i) => {
-    return <Item item={item} key={i} />
-  })
- 
-  useEffect(()=>{
-      onSearchSubmit();
-  }, [])
-
-    return (
-      <div className='test'>
-      <h1 className='title'>Search Items</h1>
-
-      <div className='disclaimer-container'>
-        <p className='disclaimer'>
-        </p>
-
+              <div className="pagination">
+                <Pagination />
+              </div>
+            </div>
+          </div>
+        </InstantSearch>
       </div>
-      <SearchBar onSearchSubmit={onSearchSubmit} clearResults={clearResults}/>
-      { noResults &&
-        <p className='no-results'>
-          No results found.
-        </p>
-      }
 
-      <div className='main-content'>
-        {renderedItems}
-      </div>
-    </div>
-    );
-  };
+  );
+}
