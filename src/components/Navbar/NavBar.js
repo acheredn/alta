@@ -11,6 +11,8 @@ import {logout, auth} from '../../firebase.js'
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
 
 
 
@@ -20,10 +22,8 @@ const actions = ['Profile', 'a', 'b', logout]
 
 function Navbar() {
 
-
-
 	// const auth = getAuth();
-	const user = auth.currentUser;
+	// const user = auth.currentUser;
 	// if (user !== null) {
 	// 	// The user object has basic properties such as display name, email, etc.
 	// 	const displayName = user.displayName;
@@ -66,6 +66,8 @@ function Navbar() {
 
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
 	const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+	const [user, loading, error] = useAuthState(auth);
 
 	const handleOpenNavMenu = (event) => {
 		setAnchorElNav(event.currentTarget);
@@ -146,11 +148,11 @@ function Navbar() {
 				<IconButton onClick={handleOpenUserMenu} sx={{ width: .09 }}>
 					<img src="http://www.clker.com/cliparts/f/a/0/c/1434020125875430376profile-hi.png"></img>
 				</IconButton>
-				{user ? (
+				 {user ? (
 				<Typography>
 					{user.displayName}
 				</Typography>): (
-				<a href="login">Login</a>)}
+				<a href="login">Login</a>)} 
 				<Menu
 					sx={{ mt: '25px' }}
 					id="menu-appbar"

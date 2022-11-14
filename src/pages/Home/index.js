@@ -8,10 +8,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { useState } from "react";
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
-import SearchBar from '../../pages/Test/searchbar';
-import Item from '../../pages/Test/item';
 import '../../pages/Test/test.css'
 import { Link, animateScroll as scroll } from "react-scroll";
 import { useEffect } from 'react'
@@ -20,7 +16,7 @@ import { db } from '../../firebase'
 import ItemsList from '../MyItems/myItems';
 
 const theme = createTheme({
-    typography: { fontFamily: ["Abril Fatface"] }
+    typography: { fontFamily: ['Abril Fatface',  "cursive"].join(",") }
 });
 
 
@@ -34,42 +30,6 @@ const scollToTop = () => {
 
 const Home = () => {
     const [show, setShow] = useState(false);
-    const [quotes, setQuotes] = useState([]);
-    const [noResults, setNoResults] = useState(false);
-    const [Items, setItems] = useState([])
-
-
-
-    const onSearchSubmit = async term => {
-        console.log('New Search submit:', term);
-        const res = await fetch(`https://animechan.vercel.app/api/quotes/anime?title=${term}`)
-        if (res.status == 200) {
-            const quotesArray = await res.json(term.toLowerCase());
-            setQuotes(quotesArray);
-        }
-
-        if (res.status == 404) {
-            setNoResults();
-        }
-    };
-
-    /* function to get all Items from firestore in realtime */
-    useEffect(() => {
-      const itemColRef = query(collection(db, 'items'), orderBy('created', 'desc'))
-      onSnapshot(itemColRef, (snapshot) => {
-        setItems(snapshot.docs.map(doc => ({
-          id: doc.id,
-          data: doc.data()
-        })))
-      })
-    }, [])
-  
-
-    const clearResults = () => setQuotes([]);
-
-    const renderedQuotes = quotes.map((quote, i) => {
-        return <Item quote={quote} key={i} />
-    })
 
     return (
         <><ThemeProvider theme={theme}>
@@ -83,34 +43,6 @@ const Home = () => {
                 }}>
                 <CssBaseline />
                 <Container maxWidth="sm">
-                    <IconButton onClick={() => setShow(prev => !prev)} size="large" >
-                        <SearchIcon fontSize="large" />
-                    </IconButton>
-                    {show && <Box style={{
-                        margin: '0 auto',
-                        maxWidth: 800
-                    }}>
-                        <div className='test'>
-
-                            <div className='disclaimer-container'>
-                                <p className='disclaimer' />
-
-                            </div>
-                            <SearchBar onSearchSubmit={onSearchSubmit} clearResults={clearResults} />
-                            {noResults &&
-                                <p className='no-results'>
-                                    No results found.
-                                   
-                                </p>
-                            }
-
-                            <div className='main-content'>
-                                {renderedQuotes}
-                            </div>
-                        </div>
-
-
-                    </Box>}
                     <Typography
                         sx={{ pt: 5 }}
                         component="h1"

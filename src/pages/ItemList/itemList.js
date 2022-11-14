@@ -24,56 +24,56 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export default function ItemList({items}) {
   const [query, setQuery] = useState("")
- 
-
+  const [show, setShow] = useState(false);
   return (
-    <div id="items">
-  
-      <CssBaseline />
-  
-      <Box
-        sx={{
-          pt: 8,
-          pb: 2,
-        }}
-      >
-        <Container maxWidth="sm">
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            color="text.primary"
-            gutterBottom
+    <div id = "items">
+   {/* <ThemeProvider theme={theme}> */}
+        <CssBaseline />
+         {/* <main> */}
+           {/* Hero unit */}
+          <Box
+            sx={{
+              pt: 8,
+              pb: 2,
+            }}
           >
-            Items List
-          </Typography>
+            <Container maxWidth="sm">
+              <Typography
+                component="h1"
+                variant="h2"
+                align="center"
+                color="text.primary"
+                gutterBottom
+              >
+                Items List
+              </Typography>
 
-          <div> <input placeholder="Search..." onChange={event => setQuery(event.target.value)} />
-            {
-              Data.filter(post => {
-                if (query === '') {
-                  return post;
-                } else if (post.itemName.toLowerCase().includes(query.toLowerCase())) {
-                  return post;
-                }
-              }).map((post, index) => (
-                <div className="box" key={index}>
-                  <p>{post.itemName}</p>
-                </div>
-              ))
-            } </div>
+              <div> <input placeholder="Search..." onChange={event => setQuery(event.target.value)} />
+              {
+                Data.filter(post => {
+                  if (query === '') {
+                    return post;
+                  } else if (post.itemName.toLowerCase().includes(query.toLowerCase())) {
+                    return post;
+                  }
+                }).map((post, index) => (
+                  <div className="box" key={index}>
+                    <p>{post.itemName}</p>
+                  </div>
+                ))
+              } </div>
 
-          <Stack
-            sx={{ pt: 4 }}
-            direction="row"
-            spacing={2}
-            justifyContent="center"
-          >
-            <Button variant="contained">Search for item</Button>
-            <Button variant="outlined">Add an item</Button>
-          </Stack>
-        </Container>
-      </Box>
+              <Stack
+                sx={{ pt: 4 }}
+                direction="row"
+                spacing={2}
+                justifyContent="center"
+              >
+                <Button variant="contained">Search for item</Button>
+                <Button variant="outlined">Add an item</Button>
+              </Stack>
+            </Container>
+          </Box>
 
       <Container sx={{ py: 8 }} maxWidth="md">
         {/* End hero unit */}
