@@ -7,71 +7,47 @@ import {
   ref,
   uploadBytes,
   getDownloadURL,
-  listAll,
 } from "firebase/storage";
 import { v4 } from "uuid";
 import storage from '../../firebase';
-import styled from 'styled-components';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function AddTask({ onClose, open }) {
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [imageUpload, setImageUpload] = useState('');
-  const [imageUrls, setImageUrls] = useState([]);
+  const [url, setImageUrl] = useState('');
 
-  const imagesListRef = ref(storage, "images/");
+
   const uploadFile = async () => {
     if (imageUpload == null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then( (url) => {
-         setImageUrls(url);
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImageUrl(url);
+        addDoc(collection(db, 'items'), {
+          title: title,
+          description: description,
+          image: url,
+          completed: false,
+          created: Timestamp.now()
+        })
       });
     });
   };
 
-  useEffect(() => {
-    listAll(imagesListRef).then((response) => {
-      response.items.forEach((item) => {
-        getDownloadURL(item).then((url) => {
-          setImageUrls((prev) => [...prev, url]);
-        });
-      });
-    });
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    uploadFile();
     try {
-      await addDoc(collection(db, 'items'), {
-        title: title,
-        description: description,
-        image: imageUrls,
-        completed: false,
-        created: Timestamp.now()
-      })
-      onClose()
+      uploadFile();
+      onClose();
     } catch (err) {
       alert(err)
     }
   }
 
-  const Button = styled.button`
-
-  background-color: black;
-  color: white;
-  font-size: 20px;
-  padding: 10px 60px;
-  border-radius: 5px;
-  margin: 10px 0px;
-  cursor: pointer;
-  &:hover {
-	background-color: blue;
-  }
-`;
 
   return (
     <Modal modalLable='Add Item' onClose={onClose} open={open}>

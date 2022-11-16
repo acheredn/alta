@@ -10,18 +10,11 @@ import Stack from '@mui/material/Stack';
 import { useState } from "react";
 import '../../pages/Test/test.css'
 import { Link, animateScroll as scroll } from "react-scroll";
-import ItemList from '../ItemList/itemList';
-
+import ItemsList from '../MyItems/myItems';
 
 const theme = createTheme({
     typography: { fontFamily: ['Abril Fatface',  "cursive"].join(",") }
 });
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-const scollToTop = () => {
-    scroll.scrollToTop();
-};
-
 
 const Home = () => {
     const [show, setShow] = useState(false);
@@ -72,13 +65,16 @@ const Home = () => {
                                     offset={50}
                                     duration={500}
                                 >Start Shopping</Link>
+            
                             </Button>
                         </Stack>
                     </Typography>
                 </Container>
             </Box>
         </ThemeProvider>
-            <ItemList />
+  
+      <ItemsList/>
+
         </>
 
     );

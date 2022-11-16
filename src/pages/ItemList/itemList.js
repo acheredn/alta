@@ -13,6 +13,7 @@ import Container from '@mui/material/Container';
 import Data from "./data.json";
 import { useState } from "react";
 
+
 // import Link from '@mui/material/Link';
 import { Link } from 'react-router-dom';
 // import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -21,7 +22,7 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // const theme = createTheme();
 
-export default function ItemList() {
+export default function ItemList({items}) {
   const [query, setQuery] = useState("")
   const [show, setShow] = useState(false);
   return (
@@ -47,51 +48,70 @@ export default function ItemList() {
                 Items List
               </Typography>
 
-              
+              <div> <input placeholder="Search..." onChange={event => setQuery(event.target.value)} />
+              {
+                Data.filter(post => {
+                  if (query === '') {
+                    return post;
+                  } else if (post.itemName.toLowerCase().includes(query.toLowerCase())) {
+                    return post;
+                  }
+                }).map((post, index) => (
+                  <div className="box" key={index}>
+                    <p>{post.itemName}</p>
+                  </div>
+                ))
+              } </div>
 
-              
+              <Stack
+                sx={{ pt: 4 }}
+                direction="row"
+                spacing={2}
+                justifyContent="center"
+              >
+                <Button variant="contained">Search for item</Button>
+                <Button variant="outlined">Add an item</Button>
+              </Stack>
             </Container>
           </Box>
 
-          <Container sx={{ py: 8 }} maxWidth="md">
-            {/* End hero unit */}
+      <Container sx={{ py: 8 }} maxWidth="md">
+        {/* End hero unit */}
 
 
-            <Grid container spacing={4}>
+        <Grid container spacing={6}>
 
+          {Data.map((item) => (
+            <Grid item key={item} xs={12} sm={6} md={4}>
+              <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+              >
+                <CardMedia
+                  component="img"
+                  sx={{
+                    pt: '0%',
+                  }}
 
-              {cards.map((card) => (
-                <Grid item key={card} xs={12} sm={6} md={4}>
-                  <Card
-                    sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                  >
-                    <CardMedia
-                      component="img"
-                      sx={{
-                        pt: '0%',
-                      }}
-                      image="http://placeimg.com/640/480/animals"
-                      alt="random"
-                    />
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        Gray croptop with blue shorts
-                      </Typography>
-                      <Typography>
-                        This is brief item description
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button component={Link} to="/item" size="small">View</Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              ))}
+                  image="http://placeimg.com/640/480/animals"
+                  alt="random"
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Hello
+                  </Typography>
+                  <Typography>
+                    This is brief item description
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button component={Link} to="/item" size="small">View</Button>
+                </CardActions>
+              </Card>
             </Grid>
-          </Container>
-        {/* </main> */}
-      {/* </ThemeProvider> */}
+          ))}
+        </Grid>
+      </Container>
     </div>
-    
+
   );
 }
