@@ -1,4 +1,4 @@
-.editTask{
+.editItem{
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -6,7 +6,7 @@
   z-index: 100;
 }
 
-.editTask input{
+.editItem input{
   height: 40px;
   border: unset;
   font-size: 18px;
@@ -17,32 +17,32 @@
   padding-left: 5px;
 }
 
-.editTask input:focus{
+.editItem input:focus{
   outline: none;
 }
 
-.editTask button {
+.editItem button {
   height: 40px;
   border: none;
   color: white;
   background-color: black;
 }
 
-.editTask textarea {
+.editItem textarea {
   height: 150px;
   border-color: hsl(210, 10%, 75%);
   padding: 5px;
   font-size: 18px;
 }
 
-.editTask textarea:focus { 
+.editItem textarea:focus { 
   outline: none;
 }
 
-.editTask button:hover {
+.editItem button:hover {
   background-color: hsl(210, 12%, 25%);
 }
 
-.editTask button:active {
+.editItem button:active {
   background-color: hsl(210, 12%, 15%);
 }

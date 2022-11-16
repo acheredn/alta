@@ -10,23 +10,11 @@ import Stack from '@mui/material/Stack';
 import { useState } from "react";
 import '../../pages/Test/test.css'
 import { Link, animateScroll as scroll } from "react-scroll";
-import { useEffect } from 'react'
-import { collection, query, orderBy, onSnapshot } from "firebase/firestore"
-import { db } from '../../firebase'
 import ItemsList from '../MyItems/myItems';
 
 const theme = createTheme({
     typography: { fontFamily: ['Abril Fatface',  "cursive"].join(",") }
 });
-
-
-
-
-
-const scollToTop = () => {
-    scroll.scrollToTop();
-};
-
 
 const Home = () => {
     const [show, setShow] = useState(false);
