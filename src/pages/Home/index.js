@@ -13,9 +13,7 @@ import { Link, animateScroll as scroll } from "react-scroll";
 import ItemList from '../ItemList/itemList';
 
 
-const theme = createTheme({
-    typography: { fontFamily: ['Abril Fatface',  "cursive"].join(",") }
-});
+
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const scollToTop = () => {
@@ -27,7 +25,8 @@ const Home = () => {
     const [show, setShow] = useState(false);
 
     return (
-        <><ThemeProvider theme={theme}>
+        <>
+        
             <Box
                 class="background"
                 style={{
@@ -77,7 +76,6 @@ const Home = () => {
                     </Typography>
                 </Container>
             </Box>
-        </ThemeProvider>
             <ItemList />
         </>
 

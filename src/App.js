@@ -19,18 +19,20 @@ import 'firebase/compat/firestore';
 
 function App() {
 
-    const theme = createTheme({
+    /* const theme = createTheme({
       typography: {
-        fontFamily:  ["Abril Fatface", "cursive"].join(",")
+        allVariants: {
+          fontFamily: 'Abril Fatface',
+        }
       },
         palette: {
           primary: {
             main: '#000000'
           },
         }
-      });
+      }); */
     return (
-        <ThemeProvider theme={theme}>
+       // <ThemeProvider theme={theme}>
         <Router>
             <Navbar />
             <Routes>
@@ -43,7 +45,7 @@ function App() {
             </Routes>
             <Footer />
         </Router>
-        </ThemeProvider>
+         //</ThemeProvider>
 
     );
 }
