@@ -37,16 +37,17 @@ return (
             <div className="search-panel__results">
               <SearchBox
                 className="searchbox"
-                translations={{
-                  placeholder: '',
-                }}
+                // translations={{
+                //   placeholder: '',
+                // }}
               />
 
               <Hits hitComponent={Hit} />
 
-              <div className="pagination">
+              {/* <div className="pagination">
                 <Pagination />
-              </div>
+              </div> */}
+              
             </div>
           </div>
         </InstantSearch>
