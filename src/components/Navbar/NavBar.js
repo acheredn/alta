@@ -14,12 +14,6 @@ import InputBase from '@mui/material/InputBase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 
-
-
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout']; // change these as needed
-
-const actions = ['Profile', 'a', 'b', logout]
-
 function Navbar() {
 
 	// const auth = getAuth();
@@ -169,11 +163,12 @@ function Navbar() {
 					open={Boolean(anchorElUser)}
 					onClose={handleCloseUserMenu}
 				>
-					{settings.map((setting, index) => (
-						<MenuItem key={setting} onClick={handleCloseUserMenu}>
-							<Typography textAlign="center">{setting}</Typography>
-						</MenuItem>
-					))}
+					<MenuItem>
+						Profile
+					</MenuItem>
+					<MenuItem onClick={logout}>
+						Logout
+					</MenuItem>
 				</Menu>
 			</nav>
 		</header>
