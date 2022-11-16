@@ -10,6 +10,7 @@ import Login from './pages/Login/login';
 import ItemSelected from './pages/ItemSelected/itemSelected';
 import SignUp from './pages/SignUp/signup';
 import Test from './pages/Test/test';
+import Profile from './pages/Profile/profile';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import Footer from './components/Footer';
 import MyItems from './pages/MyItems/myItems';
@@ -40,6 +41,7 @@ function App() {
                 <Route path='/sign-up' element={<SignUp />} />
                 <Route path='/my-items' element={<MyItems />} />
                 <Route path='/test' element={<Test />} />
+                <Route path='/profile' element={<Profile />} />
             </Routes>
             <Footer />
         </Router>
