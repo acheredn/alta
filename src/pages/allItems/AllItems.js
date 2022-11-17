@@ -4,7 +4,7 @@ import Item from './Item'
 import { useState, useEffect } from 'react'
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore"
 import { db } from '../../firebase'
-import AddTask from './AddItem'
+import AddItem from './AddItem'
 import Grid from '@mui/material/Grid';
 
 export default function AllItems() {
@@ -23,15 +23,8 @@ export default function AllItems() {
   }, [])
 
   return (
-    <div className='taskManager'>
-      <header>My Items List</header>
-      <div className='taskManager__container'>
-        <button
-          onClick={() => setOpenAddModal(true)}>
-          Add Item +
-        </button>
-      </div>
-      
+    <div className='itemManager'>
+      <header class = 'all_item_header'>All Items List</header>
       <div class = "item_grid">
       <Grid container spacing={8}>
         {Items.map((items) => (
@@ -51,7 +44,7 @@ export default function AllItems() {
       </div>
 
       {openAddModal &&
-        <AddTask onClose={() => setOpenAddModal(false)} open={openAddModal} />
+        <AddItem onClose={() => setOpenAddModal(false)} open={openAddModal} />
       }
     </div>
   )

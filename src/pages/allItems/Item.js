@@ -1,7 +1,7 @@
 import React from 'react';
 import './item.css'
 import { useState } from 'react'
-import ItemView from './ItemView'
+import ItemView from './swap'
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from '../../firebase'
 
@@ -27,14 +27,6 @@ function AllItem({ id, title, description, image, completed }) {
   }
 
   /* function to delete a document from firstore */
-  const handleDelete = async () => {
-    const itemDocRef = doc(db, 'items', id)
-    try {
-      await deleteDoc(itemDocRef)
-    } catch (err) {
-      alert(err)
-    }
-  }
 
   return (
     <div className={`item ${checked && 'item--borderColor'}`}>

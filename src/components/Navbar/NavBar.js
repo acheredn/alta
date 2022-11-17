@@ -127,8 +127,6 @@ function Navbar() {
 			<nav ref={navRef}>
 				<a href="/#">Welcome</a>
 				<a href="login">Login</a>
-				<a href="item-selected">Item Selected</a>
-				{/* <a href="sign-up">Sign Up</a> */}
 				<a href="my-items">My Items</a>
 				<a href="test"> Test </a>
 				<Search>
