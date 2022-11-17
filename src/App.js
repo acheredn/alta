@@ -12,7 +12,7 @@ import SignUp from './pages/SignUp/signup';
 import Test from './pages/Test/test';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import Footer from './components/Footer';
-import MyItems from './pages/MyItems/myItems';
+import MyItems from './pages/myItem/myItems';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 // import 'bootstrap/dist/css/bootstrap.css';

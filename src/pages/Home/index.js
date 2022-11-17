@@ -10,7 +10,9 @@ import Stack from '@mui/material/Stack';
 import { useState } from "react";
 import '../../pages/Test/test.css'
 import { Link, animateScroll as scroll } from "react-scroll";
-import ItemsList from '../MyItems/myItems';
+import AllItems from '../allItems/AllItems';
+import MyItems from '../myItem/myItems'
+
 
 const theme = createTheme({
     typography: { fontFamily: ['Abril Fatface',  "cursive"].join(",") }
@@ -65,7 +67,6 @@ const Home = () => {
                                     offset={50}
                                     duration={500}
                                 >Start Shopping</Link>
-            
                             </Button>
                         </Stack>
                     </Typography>
@@ -73,7 +74,7 @@ const Home = () => {
             </Box>
         </ThemeProvider>
   
-      <ItemsList/>
+      <AllItems/>
 
         </>
 
