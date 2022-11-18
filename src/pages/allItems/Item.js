@@ -1,18 +1,17 @@
 import React from 'react';
 import './item.css'
 import { useState } from 'react'
-import ItemView from './ItemView'
-import EditItem from './EditItem'
+import ItemView from './swap'
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from '../../firebase'
 
-function MyItems({ id, title, description, image, completed }) {
+function AllItem({ id, title, description, image, completed }) {
 
   const [checked, setChecked] = useState(completed)
-  const [open, setOpen] = useState({ edit: false, view: false })
+  const [open, setOpen] = useState({ view: false })
 
   const handleClose = () => {
-    setOpen({ edit: false, view: false })
+    setOpen({  view: false })
   }
 
   /* function to update firestore */
@@ -28,14 +27,6 @@ function MyItems({ id, title, description, image, completed }) {
   }
 
   /* function to delete a document from firstore */
-  const handleDelete = async () => {
-    const itemDocRef = doc(db, 'items', id)
-    try {
-      await deleteDoc(itemDocRef)
-    } catch (err) {
-      alert(err)
-    }
-  }
 
   return (
     <div className={`item ${checked && 'item--borderColor'}`}>
@@ -55,19 +46,17 @@ function MyItems({ id, title, description, image, completed }) {
       <div className='item__body'>
         <h2>{title}</h2>
         <p>{description}</p>
-        <img src={image}/>
+        <div class = "image">
+          <img width = "200" height = "200" src={image}/>
+        </div> 
         <div className='item__buttons'>
-          <div className='item__deleteNedit'>
-            <button
-              className='item__editButton'
-              onClick={() => setOpen({ ...open, edit: true })}>
-              Edit
-            </button>
-            <button className='item__deleteButton' onClick={handleDelete}>Delete</button>
-          </div>
           <button className='item_viewButton'
             onClick={() => setOpen({ ...open, view: true })}>
-            View
+            swap
+          </button>
+          <button className='item_viewButton'
+            onClick={() => setOpen({ ...open, view: true })}>
+            purchase
           </button>
         </div>
       </div>
@@ -81,17 +70,8 @@ function MyItems({ id, title, description, image, completed }) {
           open={open.view} />
       }
 
-      {open.edit &&
-        <EditItem
-          onClose={handleClose}
-          toEditTitle={title}
-          toEditDescription={description}
-          open={open.edit}
-          id={id} />
-      }
-
     </div>
   )
 }
 
-export default MyItems
+export default AllItem

@@ -10,21 +10,15 @@ import Stack from '@mui/material/Stack';
 import { useState } from "react";
 import '../../pages/Test/test.css'
 import { Link, animateScroll as scroll } from "react-scroll";
-import ItemList from '../ItemList/itemList';
+import AllItems from '../AllItems/AllItems';
+import MyItems from '../myItem/myItems'
 
 
 const theme = createTheme({
-    typography: { fontFamily: ['Abril Fatface',  "cursive"].join(",") }
+    typography: { fontFamily: ['Abril Fatface', "cursive"].join(",") }
 });
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-const scollToTop = () => {
-    scroll.scrollToTop();
-};
-
 
 const Home = () => {
-    const [show, setShow] = useState(false);
 
     return (
         <><ThemeProvider theme={theme}>
@@ -56,29 +50,21 @@ const Home = () => {
                             direction="row"
                             spacing={2}
                             justifyContent="center">
-
                             <Button
-
                                 style={{
                                     backgroundColor: "#000000",
                                     padding: "18px 36px",
                                     fontSize: "18px",
                                 }} variant="contained">
-                                <Link
-                                    activeClass="active"
-                                    to="items"
-                                    spy={true}
-                                    smooth={true}
-                                    offset={50}
-                                    duration={500}
-                                >Start Shopping</Link>
+                                <a href='all-items'> Start Shopping </a>
                             </Button>
                         </Stack>
                     </Typography>
                 </Container>
             </Box>
         </ThemeProvider>
-            <ItemList />
+        <AllItems />
+
         </>
 
     );

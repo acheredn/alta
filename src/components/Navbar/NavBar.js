@@ -6,6 +6,7 @@ import "react-slideshow-image/dist/styles.css";
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import {logout, auth} from '../../firebase.js'
 import { styled, alpha } from '@mui/material/styles';
@@ -126,8 +127,6 @@ function Navbar() {
 			<nav ref={navRef}>
 				<a href="/#">Welcome</a>
 				<a href="login">Login</a>
-				<a href="item-selected">Item Selected</a>
-				{/* <a href="sign-up">Sign Up</a> */}
 				<a href="my-items">My Items</a>
 				<a href="test"> Test </a>
 				<Search>
@@ -163,7 +162,10 @@ function Navbar() {
 					open={Boolean(anchorElUser)}
 					onClose={handleCloseUserMenu}
 				>
-					<MenuItem>
+					<MenuItem
+						component={Link}
+						href='/profile'
+					>
 						Profile
 					</MenuItem>
 					<MenuItem onClick={logout}>
