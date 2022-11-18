@@ -30,19 +30,6 @@ function AllItem({ id, title, description, image, completed }) {
 
   return (
     <div className={`item ${checked && 'item--borderColor'}`}>
-      <div>
-        <input
-          id={`checkbox-${id}`}
-          className='checkbox-custom'
-          name="checkbox"
-          checked={checked}
-          onChange={handleChange}
-          type="checkbox" />
-        <label
-          htmlFor={`checkbox-${id}`}
-          className="checkbox-custom-label"
-          onClick={() => setChecked(!checked)} ></label>
-      </div>
       <div className='item__body'>
         <h2>{title}</h2>
         <p>{description}</p>
@@ -52,11 +39,7 @@ function AllItem({ id, title, description, image, completed }) {
         <div className='item__buttons'>
           <button className='item_viewButton'
             onClick={() => setOpen({ ...open, view: true })}>
-            swap
-          </button>
-          <button className='item_viewButton'
-            onClick={() => setOpen({ ...open, view: true })}>
-            purchase
+            Details
           </button>
         </div>
       </div>
