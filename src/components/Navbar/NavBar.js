@@ -128,7 +128,7 @@ function Navbar() {
 				<a href="/#">Welcome</a>
 				{/* <a href="login">Login</a> */}
 				<a href="my-items">My Items</a>
-				<a href="test"> Test </a>
+				<a href="test"> Search </a>
 				<Search>
 					<SearchIconWrapper>
 					<SearchIcon />
