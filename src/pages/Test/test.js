@@ -13,6 +13,7 @@ import {
 } from 'react-instantsearch-dom';
 import Hit from './hit'
 import './test.css'
+import './searchbar.css'
 
 
 export default function Test() {
@@ -23,15 +24,16 @@ const searchClient = algoliasearch(
   '95975dfd853601f433605af8a9de4734'
 );
 
+
 return (
         <div className="container">
-        <InstantSearch searchClient={searchClient} indexName="items">
+        <InstantSearch className = "searchbar-input" searchClient={searchClient} indexName="items">
           <Configure hitsPerPage={8} />
           <div className="search-panel">
             <div className="search-panel__filters">
-              <Panel header="Search">
+              {/* <Panel header="Search"> */}
                 <RefinementList attribute="items" />
-              </Panel>
+              {/* </Panel> */}
             </div>
 
             <div className="search-panel__results">
