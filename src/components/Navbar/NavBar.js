@@ -126,7 +126,7 @@ function Navbar() {
 			<a class="logo" href="/#">SWAP</a>
 			<nav ref={navRef}>
 				<a href="/#">Welcome</a>
-				<a href="login">Login</a>
+				{/* <a href="login">Login</a> */}
 				<a href="my-items">My Items</a>
 				<a href="test"> Test </a>
 				<Search>
@@ -138,14 +138,15 @@ function Navbar() {
 						inputProps={{ 'aria-label': 'search' }}
 					/>
 				</Search>
-				<IconButton onClick={handleOpenUserMenu} sx={{ width: .09 }}>
-					<img src="http://www.clker.com/cliparts/f/a/0/c/1434020125875430376profile-hi.png"></img>
-				</IconButton>
-				 {user ? (
-				<Typography>
-					{user.displayName}
-				</Typography>): (
-				<a href="login">Login</a>)} 
+				{user ? (
+				<Typography> 
+					<IconButton onClick={handleOpenUserMenu} sx={{ width: .09 }}>
+						<img src="http://www.clker.com/cliparts/f/a/0/c/1434020125875430376profile-hi.png"></img>
+					</IconButton>
+					{user.displayName} 
+				</Typography>): (<a href="login">Login</a>
+				)} 
+				
 				<Menu
 					sx={{ mt: '25px' }}
 					id="menu-appbar"
@@ -171,6 +172,7 @@ function Navbar() {
 					<MenuItem onClick={logout}>
 						Logout
 					</MenuItem>
+
 				</Menu>
 			</nav>
 		</header>
