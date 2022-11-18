@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 
 
 export default function Hit(props) {
+  
+
     return (
       <article>
         <h1>
@@ -15,6 +17,10 @@ export default function Hit(props) {
         <p>
           <Highlight attribute="description" hit={props.hit} />
         </p>
+        <p> 
+          <Highlight attribute = "image" hit = {props.hit} />
+        </p>
+
       </article>
     );
   }
