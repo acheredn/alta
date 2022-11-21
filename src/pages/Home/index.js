@@ -10,7 +10,7 @@ import Stack from '@mui/material/Stack';
 import { useState } from "react";
 import '../../pages/Test/test.css'
 import { Link, animateScroll as scroll } from "react-scroll";
-import AllItems from '../allItems/AllItems';
+import AllItems from '../AllItems/AllItems';
 import MyItems from '../myItem/myItems'
 
 
