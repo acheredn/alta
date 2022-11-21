@@ -48,7 +48,6 @@ export default function Profile() {
 									id="name"
 									label="Name"
 									name="name"
-									// defaultValue={}
 								/>
 							</Grid>
 							<Grid item xs={12}>
@@ -58,18 +57,6 @@ export default function Profile() {
 									id="email"
 									label="Email Address"
 									name="email"
-									autoComplete="email"
-								/>
-							</Grid>
-							<Grid item xs={12}>
-								<TextField
-									autoComplete="given-name"
-									name="preferred name"
-									required
-									fullWidth
-									id="preferred name"
-									label="Preferred Name"
-									autoFocus
 								/>
 							</Grid>
 						</Grid>

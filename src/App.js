@@ -12,7 +12,7 @@ import Test from './pages/Test/test';
 import Profile from './pages/Profile/profile';
 import Footer from './components/Footer';
 import MyItems from './pages/myItem/myItems';
-import AllItems from './pages/allItems/AllItems'
+import AllItems from './pages/AllItems/AllItems'
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
@@ -31,7 +31,7 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
         <Router>
-            <Navbar />
+            <Navbar/>
             <Routes>
                 <Route path='/' exact element={<Home />} />
                 <Route path='/login' element={<Login />} />
