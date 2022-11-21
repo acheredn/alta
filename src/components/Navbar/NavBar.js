@@ -127,12 +127,22 @@ export default function PrimarySearchAppBar() {
                 />
             </Search>
                 <Box sx={{ display: 'flex', justifyContent: 'space-around', }}>
-                    {/* <MenuItem component={Link} href='/#'>
+                    <MenuItem component={Link} href='/#'>
                         Welcome
                     </MenuItem>
                     <MenuItem component={Link} href='/all-items'>
                         All Items
-                    </MenuItem> */}
+                    </MenuItem>
+                    <MenuItem component={Link} href='/my-items'>
+                        My Items
+                    </MenuItem>
+                    <MenuItem component={Link} href='/test'>
+                        Search
+                    </MenuItem>
+                    <MenuItem component={Link} href='/login'>
+                        Login
+                    </MenuItem>
+                    
                 </Box>
             <Box sx={{ flexGrow: 1 }} />
                 {user ? (
