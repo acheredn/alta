@@ -56,7 +56,7 @@ const Home = () => {
                                     padding: "18px 36px",
                                     fontSize: "18px",
                                 }} variant="contained">
-                                <a href='all-items'> Start Shopping </a>
+                                <a href='all-items'> Browse Now </a>
                             </Button>
                         </Stack>
                     </Typography>
