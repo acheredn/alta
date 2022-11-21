@@ -33,7 +33,7 @@ function ItemView({ onClose, open, title, description, image }) {
               padding: "1px 20px",
               fontSize: "12px",
             }} variant="contained">
-            <a id = "contact-text" href="/items">Contact Me</a>
+            <a id = "contact-text" href="https://www.facebook.com/tribuidinh0901" target="_blank" rel="noopener noreferrer">Contact Me</a>
           </Button>
         </div>
       </div>
