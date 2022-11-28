@@ -6,6 +6,7 @@ import "react-slideshow-image/dist/styles.css";
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import {logout, auth} from '../../firebase.js'
 import { styled, alpha } from '@mui/material/styles';
@@ -13,12 +14,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-
-
-
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout']; // change these as needed
-
-const actions = ['Profile', 'a', 'b', logout]
 
 function Navbar() {
 
@@ -169,11 +164,15 @@ function Navbar() {
 					open={Boolean(anchorElUser)}
 					onClose={handleCloseUserMenu}
 				>
-					{settings.map((setting, index) => (
-						<MenuItem key={setting} onClick={handleCloseUserMenu}>
-							<Typography textAlign="center">{setting}</Typography>
-						</MenuItem>
-					))}
+					<MenuItem
+						component={Link}
+						href='/profile'
+					>
+						Profile
+					</MenuItem>
+					<MenuItem onClick={logout}>
+						Logout
+					</MenuItem>
 				</Menu>
 			</nav>
 		</header>
