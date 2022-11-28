@@ -23,7 +23,6 @@ const scollToTop = () => {
 
 
 const Home = () => {
-    const [show, setShow] = useState(false);
 
     return (
         <>
@@ -55,9 +54,7 @@ const Home = () => {
                             direction="row"
                             spacing={2}
                             justifyContent="center">
-
                             <Button
-
                                 style={{
                                     backgroundColor: "#000000",
                                     padding: "18px 36px",

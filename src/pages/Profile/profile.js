@@ -20,6 +20,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function Profile() {
 
+	const [user] = useAuthState(auth);
+
 	return (
 		<body>
 		  <Container component="main" maxWidth="xs">
@@ -39,52 +41,28 @@ export default function Profile() {
 					</Typography>
 					<Box component="form" sx={{ mt: 3 }}>
 						<Grid container spacing={2}>
-							<Grid item xs={12} sm={6}>
+							<Grid item xs={12}>
 								<TextField
-									autoComplete="given-name"
-									name="firstName"
-									required
+									disabled
 									fullWidth
-									id="firstName"
-									label="First Name"
-									autoFocus
-								/>
-							</Grid>
-							<Grid item xs={12} sm={6}>
-								<TextField
-									required
-									fullWidth
-									id="lastName"
-									label="Last Name"
-									name="lastName"
-									autoComplete="family-name"
+									id="name"
+									label="Name"
+									name="name"
 								/>
 							</Grid>
 							<Grid item xs={12}>
 								<TextField
-									required
+									disabled
 									fullWidth
 									id="email"
 									label="Email Address"
 									name="email"
-									autoComplete="email"
-								/>
-							</Grid>
-							<Grid item xs={12}>
-								<TextField
-									autoComplete="given-name"
-									name="preferred name"
-									required
-									fullWidth
-									id="preferred name"
-									label="Preferred Name"
-									autoFocus
 								/>
 							</Grid>
 						</Grid>
 						<Button
-              component={Link}
-              href='/my-items'
+							component={Link}
+							href='/my-items'
 							fullWidth
 							variant="contained"
 							sx={{ mt: 3, mb: 2 }}
