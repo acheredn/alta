@@ -4,21 +4,27 @@ import Container from '@mui/material/Container';
 import bg from '../../images/background.jpg';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import '../../pages/Test/test.css'
+import { Link, animateScroll as scroll } from "react-scroll";
+import ItemList from '../ItemList/itemList';
+
+
 import AllItems from '../AllItems/AllItems';
 
 
-const theme = createTheme({
-    typography: { fontFamily: ['Abril Fatface', "cursive"].join(",") }
-});
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const scollToTop = () => {
+    scroll.scrollToTop();
+};
+
 
 const Home = () => {
 
     return (
-        <><ThemeProvider theme={theme}>
+        <>
             <Box
                 class="background"
                 style={{
@@ -53,15 +59,20 @@ const Home = () => {
                                     padding: "18px 36px",
                                     fontSize: "18px",
                                 }} variant="contained">
-                                <a href='all-items'> Browse Now </a>
+                                <Link
+                                    activeClass="active"
+                                    to="items"
+                                    spy={true}
+                                    smooth={true}
+                                    offset={50}
+                                    duration={500}
+                                >Start Shopping</Link>
                             </Button>
                         </Stack>
                     </Typography>
                 </Container>
             </Box>
-        </ThemeProvider>
-        <AllItems />
-
+            <ItemList />
         </>
 
     );

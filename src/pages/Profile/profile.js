@@ -20,58 +20,58 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function Profile() {
 
-	const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
-	return (
-		<body>
-		  <Container component="main" maxWidth="xs">
-				<CssBaseline />
-				<Box
-					sx={{
-						marginTop: 8,
-						display: 'flex',
-						flexDirection: 'column',
-						alignItems: 'center',
-					}}
-				>
-					<Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-					</Avatar>
-					<Typography component="h1" variant="h5">
-						Profile
-					</Typography>
-					<Box component="form" sx={{ mt: 3 }}>
-						<Grid container spacing={2}>
-							<Grid item xs={12}>
-								<TextField
-									disabled
-									fullWidth
-									id="name"
-									label="Name"
-									name="name"
-								/>
-							</Grid>
-							<Grid item xs={12}>
-								<TextField
-									disabled
-									fullWidth
-									id="email"
-									label="Email Address"
-									name="email"
-								/>
-							</Grid>
-						</Grid>
-						<Button
-							component={Link}
-							href='/my-items'
-							fullWidth
-							variant="contained"
-							sx={{ mt: 3, mb: 2 }}
-						>
-							My Items
-						</Button>
-					</Box>
-				</Box>
-			</Container>
-		</body>
-	);
+  return (
+    <body>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Profile
+          </Typography>
+          <Box component="form" sx={{ mt: 3 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  disabled
+                  fullWidth
+                  id="name"
+                  label="Name"
+                  name="name"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  disabled
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                />
+              </Grid>
+            </Grid>
+            <Button
+              component={Link}
+              href='/my-items'
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              My Items
+            </Button>
+          </Box>
+        </Box>
+      </Container>
+    </body>
+  );
 }

@@ -20,7 +20,8 @@ function AddItem({ onClose, open }) {
   const [url, setImageUrl] = useState('');
 
 
-  const uploadFile = async () => {
+  const uploadFile = async () => { 
+    // uses async and then, which are two different ways to accomplish the same goal
     if (imageUpload == null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
