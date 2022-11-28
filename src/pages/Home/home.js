@@ -7,11 +7,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { useState } from "react";
 import '../../pages/Test/test.css'
-import { Link, animateScroll as scroll } from "react-scroll";
 import AllItems from '../AllItems/AllItems';
-import MyItems from '../myItem/myItems'
 
 
 const theme = createTheme({
