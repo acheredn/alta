@@ -11,7 +11,7 @@ function AllItem({ id, title, description, image, completed }) {
   const [open, setOpen] = useState({ view: false })
 
   const handleClose = () => {
-    setOpen({  view: false })
+    setOpen({ view: false })
   }
 
   /* function to update firestore */
