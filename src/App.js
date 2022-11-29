@@ -7,10 +7,9 @@ import { BrowserRouter as Router, Routes, Route }
 import {ThemeProvider, createTheme} from '@mui/material/styles';
 import Home from './pages/Home/home';
 import Login from './pages/Login/login';
-import SignUp from './pages/SignUp/signup';
 import Profile from './pages/Profile/profile';
 import Footer from './components/Footer';
-import MyItems from './pages/myItem/myItems';
+import MyItems from './pages/MyItems/myItems';
 import AllItems from './pages/AllItems/AllItems'
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
@@ -31,7 +30,6 @@ function App() {
             <Routes>
                 <Route path='/' exact element={<Home />} />
                 <Route path='/login' element={<Login />} />
-                <Route path='/sign-up' element={<SignUp />} />
                 <Route path='/my-items' element={<MyItems />} />
                 <Route path='/profile' element={<Profile />} />
                 <Route path ='/all-items' element = {<AllItems/>} />

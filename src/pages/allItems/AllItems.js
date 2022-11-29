@@ -6,6 +6,11 @@ import { collection, query, orderBy, onSnapshot } from "firebase/firestore"
 import { db } from '../../firebase'
 import AddItem from './AddItem'
 import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
 
 export default function AllItems() {
   const [openAddModal, setOpenAddModal] = useState(false)
@@ -24,8 +29,37 @@ export default function AllItems() {
 
   return (
     <div className='itemManager'>
-      <header class = 'all_item_header'>All Items List</header>
+      <Box
+            sx={{
+              pt: 8,
+              pb: 2,
+            }}
+          >
+            <Container maxWidth="sm">
+              <Typography
+                component="h1"
+                variant="h2"
+                align="center"
+                color="text.primary"
+                gutterBottom
+              >
+                Items List
+              </Typography>
+
+    
+              <Stack
+                sx={{ pt: 4 }}
+                direction="row"
+                spacing={2}
+                justifyContent="center"
+              >
+                <Button variant="contained">Search for item</Button>
+              </Stack>
+            </Container>
+          </Box>
       <div class = "item_grid">
+     
+
       <Grid container spacing={8}>
         {Items.map((items) => (
           <Grid key={items} xs={12} sm={6} md={6}>

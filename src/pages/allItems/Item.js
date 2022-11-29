@@ -7,7 +7,7 @@ import { db } from '../../firebase'
 
 function AllItem({ id, title, description, image, completed }) {
 
-  const [checked, setChecked] = useState(completed)
+
   const [open, setOpen] = useState({ view: false })
 
   const handleClose = () => {
@@ -19,17 +19,15 @@ function AllItem({ id, title, description, image, completed }) {
     const itemDocRef = doc(db, 'items', id)
     try {
       await updateDoc(itemDocRef, {
-        completed: checked
+       
       })
     } catch (err) {
       alert(err)
     }
   }
 
-  /* function to delete a document from firstore */
-
   return (
-    <div className={`item ${checked && 'item--borderColor'}`}>
+    <div className={`item ${'item--borderColor'}`}>
       <div className='item__body'>
         <h2>{title}</h2>
         <p>{description}</p>

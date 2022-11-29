@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import '../../pages/Test/test.css'
 import { Link, animateScroll as scroll } from "react-scroll";
-import ItemList from '../ItemList/itemList';
+import AllItems from '../AllItems/AllItems';
 
 
 
@@ -65,7 +65,7 @@ const Home = () => {
                     </Typography>
                 </Container>
             </Box>
-            <ItemList />
+            <AllItems />
         </>
 
     );
