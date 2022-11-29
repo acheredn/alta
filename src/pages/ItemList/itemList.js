@@ -10,13 +10,7 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Data from "./data.json";
 import { useState } from "react";
-
-
-// import Link from '@mui/material/Link';
-import { Link } from 'react-router-dom';
-// import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -48,20 +42,7 @@ export default function ItemList({items}) {
                 Items List
               </Typography>
 
-              <div> <input placeholder="Search..." onChange={event => setQuery(event.target.value)} />
-              {
-                Data.filter(post => {
-                  if (query === '') {
-                    return post;
-                  } else if (post.itemName.toLowerCase().includes(query.toLowerCase())) {
-                    return post;
-                  }
-                }).map((post, index) => (
-                  <div className="box" key={index}>
-                    <p>{post.itemName}</p>
-                  </div>
-                ))
-              } </div>
+            
 
               <Stack
                 sx={{ pt: 4 }}
@@ -80,35 +61,6 @@ export default function ItemList({items}) {
 
 
         <Grid container spacing={6}>
-
-          {Data.map((item) => (
-            <Grid item key={item} xs={12} sm={6} md={4}>
-              <Card
-                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-              >
-                <CardMedia
-                  component="img"
-                  sx={{
-                    pt: '0%',
-                  }}
-
-                  image="http://placeimg.com/640/480/animals"
-                  alt="random"
-                />
-                <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    Hello
-                  </Typography>
-                  <Typography>
-                    This is brief item description
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button component={Link} to="/item" size="small">View</Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
         </Grid>
       </Container>
     </div>

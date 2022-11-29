@@ -8,7 +8,6 @@ import {ThemeProvider, createTheme} from '@mui/material/styles';
 import Home from './pages/Home/home';
 import Login from './pages/Login/login';
 import SignUp from './pages/SignUp/signup';
-import Test from './pages/Test/test';
 import Profile from './pages/Profile/profile';
 import Footer from './components/Footer';
 import MyItems from './pages/myItem/myItems';
@@ -18,20 +17,15 @@ import 'firebase/compat/firestore';
 
 function App() {
 
-    /* const theme = createTheme({
-      typography: {
-        allVariants: {
-          fontFamily: 'Abril Fatface',
-        }
-      },
+    const theme = createTheme({
         palette: {
           primary: {
             main: '#000000'
           },
         }
-      }); */
+      });
     return (
-       // <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
         <Router>
             <Navbar/>
             <Routes>
@@ -39,13 +33,12 @@ function App() {
                 <Route path='/login' element={<Login />} />
                 <Route path='/sign-up' element={<SignUp />} />
                 <Route path='/my-items' element={<MyItems />} />
-                <Route path='/test' element={<Test />} />
                 <Route path='/profile' element={<Profile />} />
                 <Route path ='/all-items' element = {<AllItems/>} />
             </Routes>
             <Footer />
         </Router>
-         //</ThemeProvider>
+        </ThemeProvider>
 
     );
 }
