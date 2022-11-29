@@ -127,11 +127,11 @@ export default function PrimarySearchAppBar() {
                 />
             </Search>
                 <Box sx={{ display: 'flex', justifyContent: 'space-around', }}>
+                    <MenuItem component={Link} href='/#'>
+                        Home
+                    </MenuItem>
                     <MenuItem component={Link} href='/my-items'>
                         My Items
-                    </MenuItem>
-                    <MenuItem component={Link} href='/test'>
-                        Search
                     </MenuItem>
                 </Box>
             <Box sx={{ flexGrow: 1 }} />
