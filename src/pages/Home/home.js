@@ -11,15 +11,8 @@ import { Link, animateScroll as scroll } from "react-scroll";
 import ItemList from '../ItemList/itemList';
 
 
-import AllItems from '../AllItems/AllItems';
-
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-const scollToTop = () => {
-    scroll.scrollToTop();
-};
-
 
 const Home = () => {
 
