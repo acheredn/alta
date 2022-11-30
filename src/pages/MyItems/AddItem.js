@@ -67,7 +67,14 @@ function AddTask({ onClose, open }) {
           onChange={(event) => {
             setImageUpload(event.target.files[0]);
           }}
+          
         />
+         <input
+          type='text'
+          name='title'
+          onChange={(e) => setTitle(e.target.value.toUpperCase())}
+          value={title}
+          placeholder='Contact info' />
         <div class='image-map'>
         </div>
         <button type='submit'>Done</button>

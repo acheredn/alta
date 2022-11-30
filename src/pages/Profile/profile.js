@@ -11,11 +11,12 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
+import { auth } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 // import theme from '../../App';
 // import { ThemeProvider } from 'styled-components';
+
 
 
 export default function Profile() {
@@ -34,9 +35,9 @@ export default function Profile() {
             alignItems: 'center',
           }}
         >
-          <Avatar 
-                          sx={{ width: 90, height: 90 }}
-                          alt="Remy Sharp" src={user.photoURL}  />
+          <Avatar
+            sx={{ width: 90, height: 90 }}
+            alt="Remy Sharp" src={user.photoURL} />
           <Typography component="h1" variant="h5">
             Profile
           </Typography>
