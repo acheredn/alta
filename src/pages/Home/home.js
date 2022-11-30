@@ -9,13 +9,18 @@ import Stack from '@mui/material/Stack';
 import '../../pages/Test/test.css'
 import { Link, animateScroll as scroll } from "react-scroll";
 import AllItems from '../AllItems/AllItems';
-
+import {useRef} from 'react';
 
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const Home = () => {
+    const ref = useRef(null);
 
+    const handleClick = () => {
+        ref.current?.scrollIntoView({behavior: 'smooth'});
+      };
+    
     return (
         <>
             <Box
@@ -43,7 +48,7 @@ const Home = () => {
                             direction="row"
                             spacing={2}
                             justifyContent="center">
-                            <Button
+                            <Button onClick={handleClick}
                                 style={{
                                     backgroundColor: "#000000",
                                     padding: "18px 36px",
@@ -61,8 +66,10 @@ const Home = () => {
                         </Stack>
                     </Typography>
                 </Container>
-            </Box>
-            <AllItems />
+            </Box> 
+            <div ref={ref}>ITEMS </div>
+            <AllItems/>
+            
         </>
 
     );
