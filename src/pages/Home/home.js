@@ -37,10 +37,7 @@ const Home = () => {
                         font="Abril Fatface"
                         gutterBottom
                     >
-                        SWAP
-                        <link
-                            href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap"
-                            rel="stylesheet" />
+                        LOOP
                         <Stack
                             sx={{ pt: 55 }}
                             direction="row"
