@@ -11,7 +11,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Link from '@mui/material/Link';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { signInWithGoogle, logout, auth } from '../../firebase.js'
 import { useAuthState } from 'react-firebase-hooks/auth';
