@@ -34,14 +34,18 @@ export default function Profile() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-          </Avatar>
+          <Avatar 
+                          sx={{ width: 90, height: 90 }}
+                          alt="Remy Sharp" src={user.photoURL}  />
           <Typography component="h1" variant="h5">
             Profile
           </Typography>
           <Box component="form" sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
+                <h3>Name: {user.displayName}</h3>
+                <h3>Email: {user.email}</h3>
+                <h3>User ID: {user.uid}</h3>
                 <TextField
                   disabled
                   fullWidth
