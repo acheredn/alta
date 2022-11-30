@@ -15,6 +15,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { signInWithGoogle, logout, auth } from '../../firebase.js'
 import { useAuthState } from 'react-firebase-hooks/auth';
+import Avatar from '@mui/material/Avatar';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -147,7 +148,9 @@ export default function PrimarySearchAppBar() {
                         onClick={handleProfileMenuOpen}
                         color="inherit"
                         >
-                        <AccountCircle/>
+                        <Avatar 
+                          sx={{ width: 40, height: 40 }}
+                          alt="Remy Sharp" src={user.photoURL}  />
                         </IconButton>
 						{user.displayName} 
                     </Box>
