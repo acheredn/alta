@@ -35,9 +35,9 @@ export default function Profile() {
             alignItems: 'center',
           }}
         >
-          <Avatar
-            sx={{ width: 90, height: 90 }}
-            alt="Remy Sharp" src={user.photoURL} />
+          <Avatar 
+              sx={{ width: 90, height: 90 }}
+              alt="User Profile Image" src={user.photoURL}  />
           <Typography component="h1" variant="h5">
             Profile
           </Typography>
@@ -45,24 +45,9 @@ export default function Profile() {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <h3>Name: {user.displayName}</h3>
-                <h3>Email: {user.email}</h3>
-                <h3>User ID: {user.uid}</h3>
-                <TextField
-                  disabled
-                  fullWidth
-                  id="name"
-                  label="Name"
-                  name="name"
-                />
               </Grid>
               <Grid item xs={12}>
-                <TextField
-                  disabled
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                />
+                <h3>Email: {user.email}</h3>
               </Grid>
             </Grid>
             <Button
