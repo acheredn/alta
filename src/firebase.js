@@ -16,6 +16,7 @@ import {
   collection,
   where,
   addDoc,
+  setDoc,
 } from "firebase/firestore";
 import { useState } from "react";
 const firebaseConfig = {
@@ -48,7 +49,7 @@ const signInWithGoogle = async () => {
     const q = query(collection(db, "users"), where("uid", "==", user.uid));
     const docs = await getDocs(q);
     if (docs.docs.length === 0) {
-      await addDoc(collection(db, "users"), {
+      await setDoc(collection(db, "users", user.uid), {
         uid: user.uid,
         name: user.displayName,
         authProvider: "google",
@@ -111,6 +112,7 @@ const logout = () => {
 export {
   auth,
   db,
+  storage,
   signInWithGoogle,
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,

@@ -2,8 +2,8 @@ import React from 'react';
 import './myItems.css'
 import Item from './Item'
 import { useState, useEffect } from 'react'
-import { collection, query, orderBy, onSnapshot } from "firebase/firestore"
-import { db } from '../../firebase'
+import { collection, query, orderBy, onSnapshot, doc } from "firebase/firestore"
+import { db, auth } from '../../firebase'
 import AddItem from './AddItem'
 import Grid from '@mui/material/Grid';
 
@@ -13,13 +13,21 @@ export default function ItemsList() {
 
   /* function to get all Items from firestore in realtime */
   useEffect(() => {
-    const itemColRef = query(collection(db, 'items'), orderBy('created', 'desc'))
-    onSnapshot(itemColRef, (snapshot) => {
-      setItems(snapshot.docs.map(doc => ({
-        id: doc.id,
-        data: doc.data()
-      })))
-    })
+
+    const user = auth.currentUser;
+    if(user){
+      console.log("Hello")
+      const usersDocRef = doc(db, "users", user.uid)
+      const colRef = collection(usersDocRef, "items")
+      const itemColRef = query(colRef, orderBy('created', 'desc'))
+      onSnapshot(itemColRef, (snapshot) => {
+        setItems(snapshot.docs.map(doc => ({
+          id: doc.id,
+          data: doc.data()
+        })))
+      })
+    }
+
   }, [])
 
   return (

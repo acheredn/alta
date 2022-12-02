@@ -148,7 +148,7 @@ export default function PrimarySearchAppBar() {
                         color="inherit"
                         >
                         <Avatar 
-                          sx={{ width: 40, height: 40, mr: 3 }}
+                          sx={{ width: 40, height: 40, mr: 2 }}
                           alt="User Profile Image" src={user.photoURL} />
                         </IconButton>
 						{user.displayName} 

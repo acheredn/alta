@@ -1,15 +1,14 @@
 import React from 'react';
 import Modal from "./Modal"
 import './addItem.css'
-import { db } from '../../firebase'
-import { collection, addDoc, Timestamp } from 'firebase/firestore'
+import { collection, addDoc, Timestamp, doc } from 'firebase/firestore'
 import {
   ref,
   uploadBytes,
   getDownloadURL,
 } from "firebase/storage";
 import { v4 } from "uuid";
-import storage from '../../firebase';
+import {storage, auth, db} from '../../firebase';
 import { useState } from "react";
 
 function AddTask({ onClose, open }) {
@@ -21,12 +20,16 @@ function AddTask({ onClose, open }) {
 
 
   const uploadFile = async () => {
+    const user = auth.currentUser;
+
     if (imageUpload == null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         setImageUrl(url);
-        addDoc(collection(db, 'items'), {
+        const usersDocRef = doc(db, "users", user.uid)
+        const colRef = collection(usersDocRef, "items")
+        addDoc(colRef, {
           title: title,
           description: description,
           image: url,
