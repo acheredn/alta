@@ -115,7 +115,7 @@ export default function PrimarySearchAppBar() {
         <AppBar position="static">
             <Toolbar>
             <MenuItem component={Link} href='/#'>
-                SWAP
+                LOOP
             </MenuItem>
             <Search>
                 <SearchIconWrapper>
