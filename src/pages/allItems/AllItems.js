@@ -6,11 +6,6 @@ import { collection, query, orderBy, onSnapshot } from "firebase/firestore"
 import { db } from '../../firebase'
 import AddItem from './AddItem'
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
 
 export default function AllItems() {
   const [openAddModal, setOpenAddModal] = useState(false)

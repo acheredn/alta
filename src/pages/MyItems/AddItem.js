@@ -18,7 +18,6 @@ function AddTask({ onClose, open }) {
   const [imageUpload, setImageUpload] = useState('');
   const [url, setImageUrl] = useState('');
 
-
   const uploadFile = async () => {
     const user = auth.currentUser;
 
@@ -74,8 +73,8 @@ function AddTask({ onClose, open }) {
         />
          <input
           type='text'
-          name='title'
-          onChange={(e) => setTitle(e.target.value.toUpperCase())}
+          // name='title'
+          // onChange={(e) => setTitle(e.target.value.toUpperCase())}
           value={title}
           placeholder='Contact info' />
         <div class='image-map'>
