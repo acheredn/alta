@@ -13,10 +13,8 @@ export default function ItemsList() {
 
   /* function to get all Items from firestore in realtime */
   useEffect(() => {
-
     const user = auth.currentUser;
     if(user){
-      console.log("Hello")
       const usersDocRef = doc(db, "users", user.uid)
       const colRef = collection(usersDocRef, "items")
       const itemColRef = query(colRef, orderBy('created', 'desc'))

@@ -3,8 +3,8 @@ import './item.css'
 import { useState } from 'react'
 import ItemView from './ItemView'
 import EditItem from './EditItem'
-import { doc, updateDoc, deleteDoc } from "firebase/firestore";
-import { db } from '../../firebase'
+import { collection, doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { db, auth } from '../../firebase'
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
@@ -18,7 +18,7 @@ function MyItems({ id, title, description, image, completed }) {
   }
 
   /* function to update firestore */
-  const handleChange = async () => {
+  const handleEdit = async () => {
     const itemDocRef = doc(db, 'items', id)
     try {
       await updateDoc(itemDocRef, {
@@ -30,11 +30,16 @@ function MyItems({ id, title, description, image, completed }) {
 
   /* function to delete a document from firstore */
   const handleDelete = async () => {
-    const itemDocRef = doc(db, 'items', id)
-    try {
-      await deleteDoc(itemDocRef)
-    } catch (err) {
-      alert(err)
+    const user = auth.currentUser;
+    if (user) {
+      const usersDocRef = doc(db, "users", user.uid)
+      const colRef = collection(usersDocRef, "items")
+      const itemColRef = doc(colRef, "items", id)
+      try {
+        await deleteDoc(itemColRef)
+      } catch (err) {
+        alert(err)
+      }
     }
   }
 
@@ -98,7 +103,6 @@ function MyItems({ id, title, description, image, completed }) {
           open={open.edit}
           id={id} />
       }
-
     </div>
   )
 }
