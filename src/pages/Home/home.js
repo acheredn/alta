@@ -6,13 +6,27 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import '../../pages/Test/test.css'
 import { Link, animateScroll as scroll } from "react-scroll";
 import AllItems from '../AllItems/AllItems';
-
-
+import algoliasearch from 'algoliasearch/lite';
+import {
+  InstantSearch,
+  Configure,
+  Hits,
+  SearchBox,
+  Panel,
+  RefinementList,
+  Pagination,
+  Highlight,
+} from 'react-instantsearch-dom';
+import Hit from './hit'
+import './home.css'
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const searchClient = algoliasearch(
+    'FUH27QK0B4',
+    '95975dfd853601f433605af8a9de4734'
+  );
 
 const Home = () => {
 
@@ -65,6 +79,36 @@ const Home = () => {
                     </Typography>
                 </Container>
             </Box>
+            <div className="container">
+        
+        <InstantSearch className = "searchbar-input" searchClient={searchClient} indexName="items">
+          <Configure hitsPerPage={8} />
+          <div className="search-panel">
+            <div className="search-panel__filters">
+              {/* <Panel header="Search"> */}
+                <RefinementList attribute="items" />
+              {/* </Panel> */}
+            </div>
+
+            <div className="search-panel__results">
+              <SearchBox
+                className="searchbox"
+                // translations={{
+                //   placeholder: '',
+                // }}
+              />
+
+              <Hits hitComponent={Hit} />
+
+              {/* <div className="pagination">
+                <Pagination />
+              </div> */}
+              
+            </div>
+          </div>
+        </InstantSearch>
+      </div>
+      
             <AllItems />
         </>
 
