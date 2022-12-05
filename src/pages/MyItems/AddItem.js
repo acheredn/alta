@@ -32,6 +32,7 @@ function AddTask({ onClose, open }) {
           title: title,
           description: description,
           image: url,
+          uid: user.uid,
           completed: false,
           created: Timestamp.now()
         })

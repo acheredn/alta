@@ -12,7 +12,7 @@ export default function AllItems() {
 
   /* function to get all Items from firestore in realtime */
   useEffect(async () => {
-    const allUserRef = query(collectionGroup(db, ''), where('type', '==', 'users'));
+    const allUserRef = query(collectionGroup(db, 'items'));
     onSnapshot(allUserRef, (snapshot) => {
       setItems(snapshot.docs.map(doc => ({
         id: doc.id,
