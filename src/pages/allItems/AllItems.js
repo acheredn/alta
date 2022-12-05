@@ -29,34 +29,6 @@ export default function AllItems() {
 
   return (
     <div className='itemManager'>
-      <Box
-            sx={{
-              pt: 8,
-              pb: 2,
-            }}
-          >
-            <Container maxWidth="sm">
-              <Typography
-                component="h1"
-                variant="h2"
-                align="center"
-                color="text.primary"
-                gutterBottom
-              >
-                Items List
-              </Typography>
-
-    
-              <Stack
-                sx={{ pt: 4 }}
-                direction="row"
-                spacing={2}
-                justifyContent="center"
-              >
-                <Button variant="contained">Search for item</Button>
-              </Stack>
-            </Container>
-          </Box>
       <div class = "item_grid">
      
 

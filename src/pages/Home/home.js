@@ -29,7 +29,7 @@ const searchClient = algoliasearch(
   );
 
 const Home = () => {
-
+    
     return (
         <>
             <Box
@@ -51,16 +51,13 @@ const Home = () => {
                         font="Abril Fatface"
                         gutterBottom
                     >
-                        SWAP
-                        <link
-                            href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap"
-                            rel="stylesheet" />
+                        LOOP
                         <Stack
                             sx={{ pt: 55 }}
                             direction="row"
                             spacing={2}
                             justifyContent="center">
-                            <Button
+                            <Button Link to='#items'
                                 style={{
                                     backgroundColor: "#000000",
                                     padding: "18px 36px",
