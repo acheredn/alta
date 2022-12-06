@@ -12,15 +12,16 @@ export default function ItemsList() {
   const [Items, setItems] = useState([])
 
   /* function to get all Items from firestore in realtime */
-  useEffect(async () => {
+  useEffect(() => {
     const user = auth.currentUser;
+    console.log(user);
     if (user) {
+      
       const usersDocRef = doc(db, "users", user.uid)
       const colRef = collection(usersDocRef, "items")
       const itemColRef = query(colRef, orderBy('created', 'desc'))
-
-      const querySnapshot = await getDocs(itemColRef);
-      // console.log("hello")
+      const querySnapshot = getDocs(itemColRef);
+      console.log("hello")
       setItems(querySnapshot.docs.map(doc => ({
         id: doc.id,
         data: doc.data()
