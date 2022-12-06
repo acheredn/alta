@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route }
     from 'react-router-dom';
 import {ThemeProvider, createTheme} from '@mui/material/styles';
 import Home from './pages/Home/home';
-import Login from './pages/Login/login';
+import Login from './pages/LogIn/login';
 import Profile from './pages/Profile/profile';
 import Footer from './components/Footer';
 import MyItems from './pages/MyItems/myItems';
