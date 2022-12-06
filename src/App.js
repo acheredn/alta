@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Routes, Route }
     from 'react-router-dom';
 import {ThemeProvider, createTheme} from '@mui/material/styles';
 import Home from './pages/Home/home';
-import Login from './pages/LogIn/login';
 import Profile from './pages/Profile/profile';
 import Footer from './components/Footer';
 import MyItems from './pages/MyItems/myItems';
@@ -29,7 +28,6 @@ function App() {
             <Navbar/>
             <Routes>
                 <Route path='/' exact element={<Home />} />
-                <Route path='/login' element={<Login />} />
                 <Route path='/my-items' element={<MyItems />} />
                 <Route path='/profile' element={<Profile />} />
                 <Route path ='/all-items' element = {<AllItems/>} />
