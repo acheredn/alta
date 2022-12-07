@@ -23,6 +23,11 @@ export default function Profile() {
 
   const [user] = useAuthState(auth);
 
+  /* function to get all Items from firestore in realtime */
+  useEffect(()=> {
+    console.log("user data successfully loaded")
+  }, [user]);
+
   return (
     <body>
       <Container component="main" maxWidth="xs">

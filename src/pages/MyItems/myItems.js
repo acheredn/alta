@@ -2,33 +2,33 @@ import React from 'react';
 import './myItems.css'
 import Item from './Item'
 import { useState, useEffect } from 'react'
-import { collection, query, orderBy, onSnapshot, doc, getDocs } from "firebase/firestore"
+import { collection, query, orderBy,  doc, getDocs,  } from "firebase/firestore"
 import { db, auth } from '../../firebase'
 import AddItem from './AddItem'
 import Grid from '@mui/material/Grid';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 export default function ItemsList() {
   const [openAddModal, setOpenAddModal] = useState(false)
   const [Items, setItems] = useState([])
 
+  const [user] = useAuthState(auth);
   /* function to get all Items from firestore in realtime */
-  useEffect(() => {
-    const user = auth.currentUser;
-    console.log(user);
-    if (user) {
-      
-      const usersDocRef = doc(db, "users", user.uid)
-      const colRef = collection(usersDocRef, "items")
-      const itemColRef = query(colRef, orderBy('created', 'desc'))
-      const querySnapshot = getDocs(itemColRef);
-      console.log("hello")
-      setItems(querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        data: doc.data()
-      })))
+  useEffect(()=> {
+    (async () => {
+      if (user) {
+        const usersDocRef = doc(db, "users", user.uid)
+        const colRef = collection(usersDocRef, "items")
+        const itemColRef = query(colRef, orderBy('created', 'desc'))
+        const querySnapshot = await getDocs(itemColRef);
+        setItems(querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          data: doc.data()
+        })))
+      }
+    })();
+  }, [user]);
 
-    }
-  }, [Items])
 
   return (
     <div className='ItemManager'>
