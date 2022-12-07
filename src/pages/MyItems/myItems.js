@@ -32,7 +32,6 @@ export default function ItemsList() {
 
   return (
     <div className='ItemManager'>
-      <header>My Items List</header>
       <div className='ItemManager__container'>
         <button
           onClick={() => setOpenAddModal(true)}>
