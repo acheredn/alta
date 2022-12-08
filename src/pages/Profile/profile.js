@@ -21,11 +21,13 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function Profile() {
 
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   /* function to get all Items from firestore in realtime */
-  useEffect(()=> {
-    console.log("user data successfully loaded")
+  useEffect(() => {
+    if (loading) {
+      console.log("user data successfully loaded")
+    }
   }, [user]);
 
   return (
@@ -40,9 +42,9 @@ export default function Profile() {
             alignItems: 'center',
           }}
         >
-          <Avatar 
-              sx={{ width: 90, height: 90 }}
-              alt="User Profile Image" src={user.photoURL}  />
+          <Avatar
+            sx={{ width: 90, height: 90 }}
+            alt="User Profile Image" src={user.photoURL} />
           <Typography component="h1" variant="h5">
             Profile
           </Typography>

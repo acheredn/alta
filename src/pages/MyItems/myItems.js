@@ -19,8 +19,7 @@ export default function ItemsList() {
       if (user) {
         const usersDocRef = doc(db, "users", user.uid)
         const colRef = collection(usersDocRef, "items")
-        const itemColRef = query(colRef, orderBy('created', 'desc'))
-        const querySnapshot = await getDocs(itemColRef);
+        const querySnapshot = await getDocs(colRef);
         setItems(querySnapshot.docs.map(doc => ({
           id: doc.id,
           data: doc.data()
