@@ -24,9 +24,10 @@ function App() {
     }
   });
   return (
-    <AuthProvider>
+  
       <ThemeProvider theme={theme}>
-        <Router>
+          {/* <AuthProvider> */}
+          <Router>
           <Navbar />
           <Routes>
             <Route path='/' exact element={<Home />} />
@@ -36,8 +37,11 @@ function App() {
           </Routes>
           <Footer />
         </Router>
+          {/* </AuthProvider> */}
+  
       </ThemeProvider>
-    </AuthProvider>
+
+ 
 
   );
 }

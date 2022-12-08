@@ -65,12 +65,11 @@ const googleProvider = new GoogleAuthProvider();
 // };
 const signInWithGoogle = async () => {
   try {
+    // const { user } = useContext(AuthContext); 
     const res = await signInWithPopup(auth, googleProvider);
     const user = res.user;
-    //const q = query(collection(db, "users"), where("uid", "==", user.uid));
     const docRef = doc(db, "users", user.uid);
     const docSnap = await getDoc(docRef);
-    //const docs = await getDocs(q);
     if (!docSnap.exists()) {
       await setDoc(doc(db, "users", user.uid), {
         uid: user.uid,
@@ -140,5 +139,6 @@ export {
   registerWithEmailAndPassword,
   sendPasswordReset,
   logout,
+  firebaseConfig,
 };
 

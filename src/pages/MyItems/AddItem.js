@@ -8,7 +8,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { v4 } from "uuid";
-import {storage, auth, db} from '../../firebase';
+import { storage, auth, db } from '../../firebase';
 import { useState } from "react";
 
 function AddTask({ onClose, open }) {
@@ -16,6 +16,8 @@ function AddTask({ onClose, open }) {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [imageUpload, setImageUpload] = useState('');
+  const [contactLink, setContactLink] = useState('');
+  const [contactNum, setContactNum] = useState('');
   const [url, setImageUrl] = useState('');
 
   const uploadFile = async () => {
@@ -34,6 +36,8 @@ function AddTask({ onClose, open }) {
           image: url,
           uid: user.uid,
           completed: false,
+          contactLink: contactLink,
+          contactNum: contactNum,
           created: Timestamp.now()
         })
       });
@@ -72,12 +76,19 @@ function AddTask({ onClose, open }) {
           }}
           
         />
-         <input
+        <input
           type='text'
-          // name='title'
-          // onChange={(e) => setTitle(e.target.value.toUpperCase())}
-          value={title}
-          placeholder='Contact info' />
+          name='ContactLink'
+          value={contactLink}
+          onChange={(e) => setContactLink(e.target.value)}
+          placeholder='Enter contact link ' />
+          <input
+          type='text'
+          name='PhoneNumber'
+          value={contactNum}
+          onChange={(e) => setContactNum(e.target.value)}
+          placeholder='Enter your phone number ' />
+        
         <div class='image-map'>
         </div>
         <button type='submit'>Done</button>

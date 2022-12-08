@@ -17,25 +17,21 @@ export default function AllItems() {
       setItems(snapshot.docs.map(doc => ({
         id: doc.id,
         data: doc.data()
+     
       })))
+    
     })
-
-    // const itemColRef = query(collection(db, 'items'), orderBy('created', 'desc'))
-    // onSnapshot(itemColRef, (snapshot) => {
-    //   setItems(snapshot.docs.map(doc => ({
-    //     id: doc.id,
-    //     data: doc.data()
-    //   })))
-    // })
+    console.log(allUserRef)
   }, [])
 
   return (
     <div className='itemManager'>
       <div class="item_grid">
 
-
+        
         <Grid container spacing={8}>
           {Items.map((items) => (
+          
             <Grid key={items} xs={12} sm={6} md={6}>
               <Item
                 id={items.id}
@@ -44,6 +40,8 @@ export default function AllItems() {
                 title={items.data.title}
                 description={items.data.description}
                 image={items.data.image}
+                contactNum = {items.data.contactNum}
+                contactLink= {items.data.contactLink}
               />
             </Grid>
           ))}

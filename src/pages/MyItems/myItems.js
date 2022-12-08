@@ -49,6 +49,8 @@ export default function ItemsList() {
                 title={items.data.title}
                 description={items.data.description}
                 image={items.data.image}
+                contactNum ={items.data.contactNum}
+
               />
             </Grid>
           ))}
