@@ -1,26 +1,17 @@
 // template from https://github.com/mui/material-ui/tree/v5.10.7/docs/data/material/getting-started/templates/sign-up
 
 import React, { useEffect, useState, useContext } from 'react';
-// import { Link, useNavigate } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-// import { auth } from "../../firebase";
-// import { useAuthState } from "react-firebase-hooks/auth";
 import { AuthContext } from '../../context';
-import LoadingSpinner from '../../components/Spinner/LoadingSpinner';
-
-
-// import theme from '../../App';
-// import { ThemeProvider } from 'styled-components';
-
-
+import './profile.css';
+import { InfinitySpin } from 'react-loader-spinner';
 
 export default function Profile() {
   const { user } = useContext(AuthContext);
@@ -32,22 +23,19 @@ export default function Profile() {
       if (!user) {
         setLoading(false); //set loading state
       }
-    }, 1000);
+    }, 900);
     console.log("user data successfully loaded")
 
   }, []);
 
   if (isLoading) {
-    return (
-      
-      <div style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh",
-      }}>is loading... {console.log("loading state")}</div>
-    );
+    return <div class="spinner-container">
+      <InfinitySpin
+        width='700'
+        height='700'
+        color="black"
+      />
+    </div>
   }
 
   return (

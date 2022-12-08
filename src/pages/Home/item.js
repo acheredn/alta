@@ -11,18 +11,6 @@ export default function AllItem({ id, title, description, image, completed }) {
       setOpen({ view: false })
     }
   
-    /* function to update firestore */
-    const handleChange = async () => {
-      const itemDocRef = doc(db, 'items', id)
-      try {
-        await updateDoc(itemDocRef, {
-         
-        })
-      } catch (err) {
-        alert(err)
-      }
-    }
-  
     return (
       <div className={`item ${'item--borderColor'}`}>
         <div className='item__body'>

@@ -8,14 +8,22 @@ import AddItem from './AddItem'
 import Grid from '@mui/material/Grid';
 // import { useAuthState } from 'react-firebase-hooks/auth';
 import { AuthContext } from '../../context';
+import { InfinitySpin } from 'react-loader-spinner';
 
 export default function ItemsList() {
   const [openAddModal, setOpenAddModal] = useState(false)
   const [Items, setItems] = useState([])
+  const [isLoading, setLoading] = useState(true);
 
   const { user } = useContext(AuthContext);
   /* function to get all Items from firestore in realtime */
   useEffect(() => {
+    setTimeout(() => { // simulate a delay
+      if (!user) {
+        setLoading(false); //set loading state
+      }
+    }, 900);
+
     (async () => {
       if (user) {
         const usersDocRef = doc(db, "users", user.uid)
@@ -29,6 +37,16 @@ export default function ItemsList() {
       }
     })();
   }, [user]);
+
+  if (isLoading) {
+    return <div class="spinner-container">
+      <InfinitySpin
+        width='700'
+        height='700'
+        color="black"
+      />
+    </div>
+  }
 
 
   return (
