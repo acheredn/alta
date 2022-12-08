@@ -31,8 +31,8 @@ const searchClient = algoliasearch(
 const Home = () => {
     
     return (
-        <>
-            <Box
+        <div id="body">
+          <Box
                 class="background"
                 style={{
                     backgroundImage: `url(${bg})`,
@@ -108,7 +108,8 @@ const Home = () => {
       </div>
       
             <AllItems />
-        </>
+        </div>
+            
 
     );
 }
