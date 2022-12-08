@@ -4,18 +4,23 @@ import {useState} from 'react'
 import './editItem.css'
 import { doc, updateDoc } from "firebase/firestore";
 import {db} from '../../firebase'
+import { AuthContext } from '../../context';
+import { useContext } from 'react';
 
 function EditItem({open, onClose, toEditTitle, toEditDescription, id}) {
 
   const [title, setTitle] = useState(toEditTitle)
   const [description, setDescription] = useState(toEditDescription)
+  const { user } = useContext(AuthContext);
 
   /* function to update firestore */
   const handleUpdate = async (e) => {
     e.preventDefault()
-    const taskDocRef = doc(db, 'items', id)
+    const usersDocRef = doc(db, "users", user.uid)
+    console.log(usersDocRef);
+    const colRef = doc(usersDocRef, "items", id)
     try{
-      await updateDoc(taskDocRef, {
+      await updateDoc(colRef, {
         title: title,
         description: description
       })

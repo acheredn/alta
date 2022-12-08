@@ -3,16 +3,19 @@ import './item.css'
 import { useState } from 'react'
 import ItemView from './ItemView'
 import EditItem from './EditItem'
-import { collection, doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { collection, doc, updateDoc, deleteDoc, setDoc } from "firebase/firestore";
 import { db, auth } from '../../firebase'
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { AuthContext } from '../../context';
+import { useContext } from 'react';
 
 
 function MyItems({ id, title, description, image, completed }) {
 
   const [checked, setChecked] = useState(completed)
   const [open, setOpen] = useState({ edit: false, view: false })
+  const { user } = useContext(AuthContext);
 
   const handleClose = () => {
     setOpen({ edit: false, view: false })
@@ -20,10 +23,10 @@ function MyItems({ id, title, description, image, completed }) {
 
   /* function to update firestore */
   const handleChange = async () => {
-    const user = auth.currentUser;
     if (user) {
       const usersDocRef = doc(db, "users", user.uid)
-      const colRef = collection(usersDocRef, "items", id)
+      console.log(usersDocRef);
+      const colRef = doc(usersDocRef, "items", id)
       try {
         await updateDoc(colRef, {
           completed: checked
@@ -34,12 +37,11 @@ function MyItems({ id, title, description, image, completed }) {
     }
   }
 
-  /* function to delete a document from firstore */
+  /* function to delete a document from firestore */
   const handleDelete = async () => {
-    const user = auth.currentUser;
     if (user) {
       const usersDocRef = doc(db, "users", user.uid)
-      const colRef = collection(usersDocRef, "items", id)
+      const colRef = doc(usersDocRef, "items", id)
       try {
         await deleteDoc(colRef)
       } catch (err) {
@@ -66,20 +68,7 @@ function MyItems({ id, title, description, image, completed }) {
   }
 
   return (
-    <div className={`item ${checked &&'item--borderColor'}`}>
-         <div>
-        <input 
-          id={`checkbox-${id}`} 
-          className='checkbox-custom'
-          name="checkbox" 
-          checked={checked}
-          onChange={handleChange}
-          type="checkbox" />
-        <label 
-          htmlFor={`checkbox-${id}`} 
-          className="checkbox-custom-label" 
-          onClick={() => setChecked(!checked)} ></label>
-      </div>
+    <div className={`item ${'item--borderColor'}`}>
       <div className='item__body'>
         <h2>{title}</h2>
         <p>{description}</p>

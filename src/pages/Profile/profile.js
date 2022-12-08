@@ -11,9 +11,10 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { auth } from "../../firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
+// import { auth } from "../../firebase";
+// import { useAuthState } from "react-firebase-hooks/auth";
 import { AuthContext } from '../../context';
+import LoadingSpinner from '../../components/Spinner/LoadingSpinner';
 
 
 // import theme from '../../App';
@@ -22,15 +23,32 @@ import { AuthContext } from '../../context';
 
 
 export default function Profile() {
-  // const { user } = useContext(AuthContext);
-  const [user, loading] = useAuthState(auth);
+  const { user } = useContext(AuthContext);
+  const [isLoading, setLoading] = useState(true);
 
   /* function to get all Items from firestore in realtime */
   useEffect(() => {
+    setTimeout(() => { // simulate a delay
+      if (!user) {
+        setLoading(false); //set loading state
+      }
+    }, 1000);
+    console.log("user data successfully loaded")
 
-      console.log("user data successfully loaded")
+  }, []);
 
-  }, [user]);
+  if (isLoading) {
+    return (
+      
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+      }}>is loading... {console.log("loading state")}</div>
+    );
+  }
 
   return (
     <body>

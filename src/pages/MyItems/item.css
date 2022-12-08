@@ -29,40 +29,6 @@
 
 
 
-.checkbox-custom {
-  display: none;
-}
-.checkbox-custom-label {
-  display: inline-block;
-  position: relative;
-  vertical-align: middle;
-  margin: 5px;
-  cursor: pointer;
-}
-.checkbox-custom + .checkbox-custom-label:before {
-  content: '';
-  background: inherit;
-  border-radius: 5px;
-  border: 2px solid hsl(210, 15%, 70%);
-  display: inline-block;
-  vertical-align: middle;
-  width: 12px; 
-  height: 12px;
-  padding: 2px; 
-  margin-right: 10px;
-}
-.checkbox-custom:checked + .checkbox-custom-label:after {
-  content: "";
-  padding: 2px;
-  position: absolute;
-  width: 2px;
-  height: 6px;
-  border: solid green;
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
-  top: 2px; left: 5px;
-}
-
 
 .item--borderColor {
   border-color: rgb(1, 1, 1);
