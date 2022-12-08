@@ -13,6 +13,7 @@ import AllItems from './pages/AllItems/AllItems'
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { AuthProvider } from "./context.js";
+import LogIn from "./Login/login";
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
             <Route path='/my-items' element={<MyItems />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/all-items' element={<AllItems />} />
+            <Route path='/login' element={<LogIn />} />
           </Routes>
           <Footer />
         </Router>

@@ -71,6 +71,7 @@ function AddTask({ onClose, open }) {
           value={description}></textarea>
         <input
           type="file"
+          accept="image/*"
           onChange={(event) => {
             setImageUpload(event.target.files[0]);
           }}

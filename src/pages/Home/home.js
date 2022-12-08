@@ -57,7 +57,7 @@ const Home = () => {
                             direction="row"
                             spacing={2}
                             justifyContent="center">
-                            <Button Link to='#items'
+                            <Button Link to='/login'
                                 style={{
                                     backgroundColor: "#000000",
                                     padding: "18px 36px",
@@ -65,7 +65,8 @@ const Home = () => {
                                 }} variant="contained">
                                 <Link
                                     activeClass="active"
-                                    to="items"
+                                    to = '/login'
+                                    // to= {user!=NULL? items : }
                                     spy={true}
                                     smooth={true}
                                     offset={50}
