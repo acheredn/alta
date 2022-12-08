@@ -82,7 +82,7 @@ function AddTask({ onClose, open }) {
           name='ContactLink'
           value={contactLink}
           onChange={(e) => setContactLink(e.target.value)}
-          placeholder='Enter contact link ' />
+          placeholder='Enter contact link - full with https:// part' />
           <input
           type='text'
           name='PhoneNumber'
