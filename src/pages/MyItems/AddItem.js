@@ -1,15 +1,14 @@
 import React from 'react';
 import Modal from "./Modal"
 import './addItem.css'
-import { db } from '../../firebase'
-import { collection, addDoc, Timestamp } from 'firebase/firestore'
+import { collection, addDoc, Timestamp, doc } from 'firebase/firestore'
 import {
   ref,
   uploadBytes,
   getDownloadURL,
 } from "firebase/storage";
 import { v4 } from "uuid";
-import storage from '../../firebase';
+import { storage, auth, db } from '../../firebase';
 import { useState } from "react";
 
 function AddTask({ onClose, open }) {
@@ -17,20 +16,28 @@ function AddTask({ onClose, open }) {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [imageUpload, setImageUpload] = useState('');
+  const [contactLink, setContactLink] = useState('');
+  const [contactNum, setContactNum] = useState('');
   const [url, setImageUrl] = useState('');
 
-
   const uploadFile = async () => {
+    const user = auth.currentUser;
+
     if (imageUpload == null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         setImageUrl(url);
-        addDoc(collection(db, 'items'), {
+        const usersDocRef = doc(db, "users", user.uid)
+        const colRef = collection(usersDocRef, "items")
+        addDoc(colRef, {
           title: title,
           description: description,
           image: url,
+          uid: user.uid,
           completed: false,
+          contactLink: contactLink,
+          contactNum: contactNum,
           created: Timestamp.now()
         })
       });
@@ -64,10 +71,25 @@ function AddTask({ onClose, open }) {
           value={description}></textarea>
         <input
           type="file"
+          accept="image/*"
           onChange={(event) => {
             setImageUpload(event.target.files[0]);
           }}
+          
         />
+        <input
+          type='text'
+          name='ContactLink'
+          value={contactLink}
+          onChange={(e) => setContactLink(e.target.value)}
+          placeholder='Enter contact link ' />
+          <input
+          type='text'
+          name='PhoneNumber'
+          value={contactNum}
+          onChange={(e) => setContactNum(e.target.value)}
+          placeholder='Enter your phone number ' />
+        
         <div class='image-map'>
         </div>
         <button type='submit'>Done</button>

@@ -3,8 +3,8 @@ import Modal from "./Modal"
 import './swap.css'
 import styled from 'styled-components';
 
-function ItemView({ onClose, open, title, description, image }) {
-
+function ItemView({ onClose, open, title, description, image, contactLink, contactNum }) {
+  console.log(contactLink)
   const Button = styled.button`
 
   background-color: black;
@@ -33,8 +33,11 @@ function ItemView({ onClose, open, title, description, image }) {
               padding: "1px 20px",
               fontSize: "12px",
             }} variant="contained">
-            <a id = "contact-text" href="https://www.facebook.com/tribuidinh0901" target="_blank" rel="noopener noreferrer">Contact Me</a>
+            
+            <a id = "contact-text" href= {contactLink} target="_blank" rel="noopener noreferrer">Chat with me</a>
           </Button>
+          <p>Call me by {contactNum}</p>
+          
         </div>
       </div>
     </Modal>

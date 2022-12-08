@@ -3,16 +3,17 @@ import React from "react";
 import './App.css';
 import Navbar from './components/Navbar/NavBar';
 import { BrowserRouter as Router, Routes, Route }
-    from 'react-router-dom';
-import {ThemeProvider, createTheme} from '@mui/material/styles';
+  from 'react-router-dom';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Home from './pages/Home/home';
-import Login from './pages/Login/login';
 import Profile from './pages/Profile/profile';
 import Footer from './components/Footer';
 import MyItems from './pages/MyItems/myItems';
 import AllItems from './pages/AllItems/AllItems'
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import { AuthProvider } from "./context.js";
+import LogIn from "./Login/login";
 
 function App() {
 
@@ -40,9 +41,13 @@ function App() {
               <Footer />
             </div>
         </Router>
-        </ThemeProvider>
+          {/* </AuthProvider> */}
+  
+      </ThemeProvider>
 
-    );
+ 
+
+  );
 }
 
 

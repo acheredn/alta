@@ -1,6 +1,6 @@
 // template from https://github.com/mui/material-ui/tree/v5.10.7/docs/data/material/getting-started/templates/sign-up
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 // import { Link, useNavigate } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -11,16 +11,26 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
+import { auth } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { AuthContext } from '../../context';
+
 
 // import theme from '../../App';
 // import { ThemeProvider } from 'styled-components';
 
 
-export default function Profile() {
 
-  const [user] = useAuthState(auth);
+export default function Profile() {
+  // const { user } = useContext(AuthContext);
+  const [user, loading] = useAuthState(auth);
+
+  /* function to get all Items from firestore in realtime */
+  useEffect(() => {
+
+      console.log("user data successfully loaded")
+
+  }, [user]);
 
   return (
     <body>
@@ -34,9 +44,9 @@ export default function Profile() {
             alignItems: 'center',
           }}
         >
-          <Avatar 
-              sx={{ width: 90, height: 90 }}
-              alt="User Profile Image" src={user.photoURL}  />
+          <Avatar
+            sx={{ width: 90, height: 90 }}
+            alt="User Profile Image" src={user.photoURL} />
           <Typography component="h1" variant="h5">
             Profile
           </Typography>

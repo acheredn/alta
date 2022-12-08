@@ -16,6 +16,9 @@ import {
   collection,
   where,
   addDoc,
+  setDoc,
+  getDoc,
+  doc
 } from "firebase/firestore";
 import { useState } from "react";
 const firebaseConfig = {
@@ -41,19 +44,38 @@ export default storage;
 
 
 const googleProvider = new GoogleAuthProvider();
+// const signInWithGoogle = async () => {
+//   try {
+//     const res = await signInWithPopup(auth, googleProvider);
+//     const user = res.user;
+//     const q = query(collection(db, "users"), where("uid", "==", user.uid));
+//     const docs = await getDocs(q);
+//     if (docs.docs.length === 0) {
+//       await addDoc(collection(db, "users"), {
+//         uid: user.uid,
+//         name: user.displayName,
+//         authProvider: "google",
+//         email: user.email,
+//       });
+//     }
+//   } catch (err) {
+//     console.error(err);
+//     alert(err.message);
+//   }
+// };
 const signInWithGoogle = async () => {
   try {
+    // const { user } = useContext(AuthContext); 
     const res = await signInWithPopup(auth, googleProvider);
     const user = res.user;
-    const q = query(collection(db, "users"), where("uid", "==", user.uid));
-    const docs = await getDocs(q);
-    if (docs.docs.length === 0) {
-      await addDoc(collection(db, "users"), {
+    const docRef = doc(db, "users", user.uid);
+    const docSnap = await getDoc(docRef);
+    if (!docSnap.exists()) {
+      await setDoc(doc(db, "users", user.uid), {
         uid: user.uid,
         name: user.displayName,
         authProvider: "google",
         email: user.email,
-      
       });
     }
 
@@ -111,10 +133,12 @@ const logout = () => {
 export {
   auth,
   db,
+  storage,
   signInWithGoogle,
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
   sendPasswordReset,
   logout,
+  firebaseConfig,
 };
 

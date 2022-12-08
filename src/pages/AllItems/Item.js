@@ -2,10 +2,8 @@ import React from 'react';
 import './item.css'
 import { useState } from 'react'
 import ItemView from './swap'
-import { doc, updateDoc, deleteDoc } from "firebase/firestore";
-import { db } from '../../firebase'
 
-function AllItem({ id, title, description, image, completed }) {
+function AllItem({ id, title, description, image, contactLink, contactNum }) {
 
 
   const [open, setOpen] = useState({ view: false })
@@ -14,26 +12,15 @@ function AllItem({ id, title, description, image, completed }) {
     setOpen({ view: false })
   }
 
-  /* function to update firestore */
-  const handleChange = async () => {
-    const itemDocRef = doc(db, 'items', id)
-    try {
-      await updateDoc(itemDocRef, {
-       
-      })
-    } catch (err) {
-      alert(err)
-    }
-  }
 
   return (
     <div className={`item ${'item--borderColor'}`}>
       <div className='item__body'>
         <h2>{title}</h2>
         <p>{description}</p>
-        <div class = "image">
-          <img width = "200" height = "200" src={image}/>
-        </div> 
+        <div class="image">
+          <img width="200" height="200" src={image} />
+        </div>
         <div className='item__buttons'>
           <button className='item_viewButton'
             onClick={() => setOpen({ ...open, view: true })}>
@@ -47,8 +34,10 @@ function AllItem({ id, title, description, image, completed }) {
           onClose={handleClose}
           title={title}
           description={description}
-          image = {image}
-          open={open.view} />
+          image={image}
+          open={open.view}
+          contactLink={contactLink}
+          contactNum={contactNum} />
       }
 
     </div>
