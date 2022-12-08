@@ -23,8 +23,8 @@ export default function ItemsList() {
   }, [])
 
   return (
-    <div className='ItemManager'>
-      <header>My Items List</header>
+    <div id="body">
+      <div className='ItemManager'>
       <div className='ItemManager__container'>
         <button
           onClick={() => setOpenAddModal(true)}>
@@ -54,5 +54,7 @@ export default function ItemsList() {
         <AddItem onClose={() => setOpenAddModal(false)} open={openAddModal} />
       }
     </div>
+    </div>
+    
   )
 }

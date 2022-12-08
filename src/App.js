@@ -27,14 +27,18 @@ function App() {
         <ThemeProvider theme={theme}>
         <Router>
             <Navbar/>
-            <Routes>
-                <Route path='/' exact element={<Home />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/my-items' element={<MyItems />} />
-                <Route path='/profile' element={<Profile />} />
-                <Route path ='/all-items' element = {<AllItems/>} />
-            </Routes>
-            <Footer />
+            <div id="navMenu">
+              <Routes>
+                  <Route path='/' exact element={<Home />} />
+                  <Route path='/login' element={<Login />} />
+                  <Route path='/my-items' element={<MyItems />} />
+                  <Route path='/profile' element={<Profile />} />
+                  <Route path ='/all-items' element = {<AllItems/>} />
+              </Routes>
+            </div>
+            <div id="footer">
+              <Footer />
+            </div>
         </Router>
         </ThemeProvider>
 
