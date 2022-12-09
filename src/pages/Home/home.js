@@ -113,12 +113,13 @@ const Home = () => {
         <iframe width="560" height="315" src="https://www.youtube.com/embed/A5DQhbrKoB8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div className="container">
-        <InstantSearch searchClient={searchClient} indexName="items"> 
+        {user?  <InstantSearch searchClient={searchClient} indexName="items"> 
           <Configure hitsPerPage={6} />
           <div id="searchbox"> <SearchBox translations={{ placeholder: "Search for items" }}/> </div>
           <div id="hits"> <Hits hitComponent={Hit} /> </div>
           <div id="pagination"> <Pagination /> </div>
-        </InstantSearch>
+        </InstantSearch> : <h1>Begin with Start Shopping button!</h1>}
+       
       </div>
     </div>
   );
