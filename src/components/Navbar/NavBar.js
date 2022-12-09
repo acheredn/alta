@@ -122,6 +122,9 @@ export default function PrimarySearchAppBar() {
             <MenuItem component={Link} href='/my-items'>
               My Items
             </MenuItem> : null}
+            <MenuItem component={Link} href='/about-us'>
+              About Us
+            </MenuItem>
           <Box sx={{ flexGrow: 1 }} />
 
           {user ? (
