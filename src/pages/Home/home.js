@@ -96,7 +96,7 @@ const Home = () => {
                 }} variant="contained">
                 <a
                   activeClass="active"
-                  href={(!user) ? '/login' : '/all-items'}
+                  href={(!user) ? '/login' : '/search'}
                   spy={true}
                   smooth={true}
                   offset={50}
