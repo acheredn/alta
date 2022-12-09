@@ -58,7 +58,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
-    const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -111,76 +111,13 @@ export default function PrimarySearchAppBar() {
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
 
-    return (
-        <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-            <Toolbar>
-            <MenuItem component={Link} href='/#'>
-                LOOP
-            </MenuItem>
-            <Search>
-                <SearchIconWrapper>
-                <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-                />
-            </Search>
-                <Box sx={{ display: 'flex', justifyContent: 'space-around', }}>
-                    <MenuItem component={Link} href='/my-items'>
-                        My Items
-                    </MenuItem>
-                </Box>
-            <Box sx={{ flexGrow: 1 }} />
-                {user ? (
-				<Typography> 
-                    <Box>
-                        <IconButton
-                        size="large"
-                        edge="end"
-                        aria-label="account of current user"
-                        aria-controls={menuId}
-                        aria-haspopup="true"
-                        onClick={handleProfileMenuOpen}
-                        color="inherit"
-                        >
-                        <Avatar 
-                          sx={{ width: 40, height: 40, mr: 2 }}
-                          alt="User Profile Image" src={user.photoURL} />
-                        </IconButton>
-						{user.displayName} 
-                    </Box>
-				</Typography>): 
-                (<MenuItem onClick={signInWithGoogle}>Login</MenuItem>)
-                }
-            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                <IconButton
-                size="large"
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="inherit"
-                >
-                <MoreIcon />
-                </IconButton>
-            </Box>
-            </Toolbar>
-        </AppBar>
-        {renderMenu}
-        </Box>
-    );
   return (
     <Box sx={{ flexGrow: 1 }}>
     <AppBar position="static">
       <Toolbar>
-      <MenuItem component={Link} href='/#'>
-        Loop
-      </MenuItem>
-      {/* <IconButton sx={{ width: .1 }} >
-        <img src="src/images/loopIcon.png"></img>
-      </IconButton> */}
+        <IconButton component={Link} href='/#' sx={{ width: 0.05 }} >
+          <img src={icon}></img>
+        </IconButton>
       <Search>
         <SearchIconWrapper>
         <SearchIcon />
@@ -190,14 +127,14 @@ export default function PrimarySearchAppBar() {
         inputProps={{ 'aria-label': 'search' }}
         />
       </Search>
-        <Box sx={{ display: 'flex', justifyContent: 'space-around', }}>
+        {/* <Box sx={{ display: 'flex', justifyContent: 'space-around', }}>
             <MenuItem component={Link} href='/#'>
                 Home
             </MenuItem>
             <MenuItem component={Link} href='/login'>
                 Login
             </MenuItem>
-        </Box >
+        </Box > */}
       <Box sx={{ flexGrow: 1 }} />
         {user ? (
         <Typography> 
@@ -212,7 +149,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
               >
               <Avatar 
-                sx={{ width: 40, height: 40, mr: 3 }}
+                sx={{ width: 40, height: 40, mr: 2 }}
                 alt="User Profile Image" src={user.photoURL} />
               </IconButton>
               {user.displayName} 
