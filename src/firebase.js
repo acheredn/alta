@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
+import { useHistory } from 'react-router-dom';
 import {
   GoogleAuthProvider,
   getAuth,
@@ -64,6 +65,7 @@ const googleProvider = new GoogleAuthProvider();
 //   }
 // };
 const signInWithGoogle = async () => {
+  
   try {
     // const { user } = useContext(AuthContext); 
     const res = await signInWithPopup(auth, googleProvider);

@@ -26,6 +26,7 @@ export default function AllItems() {
 
   return (
     <div className='itemManager'>
+      <h1 >Welcome to Loop Store!</h1>
       <div class="item_grid">
 
         

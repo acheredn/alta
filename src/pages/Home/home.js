@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import bg from '../../images/background.jpg';
+import bg1 from '../../images/background1.jpg';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Button from '@mui/material/Button';
@@ -23,6 +23,7 @@ import {
 } from 'react-instantsearch-dom';
 import Hit from './hit'
 import './home.css'
+
 
 const searchClient = algoliasearch(
   'FUH27QK0B4',
@@ -47,25 +48,30 @@ const Home = () => {
   if (isLoading) {
     return <div class="spinner-container">
       <InfinitySpin
-        width='700'
-        height='700'
+        width='130'
+        height='130'
         color="black"
       />
     </div>
   }
+
+
+
 
   return (
     <div id="body">
       <Box
         class="background"
         style={{
-          backgroundImage: `url(${bg})`,
+          backgroundImage: `url(${bg1})`,
           backgroundSize: "cover",
           height: "100vh",
           color: "#f5f5f5"
         }}>
+
         <CssBaseline />
         <Container maxWidth="sm">
+
           <Typography
             sx={{ pt: 5 }}
             component="h1"
@@ -81,27 +87,31 @@ const Home = () => {
               direction="row"
               spacing={2}
               justifyContent="center">
-              <Button Link to='/login'
+              <Button
                 style={{
                   backgroundColor: "#000000",
                   padding: "18px 36px",
                   fontSize: "18px",
                 }} variant="contained">
-                <Link
+                <a
                   activeClass="active"
-                  to='/login'
-                  // to= {user!=NULL? items : }
+                  href={(!user) ? '/login' : '/all-items'}
                   spy={true}
                   smooth={true}
                   offset={50}
                   duration={500}
-                >Start Shopping</Link>
+                >Start Shopping</a>
               </Button>
             </Stack>
           </Typography>
         </Container>
       </Box>
+      <div className="video-responsive">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/A5DQhbrKoB8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
       <div className="container">
+
+
 
         <InstantSearch className="searchbar-input" searchClient={searchClient} indexName="items">
           <Configure hitsPerPage={8} />

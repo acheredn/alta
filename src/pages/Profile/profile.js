@@ -31,8 +31,8 @@ export default function Profile() {
   if (isLoading) {
     return <div class="spinner-container">
       <InfinitySpin
-        width='700'
-        height='700'
+        width='130'
+        height='130'
         color="black"
       />
     </div>

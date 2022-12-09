@@ -9,6 +9,9 @@ import Grid from '@mui/material/Grid';
 // import { useAuthState } from 'react-firebase-hooks/auth';
 import { AuthContext } from '../../context';
 import { InfinitySpin } from 'react-loader-spinner';
+import bg2 from '../../images/background2.jpg';
+import bg1 from '../../images/background2.webp'
+import bg3 from '../../images/background3.png'
 
 export default function ItemsList() {
   const [openAddModal, setOpenAddModal] = useState(false)
@@ -39,18 +42,74 @@ export default function ItemsList() {
   }, [user]);
 
   if (isLoading) {
-    return <div class="spinner-container">
+    return <div class="centered">
       <InfinitySpin
-        width='700'
-        height='700'
+        width='130'
+        height='130'
         color="black"
       />
     </div>
   }
 
+  const bgImage = [bg1, bg2, bg3];
+  const delay = 4200;
+
+  function Slideshow() {
+    const [index, setIndex] = React.useState(0);
+    const timeoutRef = React.useRef(null);
+
+    function resetTimeout() {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    }
+
+    React.useEffect(() => {
+      resetTimeout();
+      timeoutRef.current = setTimeout(
+        () =>
+          setIndex((prevIndex) =>
+            prevIndex === bgImage.length - 1 ? 0 : prevIndex + 1
+          ),
+        delay
+      );
+
+      return () => {
+        resetTimeout();
+      };
+    }, [index]);
+
+    return (
+      <div className="slideshow">
+        <div
+          className="slideshowSlider"
+          style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+        >
+          {bgImage.map((bg, index) => (
+            <img className="slide" key={index} src={bg}></img>
+          ))}
+        </div>
+
+        <div className="slideshowDots">
+          {bgImage.map((_, idx) => (
+            <div
+              key={idx}
+              className={`slideshowDot${index === idx ? " active" : ""}`}
+              onClick={() => {
+                setIndex(idx);
+              }}
+            ></div>
+          ))}
+        </div>
+      </div>
+    );
+
+  }
+
 
   return (
     <div id="body">
+      <Slideshow />
       <div className='ItemManager'>
         <div className='ItemManager__container'>
           <button
