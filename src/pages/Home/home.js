@@ -20,6 +20,7 @@ import {
   Hits,
   SearchBox,
   RefinementList,
+  Pagination
 } from 'react-instantsearch-dom';
 import Hit from './hit'
 import './home.css'
@@ -106,42 +107,21 @@ const Home = () => {
           </Typography>
         </Container>
       </Box>
+
+      
       <div className="video-responsive">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/A5DQhbrKoB8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div className="container">
-
-
-
-        <InstantSearch className="searchbar-input" searchClient={searchClient} indexName="items">
-          <Configure hitsPerPage={8} />
-          <div className="search-panel">
-            <div className="search-panel__filters">
-
-              <RefinementList attribute="items" />
-
-            </div>
-
-            <div className="search-panel__results">
-              <SearchBox
-                className="searchbox"
-              />
-
-              <Hits hitComponent={Hit} />
-
-
-            </div>
-          </div>
+        <InstantSearch searchClient={searchClient} indexName="items"> 
+          <Configure hitsPerPage={6} />
+          <div id="searchbox"> <SearchBox translations={{ placeholder: "Search for items" }}/> </div>
+          <div id="hits"> <Hits hitComponent={Hit} /> </div>
+          <div id="pagination"> <Pagination /> </div>
         </InstantSearch>
       </div>
-
-      <AllItems />
     </div>
-
-
   );
 }
-
-
 
 export default Home;
