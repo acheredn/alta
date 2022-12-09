@@ -14,6 +14,8 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { AuthProvider } from "./context.js";
 import LogIn from "./Login/login";
+import InstantSearch from "./pages/Seach/search";
+
 
 function App() {
 
@@ -36,6 +38,7 @@ function App() {
               <Route path='/my-items' element={<MyItems />} />
               <Route path='/profile' element={<Profile />} />
               <Route path='/all-items' element={<AllItems />} />
+              <Route path='/search' element={<InstantSearch />} />
             </Routes>
           </div>
           <div id="footer">
