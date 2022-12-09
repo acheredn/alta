@@ -31,7 +31,7 @@ export default function LogIn() {
     };
 
     if(user){
-        navigate('/all-items');
+        navigate('/search');
     }
 
     return (
