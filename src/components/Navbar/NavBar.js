@@ -118,7 +118,7 @@ export default function PrimarySearchAppBar() {
         <IconButton component={Link} href='/#' sx={{ width: 0.05 }} >
           <img src={icon}></img>
         </IconButton>
-      <Search>
+      {/* <Search>
         <SearchIconWrapper>
         <SearchIcon />
         </SearchIconWrapper>
@@ -126,7 +126,7 @@ export default function PrimarySearchAppBar() {
         placeholder="Search…"
         inputProps={{ 'aria-label': 'search' }}
         />
-      </Search>
+      </Search> */}
         {/* <Box sx={{ display: 'flex', justifyContent: 'space-around', }}>
             <MenuItem component={Link} href='/#'>
                 Home

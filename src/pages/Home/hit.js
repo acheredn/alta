@@ -3,7 +3,7 @@ import {
   Highlight,
 } from 'react-instantsearch-dom';
 import { useState } from 'react'
-import './hit.css'
+import './home.css'
 import ItemView from '../AllItems/swap'
 
 export default function Hit(props) {
@@ -16,27 +16,29 @@ export default function Hit(props) {
   
 
     return (
-      <div className={`item ${'item--borderColor'}`}>
-        <div className ='item__body'>
-        <h2> <Highlight attribute="title" hit={props.hit}/> </h2>
-        <p> <Highlight attribute="description" hit={props.hit} /> </p>
-          <div class ='image'> 
-          <img width = "200" height = "200" src={props.hit.image} />
-            </div>
-          <div className='item__buttons'>
-            <button className='item_viewButton'
-            onClick={() => setOpen({ ...open, view: true })}>
-            Details
+      <div>
+        <div>
+        <h2 element class="ais-Panel-header"> <Highlight attribute="title" hit={props.hit}/>         
+        <div className='hit-button'>
+          <button 
+          onClick={() => setOpen({ ...open, view: true })}>
+          Details
           </button>
-        </div>
+        </div> </h2>
+        <p element class="hit-description"> <Highlight attribute="description" hit={props.hit} /> </p>
+        <div element class="hit-image"> <img width = "150" height = "150" src={props.hit.image} /> </div>
+
       </div>
+
       {open.view &&
         <ItemView
           onClose={handleClose}
           title={props.hit.title}
           description={props.hit.description}
           image = {props.hit.image}
-          open={open.view} />
+          open={open.view}
+          contactLink={props.hit.contactLink}
+          contactNum={props.hit.contactNum} />
       }
     </div>
     );
