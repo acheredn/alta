@@ -49,5 +49,15 @@
     color: black;
     font-weight: bold;
     margin-top: 2vh;
-    display: block;
+    visibility: hidden;
+
+}
+
+.thank-you-message-sent {
+    text-align: center;
+    margin-top: 20px;
+    color: black;
+    font-weight: bold;
+    margin-top: 2vh;
+    visibility: visible;
 }

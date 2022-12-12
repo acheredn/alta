@@ -5,6 +5,10 @@ import './contactUs.css'
 init('user_id');
 
 const Contact = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    const [emailSent, setEmailSent] = useState(false);
 
     const submit = () => {
         if (name && email && message) {
@@ -20,12 +24,12 @@ const Contact = () => {
             emailjs.send(serviceId, templateId, templateParams, userId)
                 .then(response => console.log(response))
                 .then(error => console.log(error));
-
-
             setName('');
             setEmail('');
             setMessage('');
             setEmailSent(true);
+        
+
         } else {
             alert('Please fill in all fields.');
         }
@@ -36,10 +40,7 @@ const Contact = () => {
         return regex.test(String(email).toLowerCase());
     };
 
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
-    const [emailSent, setEmailSent] = useState(false);
+   
 
     return (
         <body className='contact-us'>
@@ -52,7 +53,7 @@ const Contact = () => {
                 <input className='contact-us-input' type="email" placeholder="Your email address" value={email} onChange={e => setEmail(e.target.value)} />
                 <textarea className='your-message' placeholder="Your message" value={message} onChange={e => setMessage(e.target.value)}></textarea>
                 <button className='send-message' onClick={submit}>Send Message</button>
-                <div className={emailSent ? 'thank-you-message' : null} >
+                <div className={emailSent ?  'thank-you-message-sent' :  'thank-you-message'} >
                     <span  >Thank you for your message, we will be in touch in no time!</span>
                 </div>
 
