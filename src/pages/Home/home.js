@@ -142,53 +142,14 @@ const Home = () => {
       </section>
 
       <div className="container">
-        {user ? <InstantSearch searchClient={searchClient} indexName="items">
+        { user? <InstantSearch searchClient={searchClient} indexName="items">
           <Configure hitsPerPage={6} />
           <div id="searchbox"> <SearchBox translations={{ placeholder: "Search for items" }} /> </div>
           <div id="hits"> <Hits hitComponent={Hit} /> </div>
           <div id="pagination"> <Pagination /> </div>
-        </InstantSearch> : <h1 id = "lets-begin">Let's begin with the Start Shopping button!</h1>}
+        </InstantSearch> : null}
 
       </div>
-      {user ?
-        <div id="testimonials">
-
-          <Carousel fade className="customers-carousel-container h-100">
-            <Carousel.Item class="carousel-item">
-              <img
-
-                class="testimonial-image" src={tribui} alt="tri-bui" />
-              <Carousel.Caption >
-                <h2 class="testimonial-text"> Loop is incredibly easy to use, just wanna say awesome thanks Alta Team!</h2>
-                <em>Tri Bui, sophomore</em>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item class="carousel-item">
-              <img class="testimonial-image" src={tola} alt="tola" />
-              <Carousel.Caption>
-                <h2 class="testimonial-text"> I love loop. That's all</h2>
-                <em>Anatoliy, senior</em>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item class="carousel-item">
-              <img class="testimonial-image" src={lorena} alt="lorena" />
-              <Carousel.Caption >
-                <h2 class="testimonial-text"> You guys have to try this. Find your favorite clothes so quick!</h2>
-                <em>Lorena, junior</em>
-              </Carousel.Caption>
-            </Carousel.Item >
-            <Carousel.Item class="carousel-item" >
-              <img class="testimonial-image" src={aurum} alt="aurum" />
-              <Carousel.Caption >
-                <h2 class="testimonial-text"> Make new friends by this website too! </h2>
-                <em>Aurum, sophomore</em>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
-        </div>
-        : null}
-
-
     </div>
   );
 }
