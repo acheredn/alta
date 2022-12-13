@@ -78,16 +78,14 @@ export default function PrimarySearchAppBar() {
             <img src={icon}></img>
           </IconButton>
           {user ?
-            <MenuItem component={Link} href='/my-items'>
+            <MenuItem className='color' component={Link} href='/my-items'>
               My Items
             </MenuItem> : null}
-            <MenuItem component={Link} href='/about-us'>
-              About Us
-            </MenuItem>
+
           <Box sx={{ flexGrow: 1 }} />
-          <MenuItem component={Link} href='/contact-us'>
-              Contact Us
-            </MenuItem>
+          <MenuItem className='color' component={Link} href='/about-us'>
+            About Us
+          </MenuItem>
 
           {user ? (
             <Typography>

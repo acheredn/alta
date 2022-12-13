@@ -12,9 +12,13 @@
 	font-size: 1.5rem;
 }
 
+.color{
+	color: white;
+}
+
 :root {
 	--mainColor: #000000;
-	--mainColorLight: #5767aa;
+	--mainColorLight: #dee0e8;
 	--secondaryColor: #db2b39;
 	--textColor: #eee;
 }
