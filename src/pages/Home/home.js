@@ -66,8 +66,6 @@ const Home = () => {
   }
 
 
-
-
   return (
     <div id="body">
       <Box
@@ -100,16 +98,16 @@ const Home = () => {
                   backgroundColor: "#000000",
                   padding: "18px 36px",
                   fontSize: "18px",
-
+                 
                 }} variant="contained">
-                <a id="start-shopping"
+                <a id = "start-shopping"
                   activeClass="active"
                   href={(!user) ? '/login' : '#searchbox'}
                   spy={true}
                   smooth={true}
                   offset={50}
                   duration={500}
-
+                  
                 >Start Shopping</a>
               </Button>
             </Stack>
@@ -145,7 +143,7 @@ const Home = () => {
           <div id="searchbox"> <SearchBox translations={{ placeholder: "Search for items" }} /> </div>
           <div id="hits"> <Hits hitComponent={Hit} /> </div>
           <div id="pagination"> <Pagination /> </div>
-        </InstantSearch> : <h1 id="lets-begin">Let's begin with the Start Shopping button!</h1>}
+        </InstantSearch> : <h1 id = "lets-begin">Let's begin with the Start Shopping button!</h1>}
 
       </div>
       {user ?
