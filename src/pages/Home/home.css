@@ -10,10 +10,6 @@ html {
   padding-bottom: 5%;
 }
 
-#lets-begin {
-  margin-bottom: 7%;
-}
-
 #start-shopping {
   color: white;
   text-decoration: none;
@@ -30,14 +26,11 @@ html {
   padding: 0 5%;
 }
 
-<<<<<<< HEAD
 .h1 {
   font-size: 30px;
   font-family: 'Times New Roman', Times, serif
 }
-=======
 
->>>>>>> parent of acd47c8 (Font)
 
 #root {
   min-height: 100%;
