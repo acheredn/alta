@@ -68,33 +68,28 @@ function MyItems({ id, title, description, image, completed }) {
   }
 
   return (
-    <div className='each-item'>
-      <div className={`item ${'item--borderColor'}`}>
-        <div className='item__body'>
-          <h2>{title}</h2>
-          <div className='item_description'>
-            <p >{description}</p>
-          </div>
-          <div class="image">
-            <img width="200" height="200" src={image} />
-          </div>
-          <div className='item__buttons'>
-            <div className='item__deleteNedit'>
-              <button
-                className='item__editButton'
-                onClick={() => setOpen({ ...open, edit: true })}>
-                Edit
-              </button>
-              <button className='item__deleteButton' onClick={submit}>Delete</button>
-            </div>
-            <button className='item_viewButton'
-              onClick={() => setOpen({ ...open, view: true })}>
-              View
+    <div className={`item ${'item--borderColor'}`}>
+      <div className='item__body'>
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <div class="image">
+          <img width="200" height="200" src={image} />
+        </div>
+        <div className='item__buttons'>
+          <div className='item__deleteNedit'>
+            <button
+              className='item__editButton'
+              onClick={() => setOpen({ ...open, edit: true })}>
+              Edit
             </button>
+            <button className='item__deleteButton' onClick={submit}>Delete</button>
           </div>
+          <button className='item_viewButton'
+            onClick={() => setOpen({ ...open, view: true })}>
+            View
+          </button>
         </div>
       </div>
-
 
       {open.view &&
         <ItemView
