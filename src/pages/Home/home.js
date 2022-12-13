@@ -115,6 +115,7 @@ const Home = () => {
                   
                 >Start Shopping</a>
               </Button>
+              
             </Stack>
           </Typography>
 
