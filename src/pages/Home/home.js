@@ -13,11 +13,6 @@ import { useContext, useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { faCircleCheck, faBullseye, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ImageSlider, { Slide } from "react-auto-image-slider";
-import Carousel from 'react-bootstrap/Carousel';
-
-
-
 
 
 import {
@@ -29,10 +24,6 @@ import {
 } from 'react-instantsearch-dom';
 import Hit from './hit'
 import './home.css'
-import tribui from '../../images/tri.jpeg'
-import tola from '../../images/tola.jpg'
-import lorena from '../../images/lorena.jpeg'
-import aurum from '../../images/aurum.jpg'
 
 
 
@@ -77,8 +68,7 @@ const Home = () => {
           height: "100vh",
           color: "#f5f5f5"
         }}>
-
-        <CssBaseline />
+    <CssBaseline />
         <Container maxWidth="sm">
 
           <Typography
@@ -119,6 +109,7 @@ const Home = () => {
 
         </Container>
 
+    
       </Box>
 
       <section id="features">
