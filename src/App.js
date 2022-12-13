@@ -16,7 +16,7 @@ import { AuthProvider } from "./context.js";
 import LogIn from "./Login/login";
 import InstantSearch from "./pages/Seach/search";
 import AboutUs from "./pages/AboutUs/AboutUs";
-import ContactUs from "./pages/ContactUs/ContactUs";
+
 
 
 function App() {
@@ -46,7 +46,6 @@ function App() {
               <Route path='/all-items' element={<AllItems />} />
               <Route path='/search' element={<InstantSearch />} />
               <Route path='/about-us' element={<AboutUs />} />
-              <Route path='/contact-us' element={<ContactUs />} />
             </Routes>
           </div>
           <div id="footer">
