@@ -26,11 +26,7 @@ function App() {
       primary: {
         main: '#000000'
       },
-    },
-     typography: {
-         fontFamily: "Abril Fatface"
-      
-      },
+    }
   });
   return (
     <AuthProvider>

@@ -85,9 +85,11 @@ const Home = () => {
 
           <Typography
             sx={{ pt: 5 }}
-            variant="h1"
+            component="h1"
+            variant="h2"
             align="center"
             color="text.primary"
+            font="Abril Fatface"
             gutterBottom
           >
             LOOP
