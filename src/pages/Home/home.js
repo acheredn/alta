@@ -13,6 +13,7 @@ import { useContext, useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { faCircleCheck, faBullseye, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ImageSlider, { Slide } from "react-auto-image-slider";
 import Carousel from 'react-bootstrap/Carousel';
 
 
@@ -82,9 +83,11 @@ const Home = () => {
 
           <Typography
             sx={{ pt: 5 }}
-            variant="h1"
+            component="h1"
+            variant="h2"
             align="center"
             color="text.primary"
+            font="Abril Fatface"
             gutterBottom
           >
             LOOP
@@ -110,6 +113,7 @@ const Home = () => {
                   
                 >Start Shopping</a>
               </Button>
+              
             </Stack>
           </Typography>
 

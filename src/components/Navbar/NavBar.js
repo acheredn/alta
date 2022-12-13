@@ -100,7 +100,7 @@ export default function PrimarySearchAppBar() {
 
           <Box sx={{ flexGrow: 1 }} />
           <MenuItem className='color' component={Link} href='/about-us'>
-            About Us
+            Contact Us
           </MenuItem>
 
           {user ? (

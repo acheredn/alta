@@ -30,10 +30,14 @@ html {
   padding: 0 5%;
 }
 
+<<<<<<< HEAD
 .h1 {
   font-size: 30px;
   font-family: 'Times New Roman', Times, serif
 }
+=======
+
+>>>>>>> parent of acd47c8 (Font)
 
 #root {
   min-height: 100%;
@@ -404,6 +408,7 @@ footer {
 
 .icon:hover {
   color: red;
+  color: #a6a6a6;
 }
 
 .feature-text-1 {
