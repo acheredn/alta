@@ -391,7 +391,6 @@ footer {
   z-index: 1;
   height: 30vh;
   margin-bottom: 4%;
-  margin-top: 5%;
 }
 
 .icon {
@@ -403,7 +402,7 @@ footer {
 }
 
 .icon:hover {
-  color: #ff4c68;
+  color: #a6a6a6;
 }
 
 .feature-text-1 {
