@@ -1,0 +1,36 @@
+body{
+  height: 120vh;;
+}
+.video-responsive {
+  height: 70vh;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 10%;
+}
+
+.video-responsive iframe {
+  left: 25%;
+  top: 10%;
+  height: 85%;
+  width: 50%;
+  position: absolute;
+}
+
+.about-us-description {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 35px;
+  margin-bottom: 1%;
+}
+
+h2 {
+  text-align: center;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+}

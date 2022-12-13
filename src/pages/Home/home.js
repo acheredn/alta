@@ -6,24 +6,34 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { Link, animateScroll as scroll } from "react-scroll";
-import AllItems from '../AllItems/AllItems';
 import algoliasearch from 'algoliasearch/lite';
 import { InfinitySpin } from 'react-loader-spinner';
 import { AuthContext } from '../../context';
-import { useEffect } from 'react';
-import { useContext } from 'react';
-import { useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { faCircleCheck, faBullseye, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ImageSlider, { Slide } from "react-auto-image-slider";
+import Carousel from 'react-bootstrap/Carousel';
+
+
+
+
+
 import {
   InstantSearch,
   Configure,
   Hits,
   SearchBox,
-  RefinementList,
   Pagination
 } from 'react-instantsearch-dom';
 import Hit from './hit'
 import './home.css'
+import tribui from '../../images/tri.jpeg'
+import tola from '../../images/tola.jpg'
+import lorena from '../../images/lorena.jpeg'
+import aurum from '../../images/aurum.jpg'
+
 
 
 const searchClient = algoliasearch(
@@ -91,35 +101,93 @@ const Home = () => {
                   backgroundColor: "#000000",
                   padding: "18px 36px",
                   fontSize: "18px",
+                 
                 }} variant="contained">
-                <a
+                <a id = "start-shopping"
                   activeClass="active"
                   href={(!user) ? '/login' : '#searchbox'}
                   spy={true}
                   smooth={true}
                   offset={50}
                   duration={500}
+                  
                 >Start Shopping</a>
               </Button>
             </Stack>
           </Typography>
+
         </Container>
+
       </Box>
 
-      
- 
+      <section id="features">
+        <div class="row">
+          <div class="feature-box col-lg-4 col-md-12">
+            <FontAwesomeIcon class="icon fa-solid fa-circle-check fa-4x" icon={faCircleCheck} />
+            <h3 class="feature-text-1">Safety</h3>
+            <p class="feature-text-2">Only Macalester student can access</p>
+          </div>
+          <div class="feature-box col-lg-4 col-md-12 ">
+            <FontAwesomeIcon class="icon fa-solid fa-bullseye fa-4x" icon={faBullseye} />
+            <h3 class="feature-text-1">Elite Clientele</h3>
+            <p class="feature-text-2">We have all kinds of clothes, from cheapest to coolest.</p>
+          </div>
+          <div class="feature-box col-lg-4 col-md-12">
+            <FontAwesomeIcon class="icon fa-solid fa-heart fa-4x" icon={faHeart} />
+            <h3 class="feature-text-1">User friendly.</h3>
+            <p class="feature-text-2">Easy to use, one click to connect!</p>
+          </div>
+        </div>
+      </section>
+
       <div className="container">
-        {user?  <InstantSearch searchClient={searchClient} indexName="items"> 
+        {user ? <InstantSearch searchClient={searchClient} indexName="items">
           <Configure hitsPerPage={6} />
-          <div id="searchbox"> <SearchBox translations={{ placeholder: "Search for items" }}/> </div>
+          <div id="searchbox"> <SearchBox translations={{ placeholder: "Search for items" }} /> </div>
           <div id="hits"> <Hits hitComponent={Hit} /> </div>
           <div id="pagination"> <Pagination /> </div>
-        </InstantSearch> : <h1>Begin with Start Shopping button!</h1>}
-        <div className="video-responsive">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/A5DQhbrKoB8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </InstantSearch> : <h1 id = "lets-begin">Let's begin with the Start Shopping button!</h1>}
+
       </div>
-       
-      </div>
+      {user ?
+        <div id="testimonials">
+
+          <Carousel fade className="customers-carousel-container h-100">
+            <Carousel.Item class="carousel-item">
+              <img
+
+                class="testimonial-image" src={tribui} alt="tri-bui" />
+              <Carousel.Caption >
+                <h2 class="testimonial-text"> Loop is incredibly easy to use, just wanna say awesome thanks Alta Team!</h2>
+                <em>Tri Bui, sophomore</em>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item class="carousel-item">
+              <img class="testimonial-image" src={tola} alt="tola" />
+              <Carousel.Caption>
+                <h2 class="testimonial-text"> I love loop. That's all</h2>
+                <em>Anatoliy, senior</em>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item class="carousel-item">
+              <img class="testimonial-image" src={lorena} alt="lorena" />
+              <Carousel.Caption >
+                <h2 class="testimonial-text"> You guys have to try this. Find your favorite clothes so quick!</h2>
+                <em>Lorena, junior</em>
+              </Carousel.Caption>
+            </Carousel.Item >
+            <Carousel.Item class="carousel-item" >
+              <img class="testimonial-image" src={aurum} alt="aurum" />
+              <Carousel.Caption >
+                <h2 class="testimonial-text"> Make new friends by this website too! </h2>
+                <em>Aurum, sophomore</em>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+        </div>
+        : null}
+
+
     </div>
   );
 }

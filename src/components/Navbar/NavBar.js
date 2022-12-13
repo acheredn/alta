@@ -9,7 +9,6 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import Link from '@mui/material/Link';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { signInWithGoogle, logout, auth } from '../../firebase.js'
@@ -30,30 +29,6 @@ const Search = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(3),
     width: 'auto',
-  },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
   },
 }));
 
@@ -122,7 +97,13 @@ export default function PrimarySearchAppBar() {
             <MenuItem component={Link} href='/my-items'>
               My Items
             </MenuItem> : null}
+            <MenuItem component={Link} href='/about-us'>
+              About Us
+            </MenuItem>
           <Box sx={{ flexGrow: 1 }} />
+          <MenuItem component={Link} href='/contact-us'>
+              Contact Us
+            </MenuItem>
 
           {user ? (
             <Typography>
