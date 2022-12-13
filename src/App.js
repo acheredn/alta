@@ -13,7 +13,7 @@ import AllItems from './pages/AllItems/AllItems'
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { AuthProvider } from "./context.js";
-import LogIn from "./Login/login";
+import LogIn from "./pages/Login/login";
 import InstantSearch from "./pages/Seach/search";
 import AboutUs from "./pages/AboutUs/AboutUs";
 

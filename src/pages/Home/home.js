@@ -57,9 +57,8 @@ const Home = () => {
     </div>
   }
 
-
   return (
-    <div id="body">
+    <div class ="body">
       <Box
         class="background"
         style={{
@@ -122,7 +121,7 @@ const Home = () => {
           <div class="feature-box col-lg-4 col-md-12 ">
             <FontAwesomeIcon class="icon fa-solid fa-bullseye fa-4x" icon={faBullseye} />
             <h3 class="feature-text-1">Elite Clientele</h3>
-            <p class="feature-text-2">We have all kinds of clothes, from cheapest to coolest.</p>
+            <p class="feature-text-2">We have all kinds of clothes, from cheapest to coolest</p>
           </div>
           <div class="feature-box col-lg-4 col-md-12">
             <FontAwesomeIcon class="icon fa-solid fa-heart fa-4x" icon={faHeart} />

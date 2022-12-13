@@ -41,7 +41,7 @@ export default function AboutUs() {
     };
 
     return (
-        <body>
+        <body id = "contactUs-body">
             <div className="about-us-description">
                 <h1 >Alta Team</h1>
                 <h2 >We are young, cool, and passionate students from Macalester College, USA. We care about sustainable fashion and want to build a sustainable world! </h2>
