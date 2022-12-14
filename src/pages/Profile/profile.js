@@ -59,10 +59,10 @@ export default function Profile() {
           <Box component="form" sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
-                <h3>Name: {user.displayName}</h3>
+                <h4>Name: {user.displayName}</h4>
               </Grid>
               <Grid item xs={12}>
-                <h3>Email: {user.email}</h3>
+                <h4>Email: {user.email}</h4>
               </Grid>
             </Grid>
             <Button

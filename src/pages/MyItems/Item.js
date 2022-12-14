@@ -72,7 +72,7 @@ function MyItems({ id, title, description, image, completed }) {
       <div className='item__body'>
         <h2 element class="ais-Panel-header">{title}</h2>
         <p element class="hit-description">{description}</p>
-        <div class="image">
+        <div div element class="hit-image">
           <img width="200" height="200" src={image} />
         </div>
         <div className='item__buttons'>

@@ -263,7 +263,11 @@ html {
 .hit-description {
   color: rgb(108, 108, 108);
   inline-size: 300px;
+  max-lines: 3;
+  overflow: hidden;
+  box-sizing: content-box;
   overflow-wrap: break-word;
+  max-height: 3.6em;
   padding: 8px 16px 8px;
   display: block;
   font-size: 16px;
