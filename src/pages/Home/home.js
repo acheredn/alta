@@ -79,7 +79,7 @@ const Home = () => {
             font="Abril Fatface"
             gutterBottom
           >
-            LOOP
+            <h3 class="title-text-1">LOOP</h3> 
             <Stack
               sx={{ pt: 55 }}
               direction="row"
@@ -116,16 +116,16 @@ const Home = () => {
           <div class="feature-box col-lg-4 col-md-12">
             <FontAwesomeIcon class="icon fa-solid fa-circle-check fa-4x" icon={faCircleCheck} />
             <h3 class="feature-text-1">Safety</h3>
-            <p class="feature-text-2">Only Macalester student can access</p>
+            <p class="feature-text-2">Only Macalester students can access</p>
           </div>
           <div class="feature-box col-lg-4 col-md-12 ">
             <FontAwesomeIcon class="icon fa-solid fa-bullseye fa-4x" icon={faBullseye} />
-            <h3 class="feature-text-1">Elite Clientele</h3>
-            <p class="feature-text-2">We have all kinds of clothes, from cheapest to coolest</p>
+            <h3 class="feature-text-1">Find everything you need</h3>
+            <p class="feature-text-2">Shop now and find the perfect outfit for any occasion</p>
           </div>
           <div class="feature-box col-lg-4 col-md-12">
             <FontAwesomeIcon class="icon fa-solid fa-heart fa-4x" icon={faHeart} />
-            <h3 class="feature-text-1">User friendly.</h3>
+            <h3 class="feature-text-1">User friendly</h3>
             <p class="feature-text-2">Easy to use, one click to connect!</p>
           </div>
         </div>

@@ -5,11 +5,11 @@ import './itemView.css'
 function ItemView({onClose, open, title, description, image}) {
 
   return (
-    <Modal modalLable='Your item' onClose={onClose} open={open}>
+    <Modal onClose={onClose} open={open}>
       <div className='taskItem'>
-        <h2>{title}</h2>
-        <p>{description}</p>
-        <img src={image}/>
+        <h2 element class="ais-Panel-header">{title}</h2>
+        <p element class="hit-description">{description}</p>
+        <div element class="hit-image-details"> <img src={image}/> </div>
 
 
       </div>

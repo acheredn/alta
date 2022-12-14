@@ -21,11 +21,11 @@ function ItemView({ onClose, open, title, description, image, contactLink, conta
 
   return (
 
-    <Modal modalLable='Your item' onClose={onClose} open={open}>
+    <Modal onClose={onClose} open={open}>
       <div className='taskItem'>
-        <h2>{title}</h2>
-        <p>{description}</p>
-        <img src={image} />
+        <h2 element class="ais-Panel-header">{title}</h2>
+        <p element class="hit-description">{description}</p>
+        <div element class="hit-image-details"> <img src={image} /> </div>
         <div id="contact-button">
           <Button
             style={{
@@ -36,7 +36,7 @@ function ItemView({ onClose, open, title, description, image, contactLink, conta
             
             <a id = "contact-text" href= {contactLink} target="_blank" rel="noopener noreferrer">Chat with me</a>
           </Button>
-          <p>Call me by {contactNum}</p>
+          <p>Call me at {contactNum}</p>
           
         </div>
       </div>

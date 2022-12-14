@@ -70,8 +70,8 @@ function MyItems({ id, title, description, image, completed }) {
   return (
     <div className={`item ${'item--borderColor'}`}>
       <div className='item__body'>
-        <h2>{title}</h2>
-        <p>{description}</p>
+        <h2 element class="ais-Panel-header">{title}</h2>
+        <p element class="hit-description">{description}</p>
         <div class="image">
           <img width="200" height="200" src={image} />
         </div>
