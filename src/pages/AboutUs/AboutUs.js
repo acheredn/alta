@@ -28,20 +28,15 @@ export default function AboutUs() {
             setEmail('');
             setMessage('');
             setEmailSent(true);
-        
+
 
         } else {
             alert('Please fill in all fields.');
         }
     }
 
-    const isValidEmail = email => {
-        const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return regex.test(String(email).toLowerCase());
-    };
-
     return (
-        <body id = "contactUs-body">
+        <body id="contactUs-body">
             <div className="about-us-description">
                 <h1 >Alta Team</h1>
                 <h2 >We are young, cool, and passionate students from Macalester College, USA. We care about sustainable fashion and want to build a sustainable world! </h2>

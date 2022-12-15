@@ -1,12 +1,14 @@
+
+//template reference: https://www.freecodecamp.org/news/create-a-solid-to-do-app-with-react/
+
 import React from 'react';
 import './myItems.css'
 import Item from './Item'
 import { useState, useEffect, useContext } from 'react'
-import { collection, query, orderBy, doc, getDocs, onSnapshot } from "firebase/firestore"
-import { db, auth } from '../../firebase'
+import { collection, doc, onSnapshot } from "firebase/firestore"
+import { db } from '../../firebase'
 import AddItem from './AddItem'
 import Grid from '@mui/material/Grid';
-// import { useAuthState } from 'react-firebase-hooks/auth';
 import { AuthContext } from '../../context';
 import { InfinitySpin } from 'react-loader-spinner';
 import bg2 from '../../images/background2.jpg';

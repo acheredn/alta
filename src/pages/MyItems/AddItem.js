@@ -11,7 +11,7 @@ import { v4 } from "uuid";
 import { storage, auth, db } from '../../firebase';
 import { useState } from "react";
 
-function AddTask({ onClose, open }) {
+function AddItem({ onClose, open }) {
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -58,7 +58,7 @@ function AddTask({ onClose, open }) {
 
   return (
     <Modal modalLable='Add Item' onClose={onClose} open={open}>
-      <form onSubmit={handleSubmit} className='addTask' name='addTask'>
+      <form onSubmit={handleSubmit} className='addItem' name='addItem'>
         <input
           type='text'
           name='title'
@@ -98,4 +98,4 @@ function AddTask({ onClose, open }) {
   )
 }
 
-export default AddTask
+export default AddItem
