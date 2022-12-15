@@ -2,10 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-#body {
-
-}
-
+/* footer help from https://www.geeksforgeeks.org/how-to-create-footer-to-stay-at-the-bottom-of-a-web-page/ */
 #footer {
   position: fixed;
   bottom: 0;
