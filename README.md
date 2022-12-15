@@ -1,6 +1,6 @@
 # Loop: Clothing Marketplace for College Students
 
-<img src="https://github.com/acheredn/alta/blob/main/loopLogoTransparent.png" width="200">
+<img src="https://github.com/acheredn/alta/blob/main/src/images/loopLogoTransparent.png" width="200">
 
 Welcome to Loop! This project was created as a part of Software Design and Development class (Fall 2023). If you want to learn more about the project, feel free to check out [our pitch deck here](https://docs.google.com/presentation/d/1I4ZPFR0tH5jLC0tQIphFwFCdRPSYU3zqqOHcsWhmR14/edit?usp=sharing)
 
