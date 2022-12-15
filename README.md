@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Loop: Clothing Marketplace for College Students
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://github.com/acheredn/alta/blob/main/loopLogoTransparent.png" width="200">
 
-## Available Scripts
+Welcome to Loop! This project was created as a part of Software Design and Development class (Fall 2023). If you want to learn more about the project, feel free to check out our pitch deck here.
 
-In the project directory, you can run:
+## Prerequisites
 
-### `npm start`
+To run this project correctly on your machine, you must have the following installed:
+1. Git
+2. Node.js
+3. npm
+4. Microsoft Visual Studio
+5. ReactJS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Step 0: First Launch of ReactJS (skip to Step 1 if you have installed and used ReactJS)
 
-The page will reload when you make changes.\
+If it is your first time using ReactJS on your machine, please run the following in your terminal:
+
+### 1. `npx create-react-app my-app`
+### 2. `cd my-app`
+### 3. `npm start`
+
+After that, you should see the "My First React App" website. If that it true, continue to next step. If not, please refer to the prerequisites.
+
+## Step 1: Clone Our Project
+
+If you used ReactJS before, please do the following in your terminal:
+
+### 1. `cd <desired folder for the repo>`
+### 2. `git clone https://github.com/acheredn/alta.git`
+### 3. `cd alta`
+### 4. `ls`
+
+At this point, you should see the root structure of our project, including all the files and folders that we have on Github. If you do not see it yet, please make sure you cloned the repo correctly. You can also use Github Desktop to complete this operation
+
+## Step 2: Run Our Project
+
+Now that you have cloned Alta repository, you are ready to launch the project! Please do the following in your terminal:
+
+### 1. `cd <desired folder for the repo>/alta`
+### 2. `npm update`
+### 3. `npm start`
+
+If all the modules have been updated correctly, you should now have the website running on your computer!
+
+## If something does not work
+
+We constantly intall new and upgrade existing libraries and packages as we work on improving our project. If the website does not start, make sure you run
+
+### `npm update`
+
+before starting the app again.
+
+If you accidentally close the app, you can always find it at http://localhost:3000 in your browser.
+
 You may also see any lint errors in the console.
 
-### `npm test`
+If you want to restart the environment in the terminal, while server is active, please press Ctrl/⌘ + C -> type "Y" -> start over again!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## We Hope You Enjoy Loop!
