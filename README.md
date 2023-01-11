@@ -8,7 +8,7 @@
 
 Welcome to Loop! This project was created as a part of Software Design and Development class (Fall 2023). If you want to learn more about the project, feel free to check out [our pitch deck here](https://docs.google.com/presentation/d/1I4ZPFR0tH5jLC0tQIphFwFCdRPSYU3zqqOHcsWhmR14/edit?usp=sharing)
 
-
+[**Click here to check LIVE website**](https://mac-swap.netlify.app/#)
 
 ## Prerequisites
 
